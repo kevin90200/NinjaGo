@@ -11,9 +11,9 @@ namespace Ninjago
         int[,] plateau = new int[3,3];
         List<Case> lesCases =new List<Case>();
 
-        public Plateau()
+        public Plateau(int unNombre)
         {
-            
+            int[,] plateau = new int[unNombre, unNombre];
         }
 
         public void Poser(Carte uneCarte, Joueur unJoueur, Case uneCase)

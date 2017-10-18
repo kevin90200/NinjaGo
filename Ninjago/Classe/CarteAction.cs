@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ninjago
 {
-    class Action : Carte
+    class CarteAction : Carte
     {
         String description;
 
 
-        public Action(String unNom, String unNumero, String uneDescription) : base(unNom, unNumero)
+        public CarteAction(String unNom, String unNumero, String uneDescription) : base(unNom, unNumero)
         {
             this.Description = uneDescription;
         }

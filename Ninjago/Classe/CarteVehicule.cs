@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ninjago
 {
-    class Vehicule:Carte
+    class CarteVehicule:Carte
     {
         String description;
 
         public string Description { get => description; set => description = value; }
-        public Vehicule(String unNom, String unNumero, String uneDescription) : base(unNom, unNumero)
+        public CarteVehicule(String unNom, String unNumero, String uneDescription) : base(unNom, unNumero)
         {
             this.description = uneDescription;
         }
