@@ -8,6 +8,7 @@ namespace Ninjago
 {
     class CarteAction : Carte
     {
+        //attributs hérité
         String description;
 
 

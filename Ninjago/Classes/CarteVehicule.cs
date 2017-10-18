@@ -8,6 +8,7 @@ namespace Ninjago
 {
     class CarteVehicule:Carte
     {
+        //attributs hérité
         String description;
 
         public string Description { get => description; set => description = value; }

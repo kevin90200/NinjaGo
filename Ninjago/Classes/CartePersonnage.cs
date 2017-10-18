@@ -8,6 +8,7 @@ namespace Ninjago
 {
     class CartePersonnage : Carte
     {
+        //attributs hérité
         int attaque;
         int defense;
         int vitesse;

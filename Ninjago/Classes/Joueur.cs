@@ -47,9 +47,9 @@ namespace Ninjago
             return main[main.Count -1];
         }
 
-        public void Defausser(CartePersonnage unCartePersonnage)
+        public void Defausser(CartePersonnage uneCartePersonnage)
         {
-            main.Remove(unCartePersonnage);
+            main.Remove(uneCartePersonnage);
         }
     }
 }
