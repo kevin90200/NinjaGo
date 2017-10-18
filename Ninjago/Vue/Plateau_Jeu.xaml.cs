@@ -25,6 +25,15 @@ namespace Ninjago.Vue
             
         }
 
-        
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            
+               
+   
+            Button btn = sender as Button;
+            int x = btn.X;
+            int y = btn.Y;
+            MessageBox.Show("test");
+        }
     }
 }
