@@ -69,14 +69,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classe\Action.cs" />
     <Compile Include="Classe\Carte.cs" />
+    <Compile Include="Classe\CarteAction.cs" />
+    <Compile Include="Classe\CartePersonnage.cs" />
+    <Compile Include="Classe\CarteVehicule.cs" />
     <Compile Include="Classe\Case.cs" />
     <Compile Include="Classe\Collection.cs" />
     <Compile Include="Classe\Joueur.cs" />
-    <Compile Include="Classe\Personnage.cs" />
     <Compile Include="Classe\Plateau.cs" />
-    <Compile Include="Classe\Vehicule.cs" />
     <Compile Include="Vue\Plateau_Jeu.xaml.cs">
       <DependentUpon>Plateau_Jeu.xaml</DependentUpon>
     </Compile>

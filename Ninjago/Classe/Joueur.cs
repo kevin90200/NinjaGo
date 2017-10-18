@@ -10,27 +10,27 @@ namespace Ninjago
     {
         String nom;
         String prenom;
-        List<Personnage> deck;
-        List<Personnage> main;
-        List<Personnage> depot;
+        List<CartePersonnage> deck;
+        List<CartePersonnage> main;
+        List<CartePersonnage> depot;
 
         Joueur(String unNom, String unPrenom)
         {
             this.Nom = unNom;
             this.Prenom = unPrenom;
-            this.deck = new List<Personnage>();
-            this.main= new List<Personnage>();
-            this.depot = new List<Personnage>();
+            this.deck = new List<CartePersonnage>();
+            this.main= new List<CartePersonnage>();
+            this.depot = new List<CartePersonnage>();
         }
 
 
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
-        internal List<Personnage> Deck { get => deck; set => deck = value; }
-        internal List<Personnage> Main { get => main; set => main = value; }
-        internal List<Personnage> Depot { get => depot; set => depot = value; }
+        internal List<CartePersonnage> Deck { get => deck; set => deck = value; }
+        internal List<CartePersonnage> Main { get => main; set => main = value; }
+        internal List<CartePersonnage> Depot { get => depot; set => depot = value; }
 
-        public List<Personnage> TirerCarte()
+        public List<CartePersonnage> TirerCarte()
         {
             for (int i = 1; i <= 3; i++){
                 Random aleatoire = new Random();
@@ -47,9 +47,9 @@ namespace Ninjago
             return main[main.Count -1];
         }
 
-        public void Defausser(Personnage unPersonnage)
+        public void Defausser(CartePersonnage unCartePersonnage)
         {
-            main.Remove(unPersonnage);
+            main.Remove(unCartePersonnage);
         }
     }
 }
