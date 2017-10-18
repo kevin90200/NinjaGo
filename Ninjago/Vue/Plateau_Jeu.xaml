@@ -38,7 +38,7 @@
                     <Button  x:Name="btn2_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"/>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn2_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0" Click="btn_Copy8_Click"/>
+                    <Button  x:Name="btn2_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"/>
                 </Border>
                 <Border Grid.Row="2" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn2_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"/>
