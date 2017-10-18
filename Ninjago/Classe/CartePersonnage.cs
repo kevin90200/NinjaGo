@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ninjago
 {
-    class Personnage : Carte
+    class CartePersonnage : Carte
     {
         int attaque;
         int defense;
@@ -14,7 +14,7 @@ namespace Ninjago
         int force;
         bool alignement;
 
-        public Personnage(String unNom, String unNumero, int uneAttaque, int uneDefense, int uneVitesse, int uneForce, bool unAlignement) : base(unNom, unNumero)
+        public CartePersonnage(String unNom, String unNumero, int uneAttaque, int uneDefense, int uneVitesse, int uneForce, bool unAlignement) : base(unNom, unNumero)
         {
             this.Attaque = uneAttaque;
             this.Defense = uneDefense;
