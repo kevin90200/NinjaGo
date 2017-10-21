@@ -76,6 +76,9 @@
             <RadioButton Content="Carte2" HorizontalAlignment="Left" Margin="92,332,0,0" VerticalAlignment="Top"/>
             <RadioButton Content="Carte3" HorizontalAlignment="Left" Margin="164,332,0,0" VerticalAlignment="Top"/>
             <RadioButton Content="Carte4" HorizontalAlignment="Left" Margin="236,332,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,603,0,0" VerticalAlignment="Top" Width="34" Click="btn_retour_plateau_Click">
+                <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
+            </Button>
         </Grid>
 
 

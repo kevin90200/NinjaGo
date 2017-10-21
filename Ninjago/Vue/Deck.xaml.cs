@@ -12,19 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+
 namespace Ninjago.Vue
 {
     /// <summary>
-    /// Logique d'interaction pour Plateau_Jeu.xaml
+    /// Logique d'interaction pour Deck.xaml
     /// </summary>
-    public partial class Plateau_Jeu 
+    public partial class Deck
     {
-        public Plateau_Jeu()
+        public Deck()
         {
             InitializeComponent();
-            
         }
-
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
             Launcher fenetre = new Launcher();

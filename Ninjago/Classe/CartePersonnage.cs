@@ -15,7 +15,7 @@ namespace Ninjago
         int force;
         bool alignement;
 
-        public CartePersonnage(String unNom, String unNumero, int uneAttaque, int uneDefense, int uneVitesse, int uneForce, bool unAlignement) : base(unNom, unNumero)
+        public CartePersonnage(String unNom, String unNumero, int nbExemplaire, int uneAttaque, int uneDefense, int uneVitesse, int uneForce, bool unAlignement) : base(unNom, unNumero, nbExemplaire)
         {
             this.Attaque = uneAttaque;
             this.Defense = uneDefense;

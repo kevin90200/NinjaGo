@@ -77,6 +77,15 @@
     <Compile Include="Classe\Collection.cs" />
     <Compile Include="Classe\Joueur.cs" />
     <Compile Include="Classe\Plateau.cs" />
+    <Compile Include="Vue\Deck.xaml.cs">
+      <DependentUpon>Deck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Gestion.xaml.cs">
+      <DependentUpon>Gestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Launcher.xaml.cs">
+      <DependentUpon>Launcher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vue\Plateau_Jeu.xaml.cs">
       <DependentUpon>Plateau_Jeu.xaml</DependentUpon>
     </Compile>
@@ -92,6 +101,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vue\Deck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Gestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Launcher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\Plateau_Jeu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +144,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\2017-10-18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\fleche_retour.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

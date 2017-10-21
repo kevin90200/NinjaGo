@@ -12,7 +12,7 @@ namespace Ninjago
         String description;
 
 
-        public CarteAction(String unNom, String unNumero, String uneDescription) : base(unNom, unNumero)
+        public CarteAction(String unNom, String unNumero, int nbExemplaire, String uneDescription) : base(unNom, unNumero, nbExemplaire)
         {
             this.Description = uneDescription;
         }

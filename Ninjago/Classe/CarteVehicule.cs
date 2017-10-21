@@ -12,7 +12,7 @@ namespace Ninjago
         String description;
 
         public string Description { get => description; set => description = value; }
-        public CarteVehicule(String unNom, String unNumero, String uneDescription) : base(unNom, unNumero)
+        public CarteVehicule(String unNom, String unNumero, int nbExemplaire, String uneDescription) : base(unNom, unNumero, nbExemplaire)
         {
             this.description = uneDescription;
         }

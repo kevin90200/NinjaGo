@@ -1,0 +1,17 @@
+﻿<Controls:MetroWindow 
+        x:Class="Ninjago.Vue.Deck"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ninjago.Vue"
+        mc:Ignorable="d"
+        Title="Deck" Height="300" Width="300">
+    <Grid>
+        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top" Width="34" Click="btn_retour_plateau_Click">
+            <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
+        </Button>
+
+    </Grid>
+</Controls:MetroWindow>
