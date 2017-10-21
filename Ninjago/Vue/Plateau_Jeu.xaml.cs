@@ -25,6 +25,12 @@ namespace Ninjago.Vue
             InitializeComponent();
             
         }
+        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
+        {
+            Launcher fenetre = new Launcher();
+            fenetre.Show();
+            this.Close();
+        }
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
