@@ -26,7 +26,16 @@ namespace Ninjago.Vue
 
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         {
-
+            Plateau_Jeu fenetre = new Plateau_Jeu();
+            fenetre.Show();
+            this.Close();
         }
+        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
+        {
+            Launcher fenetre = new Launcher();
+            fenetre.Show();
+            this.Close();
+        }
+
     }
 }
