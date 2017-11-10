@@ -19,6 +19,7 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Plateau_Jeu 
     {
+        //pour comit
         String choixMain;
         int action;
         List<Joueur> lesJ = new List<Joueur>();
@@ -38,6 +39,7 @@ namespace Ninjago.Vue
             {
                 j1 = lesJ[0];
                 j2 = lesJ[1];
+                
             }
             else
             {
