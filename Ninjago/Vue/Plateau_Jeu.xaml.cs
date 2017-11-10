@@ -17,17 +17,10 @@ namespace Ninjago.Vue
     /// <summary>
     /// Logique d'interaction pour Plateau_Jeu.xaml
     /// </summary>
-    public partial class Plateau_Jeu
+    public partial class Plateau_Jeu 
     {
+        //pour comit
         String choixMain;
-
-        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
-        {
-            Launcher fenetre = new Launcher();
-            fenetre.Show();
-            this.Close();
-        }
-
         int action;
         List<Joueur> lesJ = new List<Joueur>();
         Joueur j1, j2;
@@ -40,18 +33,19 @@ namespace Ninjago.Vue
             C2.Visibility = Visibility.Hidden;
             C3.Visibility = Visibility.Hidden;
             C4.Visibility = Visibility.Hidden;
+            
 
-
-            //if (lesJ[1].dateNaissance > lesJ[2].dateNaissance)
-            //{
-            //    j1 = lesJ[0];
-            //    j2 = lesJ[1];
-            //}
-            //else
-            //{
-            //    j1 = lesJ[1];
-            //    j2 = lesJ[0];
-            //}
+            if (lesJ[1].dateNaissance > lesJ[2].dateNaissance)
+            {
+                j1 = lesJ[0];
+                j2 = lesJ[1];
+                
+            }
+            else
+            {
+                j1 = lesJ[1];
+                j2 = lesJ[0];
+            }
 
         }
 
@@ -67,33 +61,32 @@ namespace Ninjago.Vue
                     action = 0;
                 }
             }
-            C1.IsChecked = false;
-            C2.IsChecked = false;
-            C3.IsChecked = false;
-            C4.IsChecked = false;
-
+                C1.IsChecked = false;
+                C2.IsChecked = false;
+                C3.IsChecked = false;
+                C4.IsChecked = false;
+           
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
+        { 
             RadioButton choix = sender as RadioButton;
-            choixMain = choix.Content.ToString();
+            choixMain=choix.Content.ToString();
         }
         Boolean retourner = true;
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         { //poser qu'une carte par tour : variable globale utiliser aussi dans btn_click
             action = 1;
-            // action pour retourner le plateau et indiquer le nom du personnage sur les radiobutton et transition entre j1 et j2
+          // action pour retourner le plateau et indiquer le nom du personnage sur les radiobutton et transition entre j1 et j2
             int val_ret;
-            if (btn_jouer.Content.ToString() == "Jouer")
-            {
+            if (btn_jouer.Content.ToString()== "Jouer") {
                 if (retourner == true)
                 {
                     val_ret = 0;
                     retourner = false;
                     nomJoueur.Content = j1.Nom + " " + j1.Prenom;
                     int i = 1;
-                    foreach (Carte carteMain in j1.Main)
+                   foreach (Carte carteMain in j1.Main)
                     {
                         RadioButton c = (RadioButton)FindName("C" + i);
                         c.Content = carteMain.Nom;
@@ -120,7 +113,7 @@ namespace Ninjago.Vue
                 //changer le label jouer en passer
                 btn_jouer.Content = "Passer";
                 //rendre visible la main du joueur
-                Main.Visibility = Visibility.Visible;
+                Main.Visibility= Visibility.Visible;
                 C1.Visibility = Visibility.Visible;
                 C2.Visibility = Visibility.Visible;
                 C3.Visibility = Visibility.Visible;
@@ -131,9 +124,9 @@ namespace Ninjago.Vue
                     RotateTransform rotateTransformBtn = new RotateTransform(val_ret);
                     rotateTransformBtn.CenterX = 40;
                     rotateTransformBtn.CenterY = 40;
+                    
 
-
-                    Button btn1 = (Button)FindName("btn1_" + i);
+                    Button btn1 = (Button)FindName("btn1_"+i);
                     if (btn1.Content.Equals(""))
                     {
                         btn1.RenderTransform = rotateTransformBtn;
@@ -151,7 +144,7 @@ namespace Ninjago.Vue
                 }
             }
             // cacher ses cartes
-            else
+           else
             {
                 btn_jouer.Content = "Jouer";
                 nomJoueur.Content = "";
@@ -162,6 +155,6 @@ namespace Ninjago.Vue
                 C4.Visibility = Visibility.Hidden;
             }
         }
-
+        
     }
 }
