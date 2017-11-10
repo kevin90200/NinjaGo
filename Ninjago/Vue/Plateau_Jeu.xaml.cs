@@ -109,7 +109,14 @@ namespace Ninjago.Vue
             {
                 btn_jouer.Content = "Jouer";
             }
+
         }
-        
+        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
+        {
+            Launcher fenetre = new Launcher();
+            fenetre.Show();
+            this.Close();
+        }
+
     }
 }
