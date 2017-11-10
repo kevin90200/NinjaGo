@@ -14,6 +14,10 @@ namespace Ninjago
         int vitesse;
         int force;
 
+        public CartePersonnage()
+        {
+
+        }
         public CartePersonnage(String unNom, String unNumero, int nbExemplaire, String uneDescription, String unType, int uneAttaque, int uneDefense, int uneVitesse, int uneForce) : base(unNom, unNumero, nbExemplaire, uneDescription, unType)
         {
             this.Attaque = uneAttaque;

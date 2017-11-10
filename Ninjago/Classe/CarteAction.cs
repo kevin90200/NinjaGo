@@ -10,7 +10,10 @@ namespace Ninjago
     {
         //attributs hérité
 
+        public CarteAction()
+        {
 
+        }
         public CarteAction(String unNom, String unNumero, int nbExemplaire, String uneDescription, String unType) : base(unNom, unNumero, nbExemplaire, uneDescription, unType)
         {
         }

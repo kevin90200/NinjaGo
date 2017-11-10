@@ -20,7 +20,13 @@ namespace Ninjago.Vue
     public partial class Plateau_Jeu 
     {
         String choixMain;
-        
+
+        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
+        {
+            Launcher fenetre = new Launcher();
+            fenetre.Show();
+            this.Close();
+        }
         public Plateau_Jeu()
         {
             InitializeComponent();

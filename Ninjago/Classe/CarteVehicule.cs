@@ -11,7 +11,10 @@ namespace Ninjago
         //attributs hérité
 
 
+        public CarteVehicule()
+        {
 
+        }
         public CarteVehicule(String unNom, String unNumero, int nbExemplaire, String uneDescription, String unType) : base(unNom, unNumero, nbExemplaire, uneDescription, unType)
         {
 

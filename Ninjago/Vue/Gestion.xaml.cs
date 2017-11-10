@@ -23,44 +23,48 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Gestion
     {
-        List<Carte> lc = new List<Carte>();
-        Carte carte = new Carte();
+        List<Carte> lesCartes = new List<Carte>();
+        List<Carte> maCollection = new List<Carte>();
+        Carte carte= new Carte();
+        CarteAction carteAction= new CarteAction();
+        CartePersonnage cartePersonnage= new CartePersonnage();
+        CarteVehicule carteVehicule= new CarteVehicule();
         public Gestion()
         {
             InitializeComponent();
 
             #region Initailisation collection
+            
 
             String url = "http://127.0.0.1/ninjago/public/api";
             var res = new WebClient();
             var json = res.DownloadString(url);// il existe uploadString aussi
             JArray o = JArray.Parse(json);
-            List<Carte> lc = new List<Carte>();
+            List<Carte> lesCartes = new List<Carte>();
             foreach (JObject carte in o) {
                 Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
+                
                 if (c.Type == "P")
                 {
                     CartePersonnage cp = new CartePersonnage(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString(), Convert.ToInt32(carte.GetValue("attaque")), Convert.ToInt32(carte.GetValue("defense")), Convert.ToInt32(carte.GetValue("vitesse")), Convert.ToInt32(carte.GetValue("force")));
-                    lc.Add(cp);
+                    lesCartes.Add(cp);
+
                 }
                 else if (c.Type == "A")
                 {
                     CarteAction ca = new CarteAction(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
-                    lc.Add(ca);
+                    lesCartes.Add(ca);
                 }
                 else if (c.Type == "V")
                 {
                     CarteVehicule cv = new CarteVehicule(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
-                    lc.Add(cv);
+                    lesCartes.Add(cv);
                 }
-            }
-            foreach (Carte c in lc) //pour chaque item dans le JSON
-            {
-                lbox_cartes.Items.Add(c.Nom);
-                lbox_cartes_num.Items.Add(c.Exemplaire);
             }
 
             #endregion
+            lbox_cartes.ItemsSource = lesCartes;
+            lbox_collection.ItemsSource = maCollection;
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
@@ -72,35 +76,144 @@ namespace Ninjago.Vue
         private void btn_ajouter_Click(object sender, RoutedEventArgs e)
         {
             btn_ajouter_supprimer_collection.Visibility = Visibility.Visible;
-            btn_ajouter_supprimer_collection.Content = "Ajouter à ma collection";
-            foreach (Carte c in lc)
-            {
-                if (c.Nom == lbox_cartes.SelectedValue.ToString())
-                {
-                    carte = c;
-                }
-            }
-            carte.Exemplaire = carte.Exemplaire + 1;
+            btn_ajouter_supprimer_collection.Content = "Ajouter un exemplaire";
+            btn_ajouter_supprimer_collection.Background = Brushes.Green ;
+            
 
         }
 
         private void btn_supprimer_Click(object sender, RoutedEventArgs e)
         {
             btn_ajouter_supprimer_collection.Visibility = Visibility.Visible;
-            btn_ajouter_supprimer_collection.Content = "Supprimer de ma collection";
+            btn_ajouter_supprimer_collection.Content = "Supprimer un exemplaire";
+            btn_ajouter_supprimer_collection.Background = Brushes.Red;
+        }
+
+        private void btn_ajouter_supprimer_collection_Click(object sender, RoutedEventArgs e)
+        {
+            if (btn_ajouter_supprimer_collection.Content.ToString() == "Ajouter un exemplaire")
+            {
+                bool ajout = false;
+                
+                if (maCollection.Count() == 0)
+                {
+                    maCollection.Add(carte);
+                    carte.ajoutExemplaire();  
+                }
+                else
+                {
+                    foreach (Carte c in maCollection)
+                    {
+                        if (c == carte){
+                            ajout = false;
+                            carte.ajoutExemplaire();  
+                        }
+                        else
+                        {
+                            ajout = true;   
+                        }
+                    }
+                    if (ajout == true)
+                    {
+                        maCollection.Add(carte);
+                        carte.ajoutExemplaire();
+                    }
+                }
+                refresh();
+                
+            }
+            else if (btn_ajouter_supprimer_collection.Content.ToString() == "Supprimer un exemplaire")
+            {
+                if (carte.Exemplaire == 0)
+                {
+
+                }
+                else
+                {
+                    carte.supressionExemplaire();
+                    if (carte.Exemplaire == 0)
+                    {
+                        maCollection.Remove(carte);
+                    }
+                }
+                refresh();
+            }
         }
 
         private void lbox_cartes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            foreach(Carte c in lc)
+            carte = new Carte();
+            carte = (Carte)lbox_cartes.SelectedItem;    
+            refresh();
+        }
+
+        
+
+        private void lbox_collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            carte = new Carte();
+            carte = (Carte)lbox_collection.SelectedItem; 
+            refresh();
+        }
+
+        public void refresh()
+        {
+            lbox_cartes.Items.Refresh();
+            lbox_collection.Items.Refresh();
+
+            lbl_nb_exemplaire.Content = carte.Exemplaire.ToString();
+            lbl_nom.Content = carte.ToString();
+            lbl_numero.Content = carte.Numero.ToString();
+            if (carte.Type == "P")
             {
-                if (c.Nom == lbox_cartes.SelectedValue.ToString())
-                {
-                    carte = c;
-                }
+                CartePersonnage cp = new CartePersonnage();
+                cp = (CartePersonnage)carte;
+                lbl_vitesse.Content = cp.Vitesse;
+                lbl_attaque.Content = cp.Attaque;
+                lbl_force.Content = cp.Force;
+                lbl_defense.Content = cp.Defense;
+                txt_description.Text = "";
             }
-            lbl_nom.Content = carte.Nom;
+            else if (carte.Type == "A")
+            {
+                CarteAction ca = new CarteAction();
+                ca = (CarteAction)carte;
+                lbl_vitesse.Content = "";
+                lbl_attaque.Content = "";
+                lbl_force.Content = "";
+                lbl_defense.Content = "";
+                txt_description.Text = ca.Description;
+            }
+            else if (carte.Type == "V")
+            {
+                CarteVehicule cv = new CarteVehicule();
+                cv = (CarteVehicule)carte;
+                lbl_vitesse.Content = "";
+                lbl_attaque.Content = "";
+                lbl_force.Content = "";
+                lbl_defense.Content = "";
+                txt_description.Text = cv.Description;
+            }
+            //Recuperation des images
+            try
+            {
+                img_carte.Visibility = Visibility.Visible;
+                carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + "-" + carte.Nom.ToString() + ".jpg";
+                var uri = new Uri(carte.UrlImage);
+                var bitmap = new BitmapImage(uri);
+                img_carte.Source = bitmap;
+            }
+            catch
+            {
+                img_carte.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void btn_suppression_exemplaires_Click(object sender, RoutedEventArgs e)
+        {
+            maCollection.Remove(carte);
+            carte.Exemplaire = 0;
+            refresh();
         }
     }
 }
