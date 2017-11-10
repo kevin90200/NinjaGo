@@ -41,40 +41,236 @@
                 <Border x:Name="case1_1" Grid.Row="1" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn1_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="82" Margin="7.333,7.333,0,0" Click="btn_Click"/>
                 </Border>
+                <Label x:Name="VF1_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="FV1_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA1_1" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD1_1" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+
                 <Border Grid.Row="1" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn1_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
                 </Border>
+                <Label x:Name="VF1_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="FV1_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA1_2" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD1_2" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
                 <Border Grid.Row="1" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn1_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
-
                 </Border>
+                <Label x:Name="VF1_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="1"/>
+                <Label x:Name="FV1_3" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="3" Grid.Row="1" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA1_3" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD1_3" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
                 <Border Grid.Row="2" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn2_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
                 </Border>
+                <Label x:Name="VF2_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
+                <Label x:Name="FV2_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA2_1" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD2_1" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
                 <Border Grid.Row="2" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn2_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
                 </Border>
+                <Label x:Name="VF2_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="2"/>
+                <Label x:Name="FV2_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA2_2" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD2_2" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
                 <Border Grid.Row="2" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn2_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0" Click="btn_Click"/>
                 </Border>
+                <Label x:Name="VF2_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="2"/>
+                <Label x:Name="FV2_3" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA2_3" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD2_3" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+
                 <Border Grid.Row="3" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn3_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click" RenderTransformOrigin="0,0.012"/>
                 </Border>
-                <Label x:Name="V3_1" Content="V3_1" HorizontalAlignment="Left" Margin="58.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
-                <Label x:Name="D3_1" Content="Label" HorizontalAlignment="Left" Margin="7.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
-                <Label x:Name="A3_1" Content="Label" HorizontalAlignment="Left" Margin="28.333,10.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
-                <Label x:Name="F3_1" Content="V3_1" HorizontalAlignment="Left" Margin="28.333,67.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
+                <Label x:Name="VF3_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3"/>
+                <Label x:Name="FV3_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA3_1" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD3_1" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
                 <Border Grid.Row="3" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn3_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
                 </Border>
+                <Label x:Name="VF3_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="3"/>
+                <Label x:Name="FV3_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA3_2" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD3_2" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
                 <Border Grid.Row="3" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn3_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
                 </Border>
+                <Label x:Name="VF3_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="3"/>
+                <Label x:Name="FV3_3" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
+                <Label x:Name="DA3_3" Content="23" HorizontalAlignment="Right" Margin="0,36.667,71,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.286"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <Label x:Name="AD3_3" Content="21" Margin="68.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.535"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
             </Grid>
-            <Grid x:Name="Main" HorizontalAlignment="Center" Height="82" Margin="108,63.666,89,0" VerticalAlignment="Top" Width="304" Grid.Row="2">
+            <Grid x:Name="Main" HorizontalAlignment="Center" Height="120" Margin="108,63.667,89,0" VerticalAlignment="Top" Width="304" Grid.Row="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="41*"/>
-                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="19*"/>
+                    <RowDefinition Height="44*"/>
+                    <RowDefinition Height="20*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="70" x:Name="carte1"/>
@@ -82,21 +278,40 @@
                     <ColumnDefinition Width="70" x:Name="carte3"/>
                     <ColumnDefinition Width="70" x:Name="carte4"/>
                 </Grid.ColumnDefinitions>
-                <Border  Grid.Column="0"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0.333,0">
+                <Border  Grid.Column="0"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0.333,0" Grid.RowSpan="2">
+
                 </Border>
-                <Border   BorderBrush="Black" BorderThickness="3" Grid.ColumnSpan="3" Margin="71,0"/>
-                <Border  Grid.Column="2"   BorderBrush="Black" BorderThickness="3" Margin="0.333,0,0,0"/>
-                <Border  Grid.Column="3"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0.333,0"/>
+                <Label x:Name="VMain1" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,0,0,0" Grid.RowSpan="2"/>
+                <Label x:Name="AMain1" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1"/>
+                <Label x:Name="FMain1" Content="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0" RenderTransformOrigin="2.132,0.594" Grid.Row="1"/>
+                <Label x:Name="DMain1" Content="23" VerticalAlignment="Top" Margin="0,1.5,48.333,0" Grid.Row="1"/>
+                <Border   BorderBrush="Black" BorderThickness="3" Grid.ColumnSpan="3" Margin="71,0" Grid.RowSpan="2"/>
+                <Label x:Name="VMain2" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22.667,0,0,0" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.52,0.35"/>
+                <Label x:Name="AMain2" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1" Grid.Column="1"/>
+                <Label x:Name="FMain2" Content="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0" RenderTransformOrigin="2.132,0.594" Grid.Row="1" Grid.Column="1"/>
+                <Label x:Name="DMain2" Content="23" VerticalAlignment="Top" Margin="0,1.5,48.333,0" Grid.Row="1" Grid.Column="1"/>
+                <Border  Grid.Column="2"   BorderBrush="Black" BorderThickness="3" Margin="0.333,0,0,0" Grid.RowSpan="2"/>
+                <Label x:Name="VMain3" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22.667,0,0,0" Grid.RowSpan="2" Grid.Column="2" RenderTransformOrigin="0.52,0.35"/>
+                <Label x:Name="AMain3" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1" Grid.Column="2"/>
+                <Label x:Name="FMain3" Content="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0" RenderTransformOrigin="2.132,0.594" Grid.Row="1" Grid.Column="2"/>
+                <Label x:Name="DMain3" Content="23" VerticalAlignment="Top" Margin="0,1.5,48.333,0" Grid.Row="1" Grid.Column="2"/>
+                <Border  Grid.Column="3"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0.333,0" Grid.RowSpan="2"/>
+                <Label x:Name="VMain4" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22.667,0,0,0" Grid.RowSpan="2" Grid.Column="3" RenderTransformOrigin="0.52,0.35"/>
+                <Label x:Name="AMain4" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1" Grid.Column="3"/>
+                <Label x:Name="FMain4" Content="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0" RenderTransformOrigin="2.132,0.594" Grid.Row="1" Grid.Column="3"/>
+                <Label x:Name="DMain4" Content="23" VerticalAlignment="Top" Margin="0,1.5,48.333,0" Grid.Row="1" Grid.Column="3"/>
             </Grid>
 
             <RadioButton x:Name="C1" Content="Carte1" HorizontalAlignment="Center" Margin="108,39.666,334,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
             <RadioButton x:Name="C2" Content="Carte2" HorizontalAlignment="Center" Margin="182,39.666,261,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
             <RadioButton x:Name="C3" Content="Carte3" HorizontalAlignment="Center" Margin="255,39.666,187,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
             <RadioButton x:Name="C4" Content="Carte4" HorizontalAlignment="Center" Margin="329,39.666,113,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
-            <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,0,0,10.334" Width="36" Click="btn_retour_plateau_Click" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom" Grid.Row="2">
+            <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,0,0,10.334" Width="36" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom" Grid.Row="2">
                 <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
             </Button>
             <Button x:Name="btn_jouer" Content="JOUER" HorizontalAlignment="Center" Margin="412,75.666,14,0" VerticalAlignment="Top" Width="75" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2"/>
+            <Label x:Name="nomJoueur" Content="JOUEUR 1" HorizontalAlignment="Center" Margin="412,107.667,19,0" Grid.Row="2" VerticalAlignment="Top" Width="70"/>
+
 
         </Grid>
 

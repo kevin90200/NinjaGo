@@ -28,7 +28,7 @@ namespace Ninjago
         public Joueur Duel(Joueur joueur1, Joueur joueur2)
         {
             Joueur vainqueur = null;
-            
+            //
             return vainqueur;
         }
     }
