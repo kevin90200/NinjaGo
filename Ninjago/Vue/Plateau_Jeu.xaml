@@ -6,10 +6,23 @@
         xmlns:local="clr-namespace:Ninjago.Vue"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" x:Class="Ninjago.Vue.Plateau_Jeu"
         mc:Ignorable="d"
-        Title="Plateau" Height="681.5" Width="644.667">
+        Title="Plateau" Height="621.5" Width="518.667">
     <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,0,0">
-        <Grid x:Name="Jeu">
-            <Grid x:Name="Plateau" HorizontalAlignment="Left" Height="313" Margin="8.667,8.667,0,0" VerticalAlignment="Top" Width="314" OpacityMask="Black">
+        <Grid x:Name="Jeu" Margin="-0.333,-0.333,9.333,9.333">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="275*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="290*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="Plateau" HorizontalAlignment="Center" Height="313" Margin="98,9,89,0" VerticalAlignment="Top" Width="314" OpacityMask="Black" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="3">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
 
                 <Grid.RowDefinitions >
                     <RowDefinition Height="1" />
@@ -25,7 +38,7 @@
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="1"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Row="1" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
+                <Border x:Name="case1_1" Grid.Row="1" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn1_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="82" Margin="7.333,7.333,0,0" Click="btn_Click"/>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
@@ -33,6 +46,7 @@
                 </Border>
                 <Border Grid.Row="1" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn1_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
+
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn2_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
@@ -44,17 +58,20 @@
                     <Button  x:Name="btn2_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0" Click="btn_Click"/>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn3_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
+                    <Button  x:Name="btn3_1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click" RenderTransformOrigin="0,0.012"/>
                 </Border>
+                <Label x:Name="V3_1" Content="V3_1" HorizontalAlignment="Left" Margin="58.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
+                <Label x:Name="D3_1" Content="Label" HorizontalAlignment="Left" Margin="7.333,36.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
+                <Label x:Name="A3_1" Content="Label" HorizontalAlignment="Left" Margin="28.333,10.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
+                <Label x:Name="F3_1" Content="V3_1" HorizontalAlignment="Left" Margin="28.333,67.667,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
                 <Border Grid.Row="3" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn3_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
                 </Border>
                 <Border Grid.Row="3" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
                     <Button  x:Name="btn3_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="81" Margin="7.333,7.333,0,0"  Click="btn_Click"/>
                 </Border>
-
             </Grid>
-            <Grid x:Name="Main" HorizontalAlignment="Left" Height="82" Margin="19,355,0,0" VerticalAlignment="Top" Width="304">
+            <Grid x:Name="Main" HorizontalAlignment="Center" Height="82" Margin="108,63.666,89,0" VerticalAlignment="Top" Width="304" Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="41*"/>
                     <RowDefinition Height="13*"/>
@@ -72,13 +89,15 @@
                 <Border  Grid.Column="3"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0.333,0"/>
             </Grid>
 
-            <RadioButton x:Name="C1" Content="Carte1" HorizontalAlignment="Left" Margin="20,332,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-            <RadioButton x:Name="C2" Content="Carte2" HorizontalAlignment="Left" Margin="92,332,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-            <RadioButton x:Name="C3" Content="Carte3" HorizontalAlignment="Left" Margin="164,332,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-            <RadioButton x:Name="C4" Content="Carte4" HorizontalAlignment="Left" Margin="236,332,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-            <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,603,0,0" VerticalAlignment="Top" Width="34" Click="btn_retour_plateau_Click">
+            <RadioButton x:Name="C1" Content="Carte1" HorizontalAlignment="Center" Margin="108,39.666,334,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
+            <RadioButton x:Name="C2" Content="Carte2" HorizontalAlignment="Center" Margin="182,39.666,261,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
+            <RadioButton x:Name="C3" Content="Carte3" HorizontalAlignment="Center" Margin="255,39.666,187,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
+            <RadioButton x:Name="C4" Content="Carte4" HorizontalAlignment="Center" Margin="329,39.666,113,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2"/>
+            <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,0,0,10.334" Width="36" Click="btn_retour_plateau_Click" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom" Grid.Row="2">
                 <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
             </Button>
+            <Button x:Name="btn_jouer" Content="JOUER" HorizontalAlignment="Center" Margin="412,75.666,14,0" VerticalAlignment="Top" Width="75" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2"/>
+
         </Grid>
 
 

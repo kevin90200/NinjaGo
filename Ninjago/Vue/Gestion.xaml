@@ -7,11 +7,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninjago.Vue"
         mc:Ignorable="d"
-        Title="Gestion" Height="300" Width="300">
-    <Grid>
-        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top" Width="34" Click="btn_retour_plateau_Click">
+        Title="Gestion" Height="398" Width="747.102">
+    <Grid Margin="0,0,0,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,326,0,0" VerticalAlignment="Top" Width="34" Click="btn_retour_plateau_Click" Height="36">
             <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
         </Button>
-        
+        <ListBox x:Name="lbox_cartes" HorizontalAlignment="Left" Height="285" Margin="10,25,0,0" VerticalAlignment="Top" Width="219" BorderBrush="Black" Background="White" SelectionChanged="lbox_cartes_SelectionChanged"/>
+        <ListBox x:Name="lbox_collection" HorizontalAlignment="Left" Height="283" Margin="213,25,0,0" VerticalAlignment="Top" Width="217" Background="White" Grid.Column="1"/>
+        <Button x:Name="btn_ajouter" Content="Ajouter" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="90
+                " Height="27" Click="btn_ajouter_Click" Grid.Column="1"/>
+        <Button x:Name="btn_supprimer" Content="supprimer" HorizontalAlignment="Left" Margin="100,27,0,0" VerticalAlignment="Top" Width="90" Height="27" Click="btn_supprimer_Click" Grid.Column="1"/>
+        <Button x:Name="btn_ajouter_supprimer_collection" Content="" Margin="10,59,286,0" VerticalAlignment="Top" Height="27" Grid.Column="1" Visibility="Hidden"/>
+        <Rectangle x:Name="affichage_carte" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="219" Margin="10,91,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" Grid.Column="1"/>
+        <ListBox x:Name="lbox_cartes_num" HorizontalAlignment="Left" Height="283" Margin="229,25,0,0" VerticalAlignment="Top" Width="24"/>
+        <ListBox x:Name="lbox_collection_num" HorizontalAlignment="Left" Height="283" Margin="430,27,0,0" VerticalAlignment="Top" Width="24" Grid.Column="1"/>
+        <Label x:Name="lbl_nom" Content="Label" Grid.Column="1" HorizontalAlignment="Right" Margin="0,179,286,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Center"/>
+
     </Grid>
 </Controls:MetroWindow>

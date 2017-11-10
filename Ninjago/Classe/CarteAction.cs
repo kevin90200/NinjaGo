@@ -9,15 +9,12 @@ namespace Ninjago
     class CarteAction : Carte
     {
         //attributs hérité
-        String description;
 
 
-        public CarteAction(String unNom, String unNumero, int nbExemplaire, String uneDescription) : base(unNom, unNumero, nbExemplaire)
+        public CarteAction(String unNom, String unNumero, int nbExemplaire, String uneDescription, String unType) : base(unNom, unNumero, nbExemplaire, uneDescription, unType)
         {
-            this.Description = uneDescription;
         }
 
-        public string Description { get => description; set => description = value; }
     }
 
 }
