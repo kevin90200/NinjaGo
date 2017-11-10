@@ -80,6 +80,9 @@
     <Compile Include="Classe\Collection.cs" />
     <Compile Include="Classe\Joueur.cs" />
     <Compile Include="Classe\Plateau.cs" />
+    <Compile Include="Vue\Accueil_Jeu.xaml.cs">
+      <DependentUpon>Accueil_Jeu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vue\Deck.xaml.cs">
       <DependentUpon>Deck.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vue\Accueil_Jeu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\Deck.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
