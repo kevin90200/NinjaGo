@@ -18,7 +18,7 @@ namespace Ninjago.Vue
     /// Logique d'interaction pour Accueil_Jeu.xaml
     /// </summary>
     public partial class Accueil_Jeu
-    {
+    { List<Joueur> lesJ = new List<Joueur>();
         public Accueil_Jeu()
         {
             InitializeComponent();
@@ -26,7 +26,11 @@ namespace Ninjago.Vue
 
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         {
+            Joueur J1 = new Joueur(PseudoJ1.ToString(), "" );
+
 
         }
-    }
+
+
+        }
 }

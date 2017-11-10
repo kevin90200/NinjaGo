@@ -28,7 +28,7 @@ namespace Ninjago.Vue
 
         private void btn_jeu_Click(object sender, RoutedEventArgs e)
         {
-            Plateau_Jeu fenetre = new Plateau_Jeu();
+            Accueil_Jeu fenetre = new Accueil_Jeu();
             fenetre.Show();
             this.Close();
         }
