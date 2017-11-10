@@ -1,0 +1,33 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ninjago.Vue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" x:Class="Ninjago.Vue.Accueil_Jeu"
+        mc:Ignorable="d"
+        Title="NinjaGo JEU" Height="585.3" Width="962.918">
+    <Grid x:Name="GridAccueil">
+        <Image Margin="10,10,9.8,10"/>
+        <Rectangle Fill="#FFF4F4F5" Margin="40,101,41.8,317" Stroke="Black"/>
+        <Rectangle Fill="#FFF4F4F5" Margin="40,266,650.8,152" Stroke="Black"/>
+        <Rectangle Fill="#FFF4F4F5" Margin="346,266,344.8,0" Stroke="Black" Height="138" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FFF4F4F5" Margin="649,266,41.8,152" Stroke="Black"/>
+        <Button x:Name="btn_jouer" Content="Jouer" HorizontalAlignment="Left" Height="56" Margin="382,453,0,0" VerticalAlignment="Top" Width="203" Click="btn_jouer_Click"/>
+        <CheckBox x:Name="CMonDeckJ1" Content="Mon Deck" HorizontalAlignment="Left" Margin="85,144,0,0" VerticalAlignment="Top" Height="26" Width="142"/>
+        <CheckBox x:Name="CAleatoireJ1" Content="Aleatoire" HorizontalAlignment="Left" Margin="85,188,0,0" VerticalAlignment="Top" Height="26" Width="142"/>
+        <Label x:Name="lbl_joueur1" Content="Joueur 1" HorizontalAlignment="Left" Height="23" Margin="67,101,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label x:Name="lbl_joueur2" Content="Joueur 2" HorizontalAlignment="Left" Margin="67,266,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_carte" Content="Carte" HorizontalAlignment="Left" Margin="382,266,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_niveau" Content="Niveau" HorizontalAlignment="Left" Margin="684,266,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CIAJ2" Content="IA" HorizontalAlignment="Left" Margin="85,310,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CJoueurJ2" Content="Joueur" HorizontalAlignment="Left" Margin="85,355,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CMonDeckC" Content="Mon Deck" HorizontalAlignment="Left" Margin="397,310,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CAleatoireC" Content="Aleatoire" HorizontalAlignment="Left" Margin="397,355,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CFaibleN" Content="Faible" HorizontalAlignment="Left" Margin="705,310,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CIntermediaireN" Content="Intermediaire" HorizontalAlignment="Left" Margin="705,355,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+
+
+</Controls:MetroWindow>

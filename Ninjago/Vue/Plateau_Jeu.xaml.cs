@@ -48,12 +48,5 @@ namespace Ninjago.Vue
             RadioButton choix = sender as RadioButton;
             choixMain=choix.Content.ToString();
         }
-
-        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
-        {
-            Launcher fenetre = new Launcher();
-            fenetre.Show();
-            this.Close();
-        }
     }
 }
