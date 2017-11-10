@@ -10,12 +10,12 @@ namespace Ninjago
     {
         String nom;
         String prenom;
-        DateTime dateN;
+        DateTime dateNaissance;
         List<CartePersonnage> deck;
         List<CartePersonnage> main;
         List<CartePersonnage> depot;
 
-        public Joueur(String unNom, String unPrenom)
+        Joueur(String unNom, String unPrenom)
         {
             this.Nom = unNom;
             this.Prenom = unPrenom;
@@ -27,7 +27,7 @@ namespace Ninjago
 
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
-        public DateTime DateN { get => dateN; set => dateN = value; }
+        public DateTime DateNaissance { get => dateNaissance; set => dateNaissance = value; }
         internal List<CartePersonnage> Deck { get => deck; set => deck = value; }
         internal List<CartePersonnage> Main { get => main; set => main = value; }
         internal List<CartePersonnage> Depot { get => depot; set => depot = value; }

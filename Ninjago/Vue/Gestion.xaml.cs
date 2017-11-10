@@ -23,9 +23,21 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Gestion
     {
-        List<Carte> lesCartes = new List<Carte>();
-        List<Carte> maCollection = new List<Carte>();
-        Carte carte= new Carte();
+
+
+        //
+        //Attention ! Pour être fonctionnelle la partie collection nécéssite de modifier le JSON (ajout du bolleen deck et des exemplaires) pour pouvoir initialiser les listes
+        //
+        //Reste à renvoyer les informations dans le JSON afin de stocker les collections 
+        //
+        //La partie collection nécessite de revoir l'affichage (pas responsive)
+
+
+
+        //Instanciation de totues les listes et carte pour la gestion
+        List<Carte> lesCartes = new List<Carte>();          //liste de toutes les cartes
+        List<Carte> maCollection = new List<Carte>();           //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
+        Carte carte;                 //Correspond à la carte séléctionnée dans l'interface (peut être null)
         CarteAction carteAction= new CarteAction();
         CartePersonnage cartePersonnage= new CartePersonnage();
         CarteVehicule carteVehicule= new CarteVehicule();
@@ -35,14 +47,14 @@ namespace Ninjago.Vue
 
             #region Initailisation collection
             
-
+            //recuperation du JSON de l'API
             String url = "http://127.0.0.1/ninjago/public/api";
             var res = new WebClient();
-            var json = res.DownloadString(url);// il existe uploadString aussi
+            var json = res.DownloadString(url);         // il existe uploadString aussi
             JArray o = JArray.Parse(json);
-            List<Carte> lesCartes = new List<Carte>();
+            //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
             foreach (JObject carte in o) {
-                Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
+                Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());  //GetValue("xxx") permet de récupérer les données du JSON
                 
                 if (c.Type == "P")
                 {
@@ -63,6 +75,7 @@ namespace Ninjago.Vue
             }
 
             #endregion
+            //Remplissage des 2 listes box
             lbox_cartes.ItemsSource = lesCartes;
             lbox_collection.ItemsSource = maCollection;
         }
@@ -78,8 +91,6 @@ namespace Ninjago.Vue
             btn_ajouter_supprimer_collection.Visibility = Visibility.Visible;
             btn_ajouter_supprimer_collection.Content = "Ajouter un exemplaire";
             btn_ajouter_supprimer_collection.Background = Brushes.Green ;
-            
-
         }
 
         private void btn_supprimer_Click(object sender, RoutedEventArgs e)
@@ -88,35 +99,40 @@ namespace Ninjago.Vue
             btn_ajouter_supprimer_collection.Content = "Supprimer un exemplaire";
             btn_ajouter_supprimer_collection.Background = Brushes.Red;
         }
-
+        //Bouton ajouer_supprimer permet de créer une sorte de validation (2 cliques pour ajouter/supprimer)
         private void btn_ajouter_supprimer_collection_Click(object sender, RoutedEventArgs e)
         {
             if (btn_ajouter_supprimer_collection.Content.ToString() == "Ajouter un exemplaire")
             {
-                bool ajout = false;
+                bool ajout = false;     //booleen necessaire pour eviter d'ajouter 2 fois la carte à la collection
                 
-                if (maCollection.Count() == 0)
+                if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                 {
-                    maCollection.Add(carte);
-                    carte.ajoutExemplaire();  
-                }
-                else
-                {
-                    foreach (Carte c in maCollection)
-                    {
-                        if (c == carte){
-                            ajout = false;
-                            carte.ajoutExemplaire();  
-                        }
-                        else
-                        {
-                            ajout = true;   
-                        }
-                    }
-                    if (ajout == true)
+
+                    if (maCollection.Count() == 0)      
                     {
                         maCollection.Add(carte);
                         carte.ajoutExemplaire();
+                    }
+                    else            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans la collection
+                    {
+                        foreach (Carte c in maCollection)
+                        {
+                            if (c == carte)
+                            {
+                                ajout = false;
+                                carte.ajoutExemplaire();
+                            }
+                            else
+                            {
+                                ajout = true;
+                            }
+                        }
+                        if (ajout == true)
+                        {
+                            maCollection.Add(carte);
+                            carte.ajoutExemplaire();
+                        }
                     }
                 }
                 refresh();
@@ -124,16 +140,19 @@ namespace Ninjago.Vue
             }
             else if (btn_ajouter_supprimer_collection.Content.ToString() == "Supprimer un exemplaire")
             {
-                if (carte.Exemplaire == 0)
+                if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                 {
-
-                }
-                else
-                {
-                    carte.supressionExemplaire();
-                    if (carte.Exemplaire == 0)
+                    if (carte.Exemplaire == 0)      //si il n'y a pas d'exmplaire de la carte, on ne fait rien
                     {
-                        maCollection.Remove(carte);
+
+                    }
+                    else         //sinon on supprime un exemplaire
+                    {
+                        carte.supressionExemplaire();
+                        if (carte.Exemplaire == 0)      //si le nombre d'exemplaire arrive à 0, on supprime la carte de la collection
+                        {
+                            maCollection.Remove(carte);
+                        }
                     }
                 }
                 refresh();
@@ -160,59 +179,77 @@ namespace Ninjago.Vue
         {
             lbox_cartes.Items.Refresh();
             lbox_collection.Items.Refresh();
-
-            lbl_nb_exemplaire.Content = carte.Exemplaire.ToString();
-            lbl_nom.Content = carte.ToString();
-            lbl_numero.Content = carte.Numero.ToString();
-            if (carte.Type == "P")
+            if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
             {
-                CartePersonnage cp = new CartePersonnage();
-                cp = (CartePersonnage)carte;
-                lbl_vitesse.Content = cp.Vitesse;
-                lbl_attaque.Content = cp.Attaque;
-                lbl_force.Content = cp.Force;
-                lbl_defense.Content = cp.Defense;
+                lbl_nb_exemplaire.Content = carte.Exemplaire.ToString();
+                lbl_nom.Content = carte.ToString();
+                lbl_numero.Content = carte.Numero.ToString();
+                if (carte.Type == "P")
+                {
+                    CartePersonnage cp = new CartePersonnage();
+                    cp = (CartePersonnage)carte;
+                    lbl_vitesse.Content = cp.Vitesse;
+                    lbl_attaque.Content = cp.Attaque;
+                    lbl_force.Content = cp.Force;
+                    lbl_defense.Content = cp.Defense;
+                    txt_description.Text = "";
+                }
+                else if (carte.Type == "A")
+                {
+                    CarteAction ca = new CarteAction();
+                    ca = (CarteAction)carte;
+                    lbl_vitesse.Content = "";
+                    lbl_attaque.Content = "";
+                    lbl_force.Content = "";
+                    lbl_defense.Content = "";
+                    txt_description.Text = ca.Description;
+                }
+                else if (carte.Type == "V")
+                {
+                    CarteVehicule cv = new CarteVehicule();
+                    cv = (CarteVehicule)carte;
+                    lbl_vitesse.Content = "";
+                    lbl_attaque.Content = "";
+                    lbl_force.Content = "";
+                    lbl_defense.Content = "";
+                    txt_description.Text = cv.Description;
+                }
+                //Recuperation des images (try catch nécessaire pour éviter le plantage si la carte ne correspond à aucune image)
+                try
+                {
+                    img_carte.Visibility = Visibility.Visible;
+                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + "-" + carte.Nom.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
+                    var uri = new Uri(carte.UrlImage);
+                    var bitmap = new BitmapImage(uri);
+                    img_carte.Source = bitmap;
+                }
+                catch
+                {
+                    img_carte.Visibility = Visibility.Hidden;
+                }
+            }
+            else         //si la carte est nulle, ont vide tous les affichages
+            {
+                lbl_nb_exemplaire.Content = "";
+                lbl_nom.Content = "";
+                lbl_numero.Content = "";
+                lbl_vitesse.Content = "";
+                lbl_attaque.Content = "";
+                lbl_force.Content = "";
+                lbl_defense.Content = "";
                 txt_description.Text = "";
-            }
-            else if (carte.Type == "A")
-            {
-                CarteAction ca = new CarteAction();
-                ca = (CarteAction)carte;
-                lbl_vitesse.Content = "";
-                lbl_attaque.Content = "";
-                lbl_force.Content = "";
-                lbl_defense.Content = "";
-                txt_description.Text = ca.Description;
-            }
-            else if (carte.Type == "V")
-            {
-                CarteVehicule cv = new CarteVehicule();
-                cv = (CarteVehicule)carte;
-                lbl_vitesse.Content = "";
-                lbl_attaque.Content = "";
-                lbl_force.Content = "";
-                lbl_defense.Content = "";
-                txt_description.Text = cv.Description;
-            }
-            //Recuperation des images
-            try
-            {
-                img_carte.Visibility = Visibility.Visible;
-                carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + "-" + carte.Nom.ToString() + ".jpg";
-                var uri = new Uri(carte.UrlImage);
-                var bitmap = new BitmapImage(uri);
-                img_carte.Source = bitmap;
-            }
-            catch
-            {
                 img_carte.Visibility = Visibility.Hidden;
-            }
+            } 
+
         }
 
         private void btn_suppression_exemplaires_Click(object sender, RoutedEventArgs e)
         {
-            maCollection.Remove(carte);
-            carte.Exemplaire = 0;
+            if (carte != null) //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+            {
+                maCollection.Remove(carte);
+                carte.Exemplaire = 0;
+            }
             refresh();
         }
     }

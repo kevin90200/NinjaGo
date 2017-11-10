@@ -154,7 +154,14 @@ namespace Ninjago.Vue
                 C3.Visibility = Visibility.Hidden;
                 C4.Visibility = Visibility.Hidden;
             }
+
         }
-        
+        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
+        {
+            Launcher fenetre = new Launcher();
+            fenetre.Show();
+            this.Close();
+        }
+
     }
 }
