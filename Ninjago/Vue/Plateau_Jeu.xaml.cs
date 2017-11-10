@@ -35,17 +35,17 @@ namespace Ninjago.Vue
             C4.Visibility = Visibility.Hidden;
             
 
-            if (lesJ[1].dateNaissance > lesJ[2].dateNaissance)
-            {
-                j1 = lesJ[0];
-                j2 = lesJ[1];
+            //if (lesJ[1].dateNaissance > lesJ[2].dateNaissance)
+            //{
+            //    j1 = lesJ[0];
+            //    j2 = lesJ[1];
                 
-            }
-            else
-            {
-                j1 = lesJ[1];
-                j2 = lesJ[0];
-            }
+            //}
+            //else
+            //{
+            //    j1 = lesJ[1];
+            //    j2 = lesJ[0];
+            //}
 
         }
 
