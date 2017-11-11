@@ -54,7 +54,7 @@
         <Label x:Name="lbl_exemplaire" Content="Exemplaire :" Grid.Column="2" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Width="90" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1,0,0,1"/>
         <Label x:Name="lbl_nb_exemplaire" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="100,358,0,0" VerticalAlignment="Top" Width="90" BorderBrush="Black" BorderThickness="0,0,1,1"/>
         <TextBlock x:Name="txt_description" Grid.Column="2" HorizontalAlignment="Left" Margin="39,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="123"/>
-        <Image x:Name="img_carte" Grid.Column="2" HorizontalAlignment="Left" Height="250" Margin="10,108,0,0" VerticalAlignment="Top" Width="180" Visibility="Hidden"/>
+        <Image x:Name="img_carte" Grid.Column="2" HorizontalAlignment="Left" Height="239" Margin="20,114,0,0" VerticalAlignment="Top" Width="158"/>
         <Button x:Name="btn_suppression_exemplaires" Content="SUPPRIMER TOUS LES EXEMPLAIRES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="253" Grid.Column="2" Margin="213,387,0,0" Background="Red" Foreground="White" Click="btn_suppression_exemplaires_Click"/>
 
     </Grid>

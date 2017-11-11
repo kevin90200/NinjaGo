@@ -23,7 +23,7 @@ namespace Ninjago.Vue
         String choixMain;
         int action;
         List<Joueur> lesJ = new List<Joueur>();
-        Joueur j1, j2;
+       Joueur j1, j2 = null;
         
         public Plateau_Jeu()
         {

@@ -162,7 +162,7 @@ namespace Ninjago.Vue
         private void lbox_cartes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             carte = new Carte();
-            carte = (Carte)lbox_cartes.SelectedItem;    
+            carte = (Carte)lbox_cartes.SelectedItem;
             refresh();
         }
 
@@ -171,7 +171,7 @@ namespace Ninjago.Vue
         private void lbox_collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             carte = new Carte();
-            carte = (Carte)lbox_collection.SelectedItem; 
+            carte = (Carte)lbox_collection.SelectedItem;
             refresh();
         }
 
@@ -215,13 +215,22 @@ namespace Ninjago.Vue
                     txt_description.Text = cv.Description;
                 }
                 //Recuperation des images (try catch nécessaire pour éviter le plantage si la carte ne correspond à aucune image)
+                //certaines images ne correspondent pas à la carte car le fichier JSON est peuplé avec des exemples qui n'existent pas
                 try
                 {
                     img_carte.Visibility = Visibility.Visible;
-                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + "-" + carte.Nom.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
+                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
                     var uri = new Uri(carte.UrlImage);
                     var bitmap = new BitmapImage(uri);
                     img_carte.Source = bitmap;
+                    lbl_nb_exemplaire.Content = "";
+                    lbl_nom.Content = "";
+                    lbl_numero.Content = "";
+                    lbl_vitesse.Content = "";
+                    lbl_attaque.Content = "";
+                    lbl_force.Content = "";
+                    lbl_defense.Content = "";
+                    txt_description.Text = "";
                 }
                 catch
                 {

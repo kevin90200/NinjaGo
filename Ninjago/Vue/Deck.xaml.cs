@@ -53,7 +53,7 @@ namespace Ninjago.Vue
             //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
             foreach (JObject carte in o)
             {
-                //on ajoute à la collcetion seulement les cartes pour lesquelles le JSON renvoie un exemplaire suppérieur à 0
+                //on ajoute à la collcetion seulement les cartes pour lesquelles le JSON renvoie un nombre d'exemplaire exemplaire suppérieur à 0
                 if (Convert.ToUInt32(carte.GetValue("exemplaire")) > 0)
                 {
                     Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
@@ -113,29 +113,30 @@ namespace Ninjago.Vue
                 bool ajout = false; //booleen necessaire pour eviter d'ajouter 2 fois la carte au deck
                 if (carte != null) //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                 {
-                    if (monDeck.Count() == 0)
+                    if (monDeck.Count() < 20)  //on vérifie que le deck possède moins de 20 cartes
                     {
-                        monDeck.Add(carte);
-                        carte.ajoutExemplaire();
-                    }
-                    else    //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
-                    {
-                        foreach (Carte c in monDeck)
-                        {
-                            if (c == carte)
-                            {
-                                ajout = false;
-                                carte.ajoutExemplaire();
-                            }
-                            else
-                            {
-                                ajout = true;
-                            }
-                        }
-                        if (ajout == true)
+                        if (monDeck.Count() == 0)
                         {
                             monDeck.Add(carte);
                             carte.ajoutExemplaire();
+                        }
+                        else    //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
+                        {
+                            foreach (Carte c in monDeck)
+                            {
+                                if (c == carte)
+                                {
+                                    ajout = false;
+                                }
+                                else
+                                {
+                                    ajout = true;
+                                }
+                            }
+                            if (ajout == true)
+                            {
+                                monDeck.Add(carte);
+                            }
                         }
                     }
                 }
@@ -207,10 +208,11 @@ namespace Ninjago.Vue
                     txt_description.Text = cv.Description;
                 }
                 //Recuperation des images (try catch nécessaire pour éviter le plantage si la carte ne correspond à aucune image)
+                //certaines images ne correspondent pas à la carte car le fichier JSON est peuplé avec des exemples qui n'existent pas
                 try
                 {
                     img_carte.Visibility = Visibility.Visible;
-                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + "-" + carte.Nom.ToString() + ".png";
+                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + ".png";
                     var uri = new Uri(carte.UrlImage);
                     var bitmap = new BitmapImage(uri);
                     img_carte.Source = bitmap;
