@@ -8,31 +8,28 @@
         mc:Ignorable="d"
         Title="NinjaGo JEU" Height="585.3" Width="962.918">
     <Grid x:Name="GridAccueil">
-        <Image Margin="10,10,9.8,10"/>
-        <Rectangle Fill="#FFF4F4F5" Margin="40,101,41.8,304" Stroke="Black"/>
-        <Rectangle Fill="#FFF4F4F5" Margin="40,266,584.8,152" Stroke="Black"/>
-        <Rectangle Fill="#FFF4F4F5" Margin="414,266,350.8,0" Stroke="Black" Height="138" VerticalAlignment="Top"/>
-        <Rectangle Fill="#FFF4F4F5" Stroke="Black" Margin="640,266,41.8,152"/>
-        <Label x:Name="lbl_niveau" Content="Niveau" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="675,266,0,0"/>
-        <CheckBox x:Name="CFaibleN" Content="Faible" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,310,0,0"/>
-        <CheckBox x:Name="CIntermediaireN" Content="Intermediaire" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="696,355,0,0"/>
-        <Button x:Name="btn_jouer" Content="Jouer" HorizontalAlignment="Left" Height="56" Margin="382,457,0,0" VerticalAlignment="Top" Width="203" Click="btn_jouer_Click"/>
-        <CheckBox x:Name="CMonDeckJ1" Content="Mon Deck" HorizontalAlignment="Left" Margin="85,140,0,0" VerticalAlignment="Top" Height="26" Width="142"/>
-        <CheckBox x:Name="CAleatoireJ1" Content="Aleatoire" HorizontalAlignment="Left" Margin="85,175,0,0" VerticalAlignment="Top" Height="26" Width="81"/>
-        <Label x:Name="lbl_joueur1" Content="Joueur 1" HorizontalAlignment="Left" Height="23" Margin="67,101,0,0" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="lbl_joueur2" Content="Joueur 2" HorizontalAlignment="Left" Margin="67,266,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_carte" Content="Carte" HorizontalAlignment="Left" Margin="450,266,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="CIAJ2" Content="IA" HorizontalAlignment="Left" Margin="90,310,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="CJoueurJ2" Content="Joueur" HorizontalAlignment="Left" Margin="90,341,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="CMonDeckC" Content="Mon Deck" HorizontalAlignment="Left" Margin="465,310,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="CAleatoireC" Content="Aleatoire" HorizontalAlignment="Left" Margin="465,355,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_dateNaissance" Content="Date de naissance" HorizontalAlignment="Left" Margin="60,206,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,0,0,10" Width="36" Click="btn_retour_plateau_Click" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom">
-            <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
-        </Button>
-        <DatePicker HorizontalAlignment="Left" Margin="181,206,0,0" VerticalAlignment="Top" Width="158"/>
-        <Label x:Name="lbl_dateNaissance1" Content="Date de naissance" HorizontalAlignment="Left" Margin="60,364,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="181,364,0,0" VerticalAlignment="Top" Width="158"/>
+        <Button x:Name="btn_jouer" Content="Jouer" Margin="431,504,447,10" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="42" Width="78"/>
+        <Grid x:Name="Joueur_1" Height="140" Margin="40,69,42,0" VerticalAlignment="Top">
+            <Border x:Name="J1"   BorderBrush="Black" BorderThickness="3">
+                </Border>
+            <DatePicker x:Name="DateJ1"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,90,0,0" />
+            <TextBox  x:Name="PseudoJ1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="151" Margin="10,54,0,0"/>
+            <RadioButton x:Name="MonDeckJ1" Content="Mon Deck" Margin="191,54,0,60" HorizontalAlignment="Left" Width="127"/>
+            <RadioButton x:Name="AleatoireJ1" Content="Aléatoire" Margin="191,80,0,14" HorizontalAlignment="Left" Width="127"/>
+            <Label Content="Joueur 1" HorizontalAlignment="Left" Margin="10,10,0,104"/>
+        </Grid>
+        <Grid x:Name="Joueur_2" Margin="40,242,0,178" HorizontalAlignment="Left" Width="216">
+            <Border x:Name="J2"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0,0.333"/>
+            <RadioButton x:Name="IA" Content="IA" Margin="27,51,0,67.333" HorizontalAlignment="Left" Width="127"/>
+            <RadioButton x:Name="Joueur2" Content="Joueur 2" Margin="27,72,0,27.333" HorizontalAlignment="Left" Width="127"/>
+            <Label Content="Joueur 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid x:Name="Carte" Margin="293,242,42,0" VerticalAlignment="Top">
+            <Border x:Name="CarteBord"   BorderBrush="Black" BorderThickness="3"/>
+            <RadioButton x:Name="MonDeckJ2" Content="Deck Joueur1" Margin="27,51,0,67.333" HorizontalAlignment="Left" Width="127"/>
+            <RadioButton x:Name="AleatoireJ2" Content="Aleatoire" Margin="27,72,0,27.333" HorizontalAlignment="Left" Width="127"/>
+            <Label Content="Deck Joueur 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        </Grid>
 
     </Grid>
 
