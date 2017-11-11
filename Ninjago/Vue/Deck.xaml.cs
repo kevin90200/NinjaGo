@@ -155,18 +155,34 @@ namespace Ninjago.Vue
 
         private void lbox_collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            carte = new Carte();
-            carte = (Carte)lbox_collection.SelectedItem;
-            refresh();
+            if (lbox_collection.SelectedItem == null)       //si la selection est null, on ne fait rien
+            {
+
+            }
+            else            //sinon on recupere la carte 
+            {
+                carte = new Carte();
+                carte = (Carte)lbox_collection.SelectedItem;
+                lbox_deck.SelectedIndex = -1;  //on passe l'item selectionner de l'autre liste à la valeur null
+                refresh();
+            }
         }
 
 
 
         private void lbox_deck_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            carte = new Carte();
-            carte = (Carte)lbox_deck.SelectedItem;
-            refresh();
+            if (lbox_deck.SelectedItem == null)       //si la selection est null, on ne fait rien
+            {
+
+            }
+            else            //sinon on recupere la carte 
+            {
+                carte = new Carte();
+                carte = (Carte)lbox_deck.SelectedItem;
+                lbox_collection.SelectedIndex = -1;  //on passe l'item selectionner de l'autre liste à la valeur null
+                refresh();
+            }
         }
 
         public void refresh()

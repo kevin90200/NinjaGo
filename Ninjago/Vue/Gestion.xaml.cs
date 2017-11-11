@@ -161,18 +161,34 @@ namespace Ninjago.Vue
 
         private void lbox_cartes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            carte = new Carte();
-            carte = (Carte)lbox_cartes.SelectedItem;
-            refresh();
+            if (lbox_cartes.SelectedItem == null)       //si la selection est null, on ne fait rien
+            {
+
+            }
+            else            //sinon on recupere la carte 
+            {
+                carte = new Carte();
+                carte = (Carte)lbox_cartes.SelectedItem;
+                lbox_collection.SelectedIndex = -1;     //on passe l'item selectionner de l'autre liste à la valeur null
+                refresh();
+            }
         }
 
         
 
         private void lbox_collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            carte = new Carte();
-            carte = (Carte)lbox_collection.SelectedItem;
-            refresh();
+            if (lbox_collection.SelectedItem == null)   //si la selection est null, on ne fait rien
+            {
+
+            }
+            else            //sinon on recupere la carte 
+            {
+                carte = new Carte();
+                carte = (Carte)lbox_collection.SelectedItem;
+                lbox_cartes.SelectedIndex = -1;     //on passe l'item selectionner de l'autre liste à la valeur null
+                refresh();
+            }
         }
 
         public void refresh()
@@ -223,7 +239,6 @@ namespace Ninjago.Vue
                     var uri = new Uri(carte.UrlImage);
                     var bitmap = new BitmapImage(uri);
                     img_carte.Source = bitmap;
-                    lbl_nb_exemplaire.Content = "";
                     lbl_nom.Content = "";
                     lbl_numero.Content = "";
                     lbl_vitesse.Content = "";

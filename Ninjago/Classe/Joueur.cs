@@ -15,7 +15,7 @@ namespace Ninjago
         List<CartePersonnage> main;
         List<CartePersonnage> depot;
 
-        Joueur(String unNom, String unPrenom)
+        public Joueur(String unNom, String unPrenom)
         {
             this.Nom = unNom;
             this.Prenom = unPrenom;

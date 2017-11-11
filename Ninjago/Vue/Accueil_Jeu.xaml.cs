@@ -26,7 +26,7 @@ namespace Ninjago.Vue
 
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         {
-            Joueur J1 = new Joueur(PseudoJ1.ToString(), "" );
+           // Joueur J1 = new Joueur(PseudoJ1.ToString(), "" );
 
 
         }
