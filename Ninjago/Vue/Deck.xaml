@@ -8,6 +8,9 @@
         xmlns:local="clr-namespace:Ninjago.Vue"
         mc:Ignorable="d"
         Title="Gestion du deck" Height="481.616" Width="747.102">
+    <Controls:MetroWindow.Background>
+        <ImageBrush ImageSource="/Ninjago;component/Ressource/2017-10-18.jpg"/>
+    </Controls:MetroWindow.Background>
     <Grid Margin="0,0,0,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="208*"/>
@@ -18,8 +21,8 @@
         <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,399,0,0" VerticalAlignment="Top" Width="34" Click="btn_retour_plateau_Click" Height="36">
             <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
         </Button>
-        <ListBox x:Name="lbox_collection" HorizontalAlignment="Left" Height="310" Margin="10,76,0,0" VerticalAlignment="Top" Width="243" BorderBrush="Black" Background="White" SelectionChanged="lbox_collection_SelectionChanged" BorderThickness="1" Grid.ColumnSpan="2"/>
-        <ListBox x:Name="lbox_deck" HorizontalAlignment="Left" Height="310" Margin="213,76,0,0" VerticalAlignment="Top" Width="253" Background="White" Grid.Column="2" SelectionChanged="lbox_deck_SelectionChanged" BorderThickness="1"/>
+        <ListBox x:Name="lbox_collection" HorizontalAlignment="Left" Height="310" Margin="10,76,0,0" VerticalAlignment="Top" Width="243" BorderBrush="Black" Background="Transparent" SelectionChanged="lbox_collection_SelectionChanged" BorderThickness="1" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="lbox_deck" HorizontalAlignment="Left" Height="310" Margin="213,76,0,0" VerticalAlignment="Top" Width="253" Background="Transparent" Grid.Column="2" SelectionChanged="lbox_deck_SelectionChanged" BorderThickness="1"/>
         <Button x:Name="btn_ajouter" Content="Ajouter" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="90
                 " Height="27" Click="btn_ajouter_Click" Grid.Column="2"/>
         <Button x:Name="btn_supprimer" Content="supprimer" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="90" Height="27" Click="btn_supprimer_Click" Grid.Column="2"/>
@@ -49,8 +52,8 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="lbl_numero" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" FontSize="9"/>
-        <Label x:Name="lbl_collection" Content="Ma collection" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="243" HorizontalContentAlignment="Center" BorderThickness="1,1,1,0" BorderBrush="Black" Grid.ColumnSpan="2"/>
-        <Label x:Name="lbl_deck" Content="Mon Deck" HorizontalAlignment="Left" Margin="213,50,0,0" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,1,0"/>
+        <Label x:Name="lbl_collection" Content="Ma collection" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="243" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="2" Background="White"/>
+        <Label x:Name="lbl_deck" Content="Mon Deck" HorizontalAlignment="Left" Margin="213,50,0,0" VerticalAlignment="Top" Width="253" HorizontalContentAlignment="Center" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="White"/>
         <TextBlock x:Name="txt_description" Grid.Column="2" HorizontalAlignment="Left" Margin="39,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="123"/>
         <Image x:Name="img_carte" Grid.Column="2" HorizontalAlignment="Left" Height="250" Margin="10,108,0,0" VerticalAlignment="Top" Width="180" Visibility="Hidden"/>
         <Button x:Name="btn_suppression_deck" Content="SUPPRIMER TOUTES LES CARTES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="253" Grid.Column="2" Margin="213,387,0,0" Background="Red" Foreground="White" Click="btn_suppression_deck_Click"/>
