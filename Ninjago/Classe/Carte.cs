@@ -14,7 +14,7 @@ namespace Ninjago
         protected string description;
         protected string type;
         protected string urlImage;  //permet d'attribuer à chaque carte une url pour l'image qui lui correspond      //à ajouter dans le diagramme de classe
-        private bool deck;  //uniquement utile pour deck        //permet de savoir si la catrte apartient ou non au deck du joueur      //à ajouter dans le diagramme de classe + dans le JSON
+        protected bool deck;  //uniquement utile pour deck        //permet de savoir si la catrte apartient ou non au deck du joueur      //à ajouter dans le diagramme de classe + dans le JSON
 
 
         public string Nom { get => nom; set => nom = value; }
@@ -23,7 +23,7 @@ namespace Ninjago
         public string Description { get => description; set => description = value; }
         public string Type { get => type; set => type = value; }
         public string UrlImage { get => urlImage; set => urlImage = value; }
-        protected bool Deck { get => deck; set => deck = value; }
+        public bool Deck { get => deck; set => deck = value; }
 
         public Carte()
         {
@@ -36,6 +36,16 @@ namespace Ninjago
             this.exemplaire = nbExemplaire;
             this.description = uneDescription;
             this.Type = unType;
+
+        }
+        //Constructeur nécessaire à la partie deck
+        public Carte(String unNom, String unNumero, String uneDescription, String unType, bool unDeck)
+        {
+            this.Nom = unNom;
+            this.Numero = unNumero;
+            this.description = uneDescription;
+            this.Type = unType;
+            this.deck = unDeck;
 
         }
 

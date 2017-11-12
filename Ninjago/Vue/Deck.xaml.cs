@@ -33,9 +33,9 @@ namespace Ninjago.Vue
 
 
         //Instanciation de totues les listes et carte pour la gestion du deck
-        List<Carte> maCollection = new List<Carte>(); //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
-        List<Carte> monDeck = new List<Carte>();    //deck du joueur, liste de carte utilisé pour le jeu
-        Carte carte;        //Correspond à la carte séléctionnée dans l'interface (peut être null)
+        List<Carte> maCollection = new List<Carte>();            //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
+        List<Carte> monDeck = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        Carte carte;                                            //Correspond à la carte séléctionnée dans l'interface (peut être null)
         CarteAction carteAction = new CarteAction();
         CartePersonnage cartePersonnage = new CartePersonnage();
         CarteVehicule carteVehicule = new CarteVehicule();
@@ -48,7 +48,7 @@ namespace Ninjago.Vue
             //recuperation du JSON de l'API
             String url = "http://127.0.0.1/ninjago/public/api";
             var res = new WebClient();
-            var json = res.DownloadString(url);// il existe uploadString aussi
+            var json = res.DownloadString(url);                 // il existe uploadString aussi
             JArray o = JArray.Parse(json);
             //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
             foreach (JObject carte in o)
@@ -56,24 +56,21 @@ namespace Ninjago.Vue
                 //on ajoute à la collcetion seulement les cartes pour lesquelles le JSON renvoie un nombre d'exemplaire exemplaire suppérieur à 0
                 if (Convert.ToUInt32(carte.GetValue("exemplaire")) > 0)
                 {
-                    Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
+                    Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), carte.GetValue("description").ToString(), carte.GetValue("type").ToString(), Convert.ToBoolean(carte.GetValue("deck")));
 
-                    if (c.Type == "P")
+                    if (c.Type == "P")      //on ajoute à la collection seulement les cartes personnage, car on ne souhaite pas jouer avec les autres cartes
                     {
-                        CartePersonnage cp = new CartePersonnage(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString(), Convert.ToInt32(carte.GetValue("attaque")), Convert.ToInt32(carte.GetValue("defense")), Convert.ToInt32(carte.GetValue("vitesse")), Convert.ToInt32(carte.GetValue("force")));
+                        CartePersonnage cp = new CartePersonnage(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), carte.GetValue("description").ToString(), carte.GetValue("type").ToString(), Convert.ToBoolean(carte.GetValue("deck")), Convert.ToInt32(carte.GetValue("attaque")), Convert.ToInt32(carte.GetValue("defense")), Convert.ToInt32(carte.GetValue("vitesse")), Convert.ToInt32(carte.GetValue("force")));
                         maCollection.Add(cp);
+                    }
+                }
+            }
 
-                    }
-                    else if (c.Type == "A")
-                    {
-                        CarteAction ca = new CarteAction(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
-                        maCollection.Add(ca);
-                    }
-                    else if (c.Type == "V")
-                    {
-                        CarteVehicule cv = new CarteVehicule(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
-                        maCollection.Add(cv);
-                    }
+            foreach (Carte c in maCollection)       //Pour chaque carte de la collection du joueur
+            {
+                if (c.Deck == true)           //Si le booleen deck est vrai on l'ajoute dans le deck du joueur
+                {
+                    monDeck.Add(c);
                 }
             }
 
@@ -84,9 +81,20 @@ namespace Ninjago.Vue
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
+            ////Revnoie des données en JSON à l'API
+            //String url = "http://127.0.0.1/ninjago/public/api";
+            //var res = new WebClient();
+            //String lesParametres="";
+            //foreach (Carte c in maCollection)       //Pour chaque carte on serialize l'objet pour le transformer en string
+            //{
+            //    lesParametres = lesParametres + JsonConvert.SerializeObject(c);
+            //}
+            //var json = res.UploadString(url, lesParametres);
+
             Launcher fenetre = new Launcher();
             fenetre.Show();
             this.Close();
+            
         }
 
         private void btn_ajouter_Click(object sender, RoutedEventArgs e)
@@ -94,8 +102,6 @@ namespace Ninjago.Vue
             btn_ajouter_supprimer_deck.Visibility = Visibility.Visible;
             btn_ajouter_supprimer_deck.Content = "Ajouter à mon deck";
             btn_ajouter_supprimer_deck.Background = Brushes.Green;
-
-
         }
 
         private void btn_supprimer_Click(object sender, RoutedEventArgs e)
@@ -110,32 +116,29 @@ namespace Ninjago.Vue
         {
             if (btn_ajouter_supprimer_deck.Content.ToString() == "Ajouter à mon deck")
             {
-                bool ajout = false; //booleen necessaire pour eviter d'ajouter 2 fois la carte au deck
-                if (carte != null) //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                bool ajout = true;                     //booleen necessaire pour eviter d'ajouter 2 fois la carte au deck, de base on considère qu'on va ajouter la carte
+                if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                 {
-                    if (monDeck.Count() < 20)  //on vérifie que le deck possède moins de 20 cartes
+                    if (monDeck.Count() < 20)           //on vérifie que le deck possède moins de 20 cartes
                     {
                         if (monDeck.Count() == 0)
                         {
                             monDeck.Add(carte);
-                            carte.ajoutExemplaire();
+                            carte.ajoutDeck();
                         }
-                        else    //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
+                        else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
                         {
                             foreach (Carte c in monDeck)
                             {
                                 if (c == carte)
                                 {
-                                    ajout = false;
-                                }
-                                else
-                                {
-                                    ajout = true;
+                                    ajout = false;      //si la carte existe dejà dans la collection, on ne l'ajoute pas
                                 }
                             }
                             if (ajout == true)
                             {
                                 monDeck.Add(carte);
+                                carte.ajoutDeck();
                             }
                         }
                     }
@@ -145,9 +148,10 @@ namespace Ninjago.Vue
             }
             else if (btn_ajouter_supprimer_deck.Content.ToString() == "Supprimer de mon deck")
             {
-                if (carte != null)  //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                 {       
                     monDeck.Remove(carte);
+                    carte.suppressionDeck();
                 }
                 refresh();
             }
@@ -159,11 +163,11 @@ namespace Ninjago.Vue
             {
 
             }
-            else            //sinon on recupere la carte 
+            else                                        //sinon on recupere la carte 
             {
                 carte = new Carte();
                 carte = (Carte)lbox_collection.SelectedItem;
-                lbox_deck.SelectedIndex = -1;  //on passe l'item selectionner de l'autre liste à la valeur null
+                lbox_deck.SelectedIndex = -1;          //on passe l'item selectionner de l'autre liste à la valeur null
                 refresh();
             }
         }
@@ -201,27 +205,6 @@ namespace Ninjago.Vue
                     lbl_attaque.Content = cp.Attaque;
                     lbl_force.Content = cp.Force;
                     lbl_defense.Content = cp.Defense;
-                    txt_description.Text = "";
-                }
-                else if (carte.Type == "A")
-                {
-                    CarteAction ca = new CarteAction();
-                    ca = (CarteAction)carte;
-                    lbl_vitesse.Content = "";
-                    lbl_attaque.Content = "";
-                    lbl_force.Content = "";
-                    lbl_defense.Content = "";
-                    txt_description.Text = ca.Description;
-                }
-                else if (carte.Type == "V")
-                {
-                    CarteVehicule cv = new CarteVehicule();
-                    cv = (CarteVehicule)carte;
-                    lbl_vitesse.Content = "";
-                    lbl_attaque.Content = "";
-                    lbl_force.Content = "";
-                    lbl_defense.Content = "";
-                    txt_description.Text = cv.Description;
                 }
                 //Recuperation des images (try catch nécessaire pour éviter le plantage si la carte ne correspond à aucune image)
                 //certaines images ne correspondent pas à la carte car le fichier JSON est peuplé avec des exemples qui n'existent pas
@@ -246,20 +229,18 @@ namespace Ninjago.Vue
                 lbl_attaque.Content = "";
                 lbl_force.Content = "";
                 lbl_defense.Content = "";
-                txt_description.Text = "";
                 img_carte.Visibility = Visibility.Hidden;
             }
         }
 
     private void btn_suppression_deck_Click(object sender, RoutedEventArgs e)
         {
-            if (carte != null) //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
-            {
                 foreach (Carte c in monDeck)
                 {
                     c.suppressionDeck();
+
                 }
-            }
+                monDeck.Clear();  
             refresh();
         }
     }
