@@ -18,11 +18,13 @@
             <RadioButton x:Name="AleatoireJ1" Content="Aléatoire" Margin="191,80,0,14" HorizontalAlignment="Left" Width="127"/>
             <Label Content="Joueur 1" HorizontalAlignment="Left" Margin="10,10,0,104"/>
         </Grid>
-        <Grid x:Name="Joueur_2" Margin="40,242,0,178" HorizontalAlignment="Left" Width="216">
-            <Border x:Name="J2"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0,0.333"/>
-            <RadioButton x:Name="IA" Content="IA" Margin="27,51,0,67.333" HorizontalAlignment="Left" Width="127"/>
-            <RadioButton x:Name="Joueur2" Content="Joueur 2" Margin="27,72,0,27.333" HorizontalAlignment="Left" Width="127"/>
+        <Grid x:Name="Joueur_2" Margin="40,242,0,123" HorizontalAlignment="Left" Width="216">
+            <Border x:Name="J2"   BorderBrush="Black" BorderThickness="3" Margin="0,0,10,10"/>
+            <RadioButton x:Name="IA" Content="IA" Margin="10,36,0,82" HorizontalAlignment="Left" Width="127"/>
+            <RadioButton x:Name="Joueur2" Content="Joueur 2" Margin="10,0,0,99" HorizontalAlignment="Left" Width="127"/>
             <Label Content="Joueur 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="DateJ2"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,140,0,0" />
+            <TextBox  x:Name="PseudoJ2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="151" Margin="10,109,0,0"/>
         </Grid>
         <Grid x:Name="Carte" Margin="293,242,42,0" VerticalAlignment="Top">
             <Border x:Name="CarteBord"   BorderBrush="Black" BorderThickness="3"/>

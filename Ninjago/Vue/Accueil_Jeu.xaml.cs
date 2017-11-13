@@ -19,16 +19,20 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Accueil_Jeu
     { List<Joueur> lesJ = new List<Joueur>();
+        List<CartePersonnage> lesC = new List<CartePersonnage>();
         public Accueil_Jeu()
         {
-            InitializeComponent();
+            //InitializeComponent();
+            //lesC.Add(Collection.lesCartes.Get);
         }
 
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         {
             Joueur J1 = new Joueur(PseudoJ1.ToString(), "" );
-
-
+            Joueur J2 = new Joueur(PseudoJ2.ToString(), "");
+            J1.DateNaissance= Convert.ToDateTime(DateJ1);
+            J2.DateNaissance = Convert.ToDateTime(DateJ2);
+           
         }
 
 
