@@ -54,23 +54,31 @@ namespace Ninjago.Vue
             JArray o = JArray.Parse(json);
             //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
             foreach (JObject carte in o) {
-                Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());  //GetValue("xxx") permet de récupérer les données du JSON
+                Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString());  //GetValue("xxx") permet de récupérer les données du JSON
                 
                 if (c.Type == "P")
                 {
-                    CartePersonnage cp = new CartePersonnage(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString(), Convert.ToInt32(carte.GetValue("attaque")), Convert.ToInt32(carte.GetValue("defense")), Convert.ToInt32(carte.GetValue("vitesse")), Convert.ToInt32(carte.GetValue("force")));
+                    CartePersonnage cp = new CartePersonnage(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString(), Convert.ToInt32(carte.GetValue("attaque")), Convert.ToInt32(carte.GetValue("defense")), Convert.ToInt32(carte.GetValue("vitesse")), Convert.ToInt32(carte.GetValue("force")));
                     lesCartes.Add(cp);
 
                 }
                 else if (c.Type == "A")
                 {
-                    CarteAction ca = new CarteAction(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
+                    CarteAction ca = new CarteAction(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
                     lesCartes.Add(ca);
                 }
                 else if (c.Type == "V")
                 {
-                    CarteVehicule cv = new CarteVehicule(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), 0, carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
+                    CarteVehicule cv = new CarteVehicule(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
                     lesCartes.Add(cv);
+                }
+            }
+
+            foreach(Carte c in lesCartes)       //Pour chaque carte de la liste complete
+            {
+                if (c.Exemplaire > 0)           //Si le nbr d'exemplaire et supérieur à 0 on l'ajoute dans la collection du joueur
+                {
+                    maCollection.Add(c);
                 }
             }
 
@@ -81,6 +89,16 @@ namespace Ninjago.Vue
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
+            ////Revnoie des données en JSON à l'API
+            //String url = "http://127.0.0.1/ninjago/public/api";
+            //var res = new WebClient();
+            //String lesParametres = "";
+            //foreach (Carte c in lesCartes)       //Pour chaque carte on serialize l'objet pour le transformer en string
+            //{
+            //    lesParametres = lesParametres + JsonConvert.SerializeObject(c);
+            //}
+            //var json = res.UploadString(url, lesParametres);
+
             Launcher fenetre = new Launcher();
             fenetre.Show();
             this.Close();
@@ -104,7 +122,7 @@ namespace Ninjago.Vue
         {
             if (btn_ajouter_supprimer_collection.Content.ToString() == "Ajouter un exemplaire")
             {
-                bool ajout = false;     //booleen necessaire pour eviter d'ajouter 2 fois la carte à la collection
+                bool ajout = true;     //booleen necessaire pour eviter d'ajouter 2 fois la carte à la collection, de base on considère qu'on va ajouter la carte
                 
                 if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                 {
@@ -118,15 +136,12 @@ namespace Ninjago.Vue
                     {
                         foreach (Carte c in maCollection)
                         {
-                            if (c == carte)
+                            if (c == carte)             
                             {
-                                ajout = false;
-                                carte.ajoutExemplaire();
+                                ajout = false;                  //si la carte existe dejà dans la collection, on ne l'ajoute pas
+                                carte.ajoutExemplaire();        //on ajoute quand même un exemplaire
                             }
-                            else
-                            {
-                                ajout = true;
-                            }
+                           
                         }
                         if (ajout == true)
                         {
@@ -161,18 +176,34 @@ namespace Ninjago.Vue
 
         private void lbox_cartes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            carte = new Carte();
-            carte = (Carte)lbox_cartes.SelectedItem;    
-            refresh();
+            if (lbox_cartes.SelectedItem == null)       //si la selection est null, on ne fait rien
+            {
+
+            }
+            else            //sinon on recupere la carte 
+            {
+                carte = new Carte();
+                carte = (Carte)lbox_cartes.SelectedItem;
+                lbox_collection.SelectedIndex = -1;     //on passe l'item selectionner de l'autre liste à la valeur null
+                refresh();
+            }
         }
 
         
 
         private void lbox_collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            carte = new Carte();
-            carte = (Carte)lbox_collection.SelectedItem; 
-            refresh();
+            if (lbox_collection.SelectedItem == null)   //si la selection est null, on ne fait rien
+            {
+
+            }
+            else            //sinon on recupere la carte 
+            {
+                carte = new Carte();
+                carte = (Carte)lbox_collection.SelectedItem;
+                lbox_cartes.SelectedIndex = -1;     //on passe l'item selectionner de l'autre liste à la valeur null
+                refresh();
+            }
         }
 
         public void refresh()
@@ -215,13 +246,21 @@ namespace Ninjago.Vue
                     txt_description.Text = cv.Description;
                 }
                 //Recuperation des images (try catch nécessaire pour éviter le plantage si la carte ne correspond à aucune image)
+                //certaines images ne correspondent pas à la carte car le fichier JSON est peuplé avec des exemples qui n'existent pas
                 try
                 {
                     img_carte.Visibility = Visibility.Visible;
-                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + "-" + carte.Nom.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
+                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
                     var uri = new Uri(carte.UrlImage);
                     var bitmap = new BitmapImage(uri);
                     img_carte.Source = bitmap;
+                    lbl_nom.Content = "";
+                    lbl_numero.Content = "";
+                    lbl_vitesse.Content = "";
+                    lbl_attaque.Content = "";
+                    lbl_force.Content = "";
+                    lbl_defense.Content = "";
+                    txt_description.Text = "";
                 }
                 catch
                 {
