@@ -101,13 +101,16 @@ namespace Ninjago.Vue
             lbox_deck.ItemsSource = monDeck;
             foreach (Carte c in maCollection)       //ici on n'ajoute les cartes une par une car on ne souhaite pas afficher celle qui sont déjà dans le deck
             {
-                if (c.Deck == true)
+                if (c.Type == "P")
                 {
+                    if (c.Deck == true)
+                    {
 
-                }
-                else
-                {
-                    lbox_collection.Items.Add(c);
+                    }
+                    else
+                    {
+                        lbox_collection.Items.Add(c);
+                    }
                 }
             }
             

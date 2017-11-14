@@ -106,7 +106,7 @@ namespace Ninjago.Vue
             lbox_collection.ItemsSource = maCollection;
             foreach (Carte c in lesCartes)      //ici on n'ajoute les cartes une par une car on ne souhaite pas afficher celle qui sont déjà dans le deck
             {
-                if (c.Exemplaire > 1)
+                if (c.Exemplaire >= 1)
                 {
 
                 }

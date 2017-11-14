@@ -41,7 +41,7 @@ namespace Ninjago.Vue
             J1.DateNaissance= Convert.ToDateTime(DateJ1);
             J2.DateNaissance = Convert.ToDateTime(DateJ2);
             if (MonDeckJ1.IsChecked == true)
-            {foreach (Carte d in monDeck)
+            {foreach (CartePersonnage d in monDeck)
                 {if(d.Type == "p")
                     J1.Deck.Add(d);
                 }
