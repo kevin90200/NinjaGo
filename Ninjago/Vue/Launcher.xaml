@@ -13,11 +13,11 @@
         <ImageBrush ImageSource="/Ninjago;component/Ressource/2017-10-18.jpg"/>
     </Controls:MetroWindow.Background>
     <Grid x:Name="GridLauncher">
-        <Button x:Name="btn_jeu" Content="JEU" Margin="696,0,105,35" Click="btn_jeu_Click" Background="#BFFF0000" BorderBrush="#BFFFFFFF" Controls:ButtonHelper.PreserveTextCase="True" FontSize="20" FontFamily="Felix Titling" Foreground="White" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="154" HorizontalContentAlignment="Center">
+        <Button x:Name="btn_jeu" Content="JEU" Margin="0,0,105,35" Click="btn_jeu_Click" Background="#BFFF0000" BorderBrush="#BFFFFFFF" Controls:ButtonHelper.PreserveTextCase="True" FontSize="20" FontFamily="Felix Titling" Foreground="White" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="154" HorizontalContentAlignment="Center">
         </Button>
-        <Button x:Name="btn_gestion" Content="GESTION" HorizontalAlignment="Center" Margin="94,0,709,35" Width="152" Click="btn_gestion_Click" Background="#BFFF0000" BorderBrush="#BFFFFFFF" Controls:ButtonHelper.PreserveTextCase="True" FontSize="20" FontFamily="Felix Titling" Foreground="White" Height="37" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btn_gestion" Content="GESTION" HorizontalAlignment="Left" Margin="94,0,0,35" Width="152" Click="btn_gestion_Click" Background="#BFFF0000" BorderBrush="#BFFFFFFF" Controls:ButtonHelper.PreserveTextCase="True" FontSize="20" FontFamily="Felix Titling" Foreground="White" Height="37" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
         <Button x:Name="btn_deck" Content="DECK" Margin="404,0,399,35" Click="btn_deck_Click" Background="#BFFF0000" BorderBrush="#BFFFFFFF" Controls:ButtonHelper.PreserveTextCase="True" FontSize="20" FontFamily="Felix Titling" Foreground="White" Height="37" VerticalAlignment="Bottom" MaxWidth="152" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="152"/>
-        <Button x:Name="btn_recup_api" Content="Mise à jour " HorizontalAlignment="Left" Margin="94,445,0,0" VerticalAlignment="Top" Width="152" Click="btn_recup_api_Click" Height="13" FontFamily="Felix Titling" Background="#BFFF0000" BorderBrush="#BFFFFFFF" Foreground="White"/>
+        <Button x:Name="btn_recup_api" Content="Mise à jour " Margin="94,0,0,5" Click="btn_recup_api_Click" Height="13" FontFamily="Felix Titling" Background="#BFFF0000" BorderBrush="#BFFFFFFF" Foreground="White" HorizontalAlignment="Left" Width="152" VerticalAlignment="Bottom"/>
     </Grid>
 
 

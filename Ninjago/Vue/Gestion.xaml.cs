@@ -103,8 +103,19 @@ namespace Ninjago.Vue
             #endregion
 
             //Remplissage des 2 listes box
-            lbox_cartes.ItemsSource = lesCartes;
             lbox_collection.ItemsSource = maCollection;
+            foreach (Carte c in lesCartes)      //ici on n'ajoute les cartes une par une car on ne souhaite pas afficher celle qui sont déjà dans le deck
+            {
+                if (c.Exemplaire > 1)
+                {
+
+                }
+                else
+                {
+                    lbox_cartes.Items.Add(c);
+                }
+            }
+            
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
@@ -142,6 +153,7 @@ namespace Ninjago.Vue
                     if (maCollection.Count() == 0)      
                     {
                         maCollection.Add(carte);
+                        lbox_cartes.Items.Remove(carte); //on affiche dans la collection que les cartes qui ne font pas partie du deck
                         carte.ajoutExemplaire();
                     }
                     else            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans la collection
@@ -158,6 +170,7 @@ namespace Ninjago.Vue
                         if (ajout == true)
                         {
                             maCollection.Add(carte);
+                            lbox_cartes.Items.Remove(carte); //on affiche dans la collection que les cartes qui ne font pas partie du deck
                             carte.ajoutExemplaire();
                         }
                     }
@@ -179,6 +192,7 @@ namespace Ninjago.Vue
                         if (carte.Exemplaire == 0)      //si le nombre d'exemplaire arrive à 0, on supprime la carte de la collection
                         {
                             maCollection.Remove(carte);
+                            lbox_cartes.Items.Add(carte);
                         }
                     }
                 }
@@ -299,6 +313,7 @@ namespace Ninjago.Vue
             if (carte != null) //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
             {
                 maCollection.Remove(carte);
+                lbox_cartes.Items.Add(carte); //on affiche dans la collection que les cartes qui ne font pas partie du deck
                 carte.Exemplaire = 0;
             }
             refresh();

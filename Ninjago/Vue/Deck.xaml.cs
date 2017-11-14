@@ -97,8 +97,20 @@ namespace Ninjago.Vue
             }
             #endregion
             //Remplissage des 2 listes box
-            lbox_collection.ItemsSource = maCollection;
+            
             lbox_deck.ItemsSource = monDeck;
+            foreach (Carte c in maCollection)       //ici on n'ajoute les cartes une par une car on ne souhaite pas afficher celle qui sont déjà dans le deck
+            {
+                if (c.Deck == true)
+                {
+
+                }
+                else
+                {
+                    lbox_collection.Items.Add(c);
+                }
+            }
+            
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
@@ -138,6 +150,7 @@ namespace Ninjago.Vue
                         if (monDeck.Count() == 0)
                         {
                             monDeck.Add(carte);
+                            lbox_collection.Items.Remove(carte);        //on affiche dans la collection que les cartes qui ne font pas partie du deck
                             carte.ajoutDeck();
                         }
                         else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
@@ -152,6 +165,7 @@ namespace Ninjago.Vue
                             if (ajout == true)
                             {
                                 monDeck.Add(carte);
+                                lbox_collection.Items.Remove(carte); //on affiche dans la collection que les cartes qui ne font pas partie du deck
                                 carte.ajoutDeck();
                             }
                         }
@@ -165,6 +179,7 @@ namespace Ninjago.Vue
                 if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                 {       
                     monDeck.Remove(carte);
+                    lbox_collection.Items.Add(carte);  //Quand on eneleve la carte du deck, on le remet dans l'affichage de la collection
                     carte.suppressionDeck();
                 }
                 refresh();
