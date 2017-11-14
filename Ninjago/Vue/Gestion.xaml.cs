@@ -15,6 +15,7 @@ using MahApps.Metro.Controls;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace Ninjago.Vue
 {
@@ -37,6 +38,7 @@ namespace Ninjago.Vue
         //Instanciation de totues les listes et carte pour la gestion
         List<Carte> lesCartes = new List<Carte>();          //liste de toutes les cartes
         List<Carte> maCollection = new List<Carte>();           //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
+        List<Carte> monDeck = new List<Carte>();
         Carte carte;                 //Correspond à la carte séléctionnée dans l'interface (peut être null)
         CarteAction carteAction= new CarteAction();
         CartePersonnage cartePersonnage= new CartePersonnage();
@@ -45,59 +47,69 @@ namespace Ninjago.Vue
         {
             InitializeComponent();
 
-            #region Initailisation collection
-            
-            //recuperation du JSON de l'API
-            String url = "http://127.0.0.1/ninjago/public/api";
-            var res = new WebClient();
-            var json = res.DownloadString(url);         // il existe uploadString aussi
-            JArray o = JArray.Parse(json);
+            #region Initialisation Liste générale 
+            //recuperation du JSON du fichier local
+            var json = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("ninjago.json"));
             //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
-            foreach (JObject carte in o) {
-                Carte c = new Carte(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString());  //GetValue("xxx") permet de récupérer les données du JSON
-                
-                if (c.Type == "P")
+            try
+            {
+                foreach (var carte in json)
                 {
-                    CartePersonnage cp = new CartePersonnage(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString(), Convert.ToInt32(carte.GetValue("attaque")), Convert.ToInt32(carte.GetValue("defense")), Convert.ToInt32(carte.GetValue("vitesse")), Convert.ToInt32(carte.GetValue("force")));
-                    lesCartes.Add(cp);
+                    Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck));  //GetValue("xxx") permet de récupérer les données du JSON
+                    if (c.Type == "P")
+                    {
+                        CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
+                        lesCartes.Add(cp);
 
-                }
-                else if (c.Type == "A")
-                {
-                    CarteAction ca = new CarteAction(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
-                    lesCartes.Add(ca);
-                }
-                else if (c.Type == "V")
-                {
-                    CarteVehicule cv = new CarteVehicule(carte.GetValue("nom").ToString(), carte.GetValue("numero").ToString(), Convert.ToInt32(carte.GetValue("exemplaire")), carte.GetValue("description").ToString(), carte.GetValue("type").ToString());
-                    lesCartes.Add(cv);
+                    }
+                    else if (c.Type == "A")
+                    {
+                        CarteAction ca = new CarteAction(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString());
+                        lesCartes.Add(ca);
+                    }
+                    else if (c.Type == "V")
+                    {
+                        CarteVehicule cv = new CarteVehicule(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString());
+                        lesCartes.Add(cv);
+                    }
                 }
             }
+            catch
+            {
 
-            foreach(Carte c in lesCartes)       //Pour chaque carte de la liste complete
+            }
+            #endregion
+
+            #region Initailisation maCollection
+
+            //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
+            foreach (Carte c in lesCartes)       //Pour chaque carte de la liste complete
             {
                 if (c.Exemplaire > 0)           //Si le nbr d'exemplaire et supérieur à 0 on l'ajoute dans la collection du joueur
                 {
                     maCollection.Add(c);
                 }
             }
-
             #endregion
+
+            #region Initialisation monDeck
+            foreach (Carte c in maCollection)       //Pour chaque carte de la collection du joueur
+            {
+                if (c.Deck == true)           //Si le booleen deck est vrai on l'ajoute dans le deck du joueur
+                {
+                    monDeck.Add(c);
+                }
+            }
+            #endregion
+
             //Remplissage des 2 listes box
             lbox_cartes.ItemsSource = lesCartes;
             lbox_collection.ItemsSource = maCollection;
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
-            ////Revnoie des données en JSON à l'API
-            //String url = "http://127.0.0.1/ninjago/public/api";
-            //var res = new WebClient();
-            //String lesParametres = "";
-            //foreach (Carte c in lesCartes)       //Pour chaque carte on serialize l'objet pour le transformer en string
-            //{
-            //    lesParametres = lesParametres + JsonConvert.SerializeObject(c);
-            //}
-            //var json = res.UploadString(url, lesParametres);
+            //Envoie des données au fichier Json local
+            File.WriteAllText("ninjago.json", JsonConvert.SerializeObject(lesCartes, Formatting.Indented));
 
             Launcher fenetre = new Launcher();
             fenetre.Show();
@@ -291,5 +303,6 @@ namespace Ninjago.Vue
             }
             refresh();
         }
+
     }
 }
