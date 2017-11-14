@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 namespace Ninjago.Vue
 {
     /// <summary>
@@ -19,11 +22,16 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Accueil_Jeu
     { List<Joueur> lesJ = new List<Joueur>();
-        List<CartePersonnage> lesC = new List<CartePersonnage>();
+        List<Carte> maCollection = new List<Carte>();            //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
+        List<Carte> monDeck = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        Carte carte;                                            //Correspond à la carte séléctionnée dans l'interface (peut être null)
+        CarteAction carteAction = new CarteAction();
+        CartePersonnage cartePersonnage = new CartePersonnage();
+        CarteVehicule carteVehicule = new CarteVehicule();
         public Accueil_Jeu()
         {
-            //InitializeComponent();
-            //lesC.Add(Collection.lesCartes.Get);
+            InitializeComponent();
+            
         }
 
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
@@ -32,9 +40,16 @@ namespace Ninjago.Vue
             Joueur J2 = new Joueur(PseudoJ2.ToString(), "");
             J1.DateNaissance= Convert.ToDateTime(DateJ1);
             J2.DateNaissance = Convert.ToDateTime(DateJ2);
+            if (MonDeckJ1.IsChecked == true)
+            {foreach (Carte d in monDeck)
+                {if(d.Type == "p")
+                    J1.Deck.Add(d);
+                }
+            }
            
         }
 
 
-        }
+
+    }
 }
