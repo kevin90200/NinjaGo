@@ -83,39 +83,63 @@ namespace Ninjago.Vue
                      }
                 }
             }
-            if(AleatoireColJ1.IsChecked == true || AleatoireColJ2.IsChecked ==true)
+            if (AleatoireColJ1.IsChecked == true || AleatoireColJ2.IsChecked == true)
             {
+
                 int nombreCarteCollection = maCollection.Count();
-                
-                for (int i = 1; i <= 20; i++)
+                if (nombreCarteCollection >= 20)
                 {
-                    Random aleatoire = new Random();
-                    int numeroAlea = aleatoire.Next(nombreCarteCollection - 1);
-                    if(AleatoireColJ1.IsChecked == true)
+                    for (int i = 1; i <= 20; i++)
                     {
-                        J1.Deck.Add(maCollection[numeroAlea]);
-                    }
-                    if (AleatoireColJ2.IsChecked == true)
-                    {
-                        J2.Deck.Add(maCollection[numeroAlea]);
+                        Random aleatoire = new Random();
+                        int numeroAlea = aleatoire.Next(nombreCarteCollection - 1);
+                        Boolean ajout = true;
+                        foreach (CartePersonnage cp in J1.Deck)
+                        {
+                            if (maCollection[numeroAlea] == cp)
+                            {
+                                ajout = false;
+                                i = i - 1;
+                            }
+                        }
+                        if (AleatoireColJ1.IsChecked == true && ajout == true)
+                        {
+                            J1.Deck.Add(maCollection[numeroAlea]);
+                        }
+                        if (AleatoireColJ2.IsChecked == true && ajout == true)
+                        {
+                            J2.Deck.Add(maCollection[numeroAlea]);
+                        }
                     }
                 }
             }
             if (AleatoireAllJ1.IsChecked == true || AleatoireAllJ2.IsChecked == true)
             {
                 int nombreCarteAll = lesCartes.Count();
-
-                for (int i = 1; i <= 20; i++)
+                if (nombreCarteAll >= 20)
                 {
-                    Random aleatoire = new Random();
-                    int numeroAlea = aleatoire.Next(nombreCarteAll - 1);
-                    if (AleatoireColJ1.IsChecked == true)
+                    for (int i = 1; i <= 20; i++)
                     {
-                        J1.Deck.Add(lesCartes[numeroAlea]);
-                    }
-                    if (AleatoireColJ2.IsChecked == true)
-                    {
-                        J2.Deck.Add(lesCartes[numeroAlea]);
+                        Random aleatoire = new Random();
+                        int numeroAlea = aleatoire.Next(nombreCarteAll - 1);
+                        Boolean ajout = true;
+                        foreach (CartePersonnage cp in J1.Deck)
+                        {
+                            if (maCollection[numeroAlea] == cp)
+                            {
+                                ajout = false;
+                                i = i - 1;
+                            }
+                        }
+                        if (AleatoireColJ1.IsChecked == true && ajout == true)
+                        {
+                            J1.Deck.Add(lesCartes[numeroAlea]);
+
+                        }
+                        if (AleatoireColJ2.IsChecked == true && ajout == true)
+                        {
+                            J2.Deck.Add(lesCartes[numeroAlea]);
+                        }
                     }
                 }
             }
