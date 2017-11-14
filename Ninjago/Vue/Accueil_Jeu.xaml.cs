@@ -119,6 +119,8 @@ namespace Ninjago.Vue
                     }
                 }
             }
+           // comment renvoyer J1 et J2 sur plateau
+
 
 
 
