@@ -39,10 +39,11 @@ namespace Ninjago
 
         }
         //Constructeur nécessaire à la partie deck
-        public Carte(String unNom, String unNumero, String uneDescription, String unType, bool unDeck)
+        public Carte(String unNom, String unNumero, int nbExemplaire, String uneDescription, String unType, bool unDeck)
         {
             this.Nom = unNom;
             this.Numero = unNumero;
+            this.exemplaire = nbExemplaire;
             this.description = uneDescription;
             this.Type = unType;
             this.deck = unDeck;
