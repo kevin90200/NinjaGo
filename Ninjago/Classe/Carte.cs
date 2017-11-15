@@ -14,7 +14,9 @@ namespace Ninjago
         protected string description;
         protected string type;
         protected string urlImage;  //permet d'attribuer à chaque carte une url pour l'image qui lui correspond      //à ajouter dans le diagramme de classe
-        protected bool deck;  //uniquement utile pour deck        //permet de savoir si la catrte apartient ou non au deck du joueur      //à ajouter dans le diagramme de classe + dans le JSON
+        protected bool deck1;  //uniquement utile pour deck        //permet de savoir si la catrte apartient ou non au deck du joueur      //à ajouter dans le diagramme de classe + dans le JSON
+        protected bool deck2;
+        protected bool deck3;
 
 
         public string Nom { get => nom; set => nom = value; }
@@ -23,7 +25,9 @@ namespace Ninjago
         public string Description { get => description; set => description = value; }
         public string Type { get => type; set => type = value; }
         public string UrlImage { get => urlImage; set => urlImage = value; }
-        public bool Deck { get => deck; set => deck = value; }
+        public bool Deck1 { get => deck1; set => deck1 = value; }
+        public bool Deck2 { get => deck2; set => deck2 = value; }
+        public bool Deck3 { get => deck3; set => deck3 = value; }
 
         public Carte()
         {
@@ -39,14 +43,16 @@ namespace Ninjago
 
         }
         //Constructeur nécessaire à la partie deck
-        public Carte(String unNom, String unNumero, int nbExemplaire, String uneDescription, String unType, bool unDeck)
+        public Carte(String unNom, String unNumero, int nbExemplaire, String uneDescription, String unType, bool deck1, bool deck2, bool deck3)
         {
             this.Nom = unNom;
             this.Numero = unNumero;
             this.exemplaire = nbExemplaire;
             this.description = uneDescription;
             this.Type = unType;
-            this.deck = unDeck;
+            this.deck1 = deck1;
+            this.deck2 = deck2;
+            this.deck3 = deck3;
 
         }
 
@@ -67,17 +73,40 @@ namespace Ninjago
         }
 
         //gestion de l'ajout et suppression d'une carte au deck
-        public void ajoutDeck()
+        public void ajoutDeck1()
         {
-            this.deck = true;
+            this.deck1 = true;
         }
-        public void suppressionDeck()
+        public void suppressionDeck1()
         {
-            this.deck = false;
+            this.deck1 = false;
+        }
+        public void ajoutDeck2()
+        {
+            this.deck2 = true;
+        }
+        public void suppressionDeck2()
+        {
+            this.deck2 = false;
+        }
+        public void ajoutDeck3()
+        {
+            this.deck3 = true;
+        }
+        public void suppressionDeck3()
+        {
+            this.deck3 = false;
         }
         public override string ToString()
         {
-            return Nom;
+            try   
+            {
+                return Convert.ToInt32(Numero).ToString() + " | " + Nom;        //Conversion en int puis à nouveau en string pour supprier les 0 de l'affichage
+            }
+            catch           //Try catch nécessaire pour les cartes LEx car on ne peut aps convertir en int
+            {
+                return Numero + " | " + Nom;
+            }
         }
     }
 }

@@ -47,12 +47,12 @@ namespace Ninjago.Vue
 
             foreach (var carte in json)
             {
-                Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck));  //GetValue("xxx") permet de récupérer les données du JSON
+                Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck1), Convert.ToBoolean(carte.Deck2), Convert.ToBoolean(carte.Deck3)); 
                 if (c.Type == "P")
                 {
-                    CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
+                    CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck1), Convert.ToBoolean(carte.Deck2), Convert.ToBoolean(carte.Deck3), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
                     lesCartes.Add(cp);
-                    if (cp.Deck == true)
+                    if (cp.Deck1 == true)
                     {
                         monDeck.Add(cp);
                     }
@@ -67,7 +67,7 @@ namespace Ninjago.Vue
             { 
                 foreach (CartePersonnage cp in monDeck)
                 {
-                     if (cp.Deck == true)
+                     if (cp.Deck1 == true)
                      {
                           if (MonDeckJ1.IsChecked == true)
                           {

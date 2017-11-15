@@ -25,18 +25,15 @@ namespace Ninjago.Vue
     public partial class Deck
     {
 
-        //
-        //Attention ! Pour être fonctionnelle la partie deck nécéssite de modifier le JSON (ajout du bolleen deck et des exemplaires) pour pouvoir initialiser les listes
-        //
-        //Reste à renvoyer les informations dans le JSON afin de stocker les collections 
-        //
         //La partie deck nécessite de revoir l'affichage (pas responsive)
 
 
         //Instanciation de totues les listes et carte pour la gestion du deck
         List<Carte> lesCartes = new List<Carte>();        //liste de toutes les cartes
         List<Carte> maCollection = new List<Carte>();            //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
-        List<Carte> monDeck = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck1 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck2 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck3 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
         Carte carte;                                            //Correspond à la carte séléctionnée dans l'interface (peut être null)
         CarteAction carteAction = new CarteAction();
         CartePersonnage cartePersonnage = new CartePersonnage();
@@ -52,10 +49,10 @@ namespace Ninjago.Vue
             {
                 foreach (var carte in json)
                 {
-                    Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(),Convert.ToBoolean(carte.Deck));  //GetValue("xxx") permet de récupérer les données du JSON
+                    Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck1), Convert.ToBoolean(carte.Deck2), Convert.ToBoolean(carte.Deck3));
                     if (c.Type == "P")
                     {
-                        CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(),Convert.ToBoolean(carte.Deck), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
+                        CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck1), Convert.ToBoolean(carte.Deck2), Convert.ToBoolean(carte.Deck3), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
                         lesCartes.Add(cp);
 
                     }
@@ -90,15 +87,27 @@ namespace Ninjago.Vue
             #region Initialisation monDeck
             foreach (Carte c in maCollection)       //Pour chaque carte de la collection du joueur
             {
-                if (c.Deck == true)           //Si le booleen deck est vrai on l'ajoute dans le deck du joueur
+                if (c.Deck1 == true)           //Si le booleen deck est vrai on l'ajoute dans le deck du joueur
                 {
-                    monDeck.Add(c);
+                    monDeck1.Add(c);
+                }
+                if (c.Deck2 == true)
+                {
+                    monDeck2.Add(c);
+                }
+                if (c.Deck3 == true)
+                {
+                    monDeck3.Add(c);
                 }
             }
             #endregion
-            //Remplissage des 2 listes box
+            //Remplissage de la liste box collection
             lbox_collection.ItemsSource = maCollection;
-            lbox_deck.ItemsSource = monDeck;
+            cbbx_choix_deck.SelectedIndex = 0;  //permet de remplir la list box deck avec par défaut, le deck 1
+
+            
+
+            
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
@@ -128,47 +137,147 @@ namespace Ninjago.Vue
         //Bouton ajouer_supprimer permet de créer une sorte de validation (2 cliques pour ajouter/supprimer)
         private void btn_ajouter_supprimer_deck_Click(object sender, RoutedEventArgs e)
         {
-            if (btn_ajouter_supprimer_deck.Content.ToString() == "Ajouter à mon deck")
+            #region gestion ajout deck1
+            if (cbbx_choix_deck.SelectedIndex == 0)
             {
-                bool ajout = true;                     //booleen necessaire pour eviter d'ajouter 2 fois la carte au deck, de base on considère qu'on va ajouter la carte
-                if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                if (btn_ajouter_supprimer_deck.Content.ToString() == "Ajouter à mon deck")
                 {
-                    if (monDeck.Count() < 20)           //on vérifie que le deck possède moins de 20 cartes
+                    bool ajout = true;                     //booleen necessaire pour eviter d'ajouter 2 fois la carte au deck, de base on considère qu'on va ajouter la carte
+
+                    if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
                     {
-                        if (monDeck.Count() == 0)
+                        if (monDeck1.Count() < 20)           //on vérifie que le deck possède moins de 20 cartes
                         {
-                            monDeck.Add(carte);
-                            carte.ajoutDeck();
-                        }
-                        else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
-                        {
-                            foreach (Carte c in monDeck)
+                            if (monDeck1.Count() == 0)
                             {
-                                if (c == carte)
-                                {
-                                    ajout = false;      //si la carte existe dejà dans la collection, on ne l'ajoute pas
-                                }
+                                monDeck1.Add(carte);
+                                carte.ajoutDeck1();
                             }
-                            if (ajout == true)
+                            else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
                             {
-                                monDeck.Add(carte);
-                                carte.ajoutDeck();
+                                foreach (Carte c in monDeck1)
+                                {
+                                    if (c == carte)
+                                    {
+                                        ajout = false;      //si la carte existe dejà dans la collection, on ne l'ajoute pas
+                                    }
+                                }
+                                if (ajout == true)
+                                {
+                                    monDeck1.Add(carte);
+                                    carte.ajoutDeck1();
+                                }
                             }
                         }
                     }
-                }
-                refresh();
+                    refresh();
 
-            }
-            else if (btn_ajouter_supprimer_deck.Content.ToString() == "Supprimer de mon deck")
-            {
-                if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
-                {       
-                    monDeck.Remove(carte);
-                    carte.suppressionDeck();
                 }
-                refresh();
+                else if (btn_ajouter_supprimer_deck.Content.ToString() == "Supprimer de mon deck")
+                {
+                    if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                    {
+                        monDeck1.Remove(carte);
+                        carte.suppressionDeck1();
+                    }
+                    refresh();
+                }
             }
+            #endregion
+            #region gestion ajout deck2
+            if (cbbx_choix_deck.SelectedIndex == 1)
+            {
+                if (btn_ajouter_supprimer_deck.Content.ToString() == "Ajouter à mon deck")
+                {
+                    bool ajout = true;                     //booleen necessaire pour eviter d'ajouter 2 fois la carte au deck, de base on considère qu'on va ajouter la carte
+
+                    if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                    {
+                        if (monDeck2.Count() < 20)           //on vérifie que le deck possède moins de 20 cartes
+                        {
+                            if (monDeck2.Count() == 0)
+                            {
+                                monDeck2.Add(carte);
+                                carte.ajoutDeck2();
+                            }
+                            else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
+                            {
+                                foreach (Carte c in monDeck2)
+                                {
+                                    if (c == carte)
+                                    {
+                                        ajout = false;      //si la carte existe dejà dans la collection, on ne l'ajoute pas
+                                    }
+                                }
+                                if (ajout == true)
+                                {
+                                    monDeck2.Add(carte);
+                                    carte.ajoutDeck2();
+                                }
+                            }
+                        }
+                    }
+                    refresh();
+
+                }
+                else if (btn_ajouter_supprimer_deck.Content.ToString() == "Supprimer de mon deck")
+                {
+                    if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                    {
+                        monDeck2.Remove(carte);
+                        carte.suppressionDeck2();
+                    }
+                    refresh();
+                }
+            }
+            #endregion
+            #region gestion ajout deck3
+            if (cbbx_choix_deck.SelectedIndex == 2)
+            {
+                if (btn_ajouter_supprimer_deck.Content.ToString() == "Ajouter à mon deck")
+                {
+                    bool ajout = true;                     //booleen necessaire pour eviter d'ajouter 2 fois la carte au deck, de base on considère qu'on va ajouter la carte
+
+                    if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                    {
+                        if (monDeck3.Count() < 20)           //on vérifie que le deck possède moins de 20 cartes
+                        {
+                            if (monDeck3.Count() == 0)
+                            {
+                                monDeck3.Add(carte);
+                                carte.ajoutDeck3();
+                            }
+                            else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
+                            {
+                                foreach (Carte c in monDeck3)
+                                {
+                                    if (c == carte)
+                                    {
+                                        ajout = false;      //si la carte existe dejà dans la collection, on ne l'ajoute pas
+                                    }
+                                }
+                                if (ajout == true)
+                                {
+                                    monDeck3.Add(carte);
+                                    carte.ajoutDeck3();
+                                }
+                            }
+                        }
+                    }
+                    refresh();
+
+                }
+                else if (btn_ajouter_supprimer_deck.Content.ToString() == "Supprimer de mon deck")
+                {
+                    if (carte != null)                      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
+                    {
+                        monDeck3.Remove(carte);
+                        carte.suppressionDeck3();
+                    }
+                    refresh();
+                }
+            }
+            #endregion
         }
 
         private void lbox_collection_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -221,11 +330,17 @@ namespace Ninjago.Vue
                     lbl_defense.Content = cp.Defense;
                 }
                 //Recuperation des images (try catch nécessaire pour éviter le plantage si la carte ne correspond à aucune image)
-                //certaines images ne correspondent pas à la carte car le fichier JSON est peuplé avec des exemples qui n'existent pas
                 try
                 {
                     img_carte.Visibility = Visibility.Visible;
-                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + ".png";
+                    try                 //Conversion en int puis à nouveau en string pour supprier les 0 de l'affichage //Try catch nécessaire pour les cartes LEx car on ne peut aps convertir en int
+                    {
+                        carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(carte.Numero).ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
+                    }
+                    catch
+                    {
+                        carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
+                    }
                     var uri = new Uri(carte.UrlImage);
                     var bitmap = new BitmapImage(uri);
                     img_carte.Source = bitmap;
@@ -249,13 +364,52 @@ namespace Ninjago.Vue
 
     private void btn_suppression_deck_Click(object sender, RoutedEventArgs e)
         {
-                foreach (Carte c in monDeck)
+            if (cbbx_choix_deck.SelectedIndex == 0)
+            {
+                foreach (Carte c in monDeck1)
                 {
-                    c.suppressionDeck();
+                    c.suppressionDeck1();
 
                 }
-                monDeck.Clear();  
+                monDeck1.Clear();
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 1)
+            {
+                foreach (Carte c in monDeck2)
+                {
+                    c.suppressionDeck2();
+
+                }
+                monDeck2.Clear();
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 2)
+            {
+                foreach (Carte c in monDeck3)
+                {
+                    c.suppressionDeck3();
+
+                }
+                monDeck3.Clear();
+            }
+              
             refresh();
+        }
+
+        private void cbbx_choix_deck_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbbx_choix_deck.SelectedIndex == 0)
+            {
+                lbox_deck.ItemsSource = monDeck1;
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 1)
+            {
+                lbox_deck.ItemsSource = monDeck2;
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 2)
+            {
+                lbox_deck.ItemsSource = monDeck3;
+            }
+            lbox_deck.Items.Refresh();
         }
     }
 }
