@@ -26,7 +26,7 @@ namespace Ninjago
             this.Force = uneForce;
         }
         //Constructeur nécessaire à la partie deck
-        public CartePersonnage(String unNom, String unNumero,int nbExemplaire, String uneDescription, String unType, bool unDeck, int uneAttaque, int uneDefense, int uneVitesse, int uneForce) : base(unNom, unNumero, nbExemplaire, uneDescription, unType, unDeck)
+        public CartePersonnage(String unNom, String unNumero,int nbExemplaire, String uneDescription, String unType, bool deck1, bool deck2, bool deck3, int uneAttaque, int uneDefense, int uneVitesse, int uneForce) : base(unNom, unNumero, nbExemplaire, uneDescription, unType, deck1, deck2, deck3)
         {
             this.Attaque = uneAttaque;
             this.Defense = uneDefense;

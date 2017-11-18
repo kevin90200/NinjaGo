@@ -25,12 +25,6 @@ namespace Ninjago.Vue
     public partial class Gestion
     {
 
-
-        //
-        //Attention ! Pour être fonctionnelle la partie collection nécéssite de modifier le JSON (ajout du bolleen deck et des exemplaires) pour pouvoir initialiser les listes
-        //
-        //Reste à renvoyer les informations dans le JSON afin de stocker les collections 
-        //
         //La partie collection nécessite de revoir l'affichage (pas responsive)
 
 
@@ -38,7 +32,9 @@ namespace Ninjago.Vue
         //Instanciation de totues les listes et carte pour la gestion
         List<Carte> lesCartes = new List<Carte>();          //liste de toutes les cartes
         List<Carte> maCollection = new List<Carte>();           //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
-        List<Carte> monDeck = new List<Carte>();
+        List<Carte> monDeck1 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck2 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck3 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
         Carte carte;                 //Correspond à la carte séléctionnée dans l'interface (peut être null)
         CarteAction carteAction= new CarteAction();
         CartePersonnage cartePersonnage= new CartePersonnage();
@@ -55,10 +51,10 @@ namespace Ninjago.Vue
             {
                 foreach (var carte in json)
                 {
-                    Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck));  //GetValue("xxx") permet de récupérer les données du JSON
+                    Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck1), Convert.ToBoolean(carte.Deck2), Convert.ToBoolean(carte.Deck3));
                     if (c.Type == "P")
                     {
-                        CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
+                        CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck1), Convert.ToBoolean(carte.Deck2), Convert.ToBoolean(carte.Deck3), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
                         lesCartes.Add(cp);
 
                     }
@@ -95,9 +91,17 @@ namespace Ninjago.Vue
             #region Initialisation monDeck
             foreach (Carte c in maCollection)       //Pour chaque carte de la collection du joueur
             {
-                if (c.Deck == true)           //Si le booleen deck est vrai on l'ajoute dans le deck du joueur
+                if (c.Deck1 == true)           //Si le booleen deck est vrai on l'ajoute dans le deck du joueur
                 {
-                    monDeck.Add(c);
+                    monDeck1.Add(c);
+                }
+                if (c.Deck2 == true)
+                {
+                    monDeck2.Add(c);
+                }
+                if (c.Deck3 == true)
+                {
+                    monDeck3.Add(c);
                 }
             }
             #endregion
@@ -220,6 +224,7 @@ namespace Ninjago.Vue
 
         public void refresh()
         {
+            lesCartes.OrderBy(Carte => Carte.Numero);
             lbox_cartes.Items.Refresh();
             lbox_collection.Items.Refresh();
             if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
@@ -258,12 +263,18 @@ namespace Ninjago.Vue
                     txt_description.Text = cv.Description;
                 }
                 //Recuperation des images (try catch nécessaire pour éviter le plantage si la carte ne correspond à aucune image)
-                //certaines images ne correspondent pas à la carte car le fichier JSON est peuplé avec des exemples qui n'existent pas
                 try
                 {
                     img_carte.Visibility = Visibility.Visible;
-                    carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
-                    var uri = new Uri(carte.UrlImage);
+                    try                 //Conversion en int puis à nouveau en string pour supprier les 0 de l'affichage //Try catch nécessaire pour les cartes LEx car on ne peut aps convertir en int
+                    {
+                        carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(carte.Numero).ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
+                    }
+                    catch
+                    {
+                        carte.UrlImage = "pack://application:,,,/Ressource/cartes/" + carte.Numero.ToString() + ".png";  //l'attribut UrlImage prend les attributs de la carte pour les metttre en forme comme le nom de l'image qui lui correspond
+                    }
+                        var uri = new Uri(carte.UrlImage);
                     var bitmap = new BitmapImage(uri);
                     img_carte.Source = bitmap;
                     lbl_nom.Content = "";
