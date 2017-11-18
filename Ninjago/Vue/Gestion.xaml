@@ -56,7 +56,7 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="lbl_numero" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" FontSize="9" Height="22" Width="10" Grid.Row="1"/>
-        <Label x:Name="lbl_liste_carte" Content="Liste des cartes" HorizontalAlignment="Right" Margin="0,0,11,372" VerticalAlignment="Bottom" Width="243" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Grid.Row="1">
+        <Label x:Name="lbl_liste_carte" HorizontalAlignment="Right" Margin="0,0,10,372" VerticalAlignment="Bottom" Width="244" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Grid.Row="1" Content="Liste des cartes">
             <Label.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -66,12 +66,13 @@
                 </TransformGroup>
             </Label.LayoutTransform>
         </Label>
-        <Label x:Name="lbl_liste_carte_Copy" Content="Ma collection" HorizontalAlignment="Left" Margin="11,0,0,372" VerticalAlignment="Bottom" Width="253" HorizontalContentAlignment="Center" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Background="White" Height="28" Grid.Row="1"/>
+        <Label x:Name="lbl_liste_carte_Copy" Content="Ma collection" HorizontalAlignment="Left" Margin="11,0,0,372" VerticalAlignment="Bottom" Width="182" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1" Background="White" Height="28" Grid.Row="1"/>
         <Label x:Name="lbl_exemplaire" Content="Exemplaire :" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,65" VerticalAlignment="Bottom" Width="90" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1,0,0,1" Background="White" Height="27" Grid.Row="1"/>
         <Label x:Name="lbl_nb_exemplaire" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="100,0,0,65" VerticalAlignment="Bottom" Width="90" BorderBrush="Black" BorderThickness="0,0,1,1" Background="White" Height="27" Grid.Row="1"/>
         <TextBlock x:Name="txt_description" Grid.Column="1" HorizontalAlignment="Left" Margin="39,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="123" Grid.Row="1"/>
         <Image x:Name="img_carte" Grid.Column="1" Margin="20,0,17,97" Grid.Row="1" Height="239" VerticalAlignment="Bottom"/>
         <Button x:Name="btn_suppression_exemplaires" Content="SUPPRIMER TOUS LES EXEMPLAIRES" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="253" Grid.Column="2" Margin="11,0,0,36" Background="Red" Foreground="White" Click="btn_suppression_exemplaires_Click" Height="27" Grid.Row="1"/>
+        <Label x:Name="lbl_collection_count" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="193,0,0,372" Grid.Row="1" Width="71" BorderThickness="0,1,1,1" Background="White" BorderBrush="Black" Height="28" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Controls:MetroWindow>

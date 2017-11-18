@@ -25,7 +25,9 @@ namespace Ninjago.Vue
     { List<Joueur> lesJ = new List<Joueur>();
         List<CartePersonnage> lesCartes = new List<CartePersonnage>();
         List<CartePersonnage> maCollection = new List<CartePersonnage>();            //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
-        List<Carte> monDeck = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck1 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck2 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<Carte> monDeck3 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
         Carte carte;                                            //Correspond à la carte séléctionnée dans l'interface (peut être null)
         CarteAction carteAction = new CarteAction();
         CartePersonnage cartePersonnage = new CartePersonnage();
@@ -54,7 +56,7 @@ namespace Ninjago.Vue
                     lesCartes.Add(cp);
                     if (cp.Deck1 == true)
                     {
-                        monDeck.Add(cp);
+                        monDeck1.Add(cp);
                     }
                     if (cp.Exemplaire > 0)
                     {
@@ -65,7 +67,7 @@ namespace Ninjago.Vue
             }
             if (MonDeckJ1.IsChecked == true || MonDeckJ2.IsChecked == true)
             { 
-                foreach (CartePersonnage cp in monDeck)
+                foreach (CartePersonnage cp in monDeck1)
                 {
                      if (cp.Deck1 == true)
                      {
