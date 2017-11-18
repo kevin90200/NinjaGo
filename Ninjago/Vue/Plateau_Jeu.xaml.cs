@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.IO;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+
 namespace Ninjago.Vue
 {
     /// <summary>
@@ -22,30 +27,49 @@ namespace Ninjago.Vue
         //pour comit
         String choixMain;
         int action;
-        List<Joueur> lesJ = new List<Joueur>();
-        //Joueur j1, j2;
-        
+        List<Joueur> lesJ = new List<Joueur>() ;
+        Joueur j1, j2;
+
         public Plateau_Jeu()
         {
-            InitializeComponent();
+           
+                InitializeComponent();
             Main.Visibility = Visibility.Hidden;
             C1.Visibility = Visibility.Hidden;
             C2.Visibility = Visibility.Hidden;
             C3.Visibility = Visibility.Hidden;
             C4.Visibility = Visibility.Hidden;
-            
 
-            //if (lesJ[1].dateNaissance > lesJ[2].dateNaissance)
-            //{
-            //    j1 = lesJ[0];
-            //    j2 = lesJ[1];
-                
-            //}
-            //else
-            //{
-            //    j1 = lesJ[1];
-            //    j2 = lesJ[0];
-            //}
+            var json = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("joueur.json"));
+            //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
+           
+                foreach (var j in json )
+                {
+                List<CartePersonnage> deck = new List<CartePersonnage>();
+                foreach(var cp in j.Deck)
+                {
+                    CartePersonnage c = new CartePersonnage(cp.Nom.ToString(), cp.Numero.ToString(), Convert.ToInt32(cp.Exemplaire), cp.Description.ToString(), cp.Type.ToString(), Convert.ToBoolean(cp.Deck), Convert.ToInt32(cp.Attaque), Convert.ToInt32(cp.Defense), Convert.ToInt32(cp.Vitesse), Convert.ToInt32(cp.Force));
+                    deck.Add(c);
+                }
+                    Joueur player = new Joueur(Convert.ToString(j.Nom), Convert.ToString(j.Prenom), Convert.ToDateTime(j.DateNaissance), deck);
+                    
+                    lesJ.Add(player);
+                }
+
+
+
+            if (lesJ[1].DateNaissance.Date > lesJ[2].DateNaissance.Date)
+            {
+                j1 = lesJ[0];
+                j2 = lesJ[1];
+
+            }
+            else
+            {
+                j1 = lesJ[1];
+                j2 = lesJ[0];
+            }
+
 
         }
 
@@ -162,6 +186,7 @@ namespace Ninjago.Vue
             fenetre.Show();
             this.Close();
         }
+       
 
     }
 }

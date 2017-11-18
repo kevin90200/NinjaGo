@@ -11,7 +11,7 @@
         <Button x:Name="btn_jouer" Content="Jouer" Margin="431,504,447,10" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="42" Width="78"/>
         <Grid x:Name="Joueur_1" Height="140" Margin="40,69,42,0" VerticalAlignment="Top">
             <Border x:Name="J1"   BorderBrush="Black" BorderThickness="3"/>
-            <DatePicker x:Name="DateJ1"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,90,0,0"/>
+            <DatePicker x:Name="DateJ1"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,90,0,0" DisplayDate="2000-01-01" Text="01/01/2000"/>
             <TextBox  x:Name="PseudoJ1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="151" Margin="10,54,0,0"/>
             <RadioButton x:Name="MonDeckJ1" Content="Deck Personnalisé" Margin="191,54,0,60" HorizontalAlignment="Left" Width="127"/>
             <RadioButton x:Name="AleatoireColJ1" Content="Deck aléatoire de ma collection" Margin="191,80,0,34" HorizontalAlignment="Left" Width="203"/>
@@ -23,7 +23,7 @@
             <RadioButton x:Name="IA" Content="IA" Margin="10,36,0,82" HorizontalAlignment="Left" Width="127"/>
             <RadioButton x:Name="Joueur2" Content="Joueur 2" Margin="10,0,0,99" HorizontalAlignment="Left" Width="127"/>
             <Label Content="Joueur 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <DatePicker x:Name="DateJ2"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,121,0,0" />
+            <DatePicker x:Name="DateJ2"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,121,0,0" DisplayDate="2000-01-01" Text="01/01/2000" />
             <TextBox  x:Name="PseudoJ2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="151" Margin="10,90,0,0"/>
         </Grid>
         <Grid x:Name="Carte" Margin="293,242,42,0" VerticalAlignment="Top">

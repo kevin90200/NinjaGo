@@ -27,9 +27,10 @@ namespace Ninjago.Vue
         List<CartePersonnage> maCollection = new List<CartePersonnage>();            //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
         List<Carte> monDeck = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
         Carte carte;                                            //Correspond à la carte séléctionnée dans l'interface (peut être null)
-        CarteAction carteAction = new CarteAction();
+        List<CartePersonnage> DeckJ1 = new List<CartePersonnage>();
+        List<CartePersonnage> DeckJ2 = new List<CartePersonnage>();
         CartePersonnage cartePersonnage = new CartePersonnage();
-        CarteVehicule carteVehicule = new CarteVehicule();
+       
         public Accueil_Jeu()
         {
             InitializeComponent();
@@ -38,16 +39,12 @@ namespace Ninjago.Vue
 
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         {
-            Joueur J1 = new Joueur(PseudoJ1.ToString(), "");
-            Joueur J2 = new Joueur(PseudoJ2.ToString(), "");
-
-
+           
+           
             var json = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("ninjago.json"));
-            //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
-
             foreach (var carte in json)
             {
-                Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck));  //GetValue("xxx") permet de récupérer les données du JSON
+                Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck)); 
                 if (c.Type == "P")
                 {
                     CartePersonnage cp = new CartePersonnage(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck), Convert.ToInt32(carte.Attaque), Convert.ToInt32(carte.Defense), Convert.ToInt32(carte.Vitesse), Convert.ToInt32(carte.Force));
@@ -72,12 +69,12 @@ namespace Ninjago.Vue
                           if (MonDeckJ1.IsChecked == true)
                           {
                                 
-                            J1.Deck.Add(cp);
+                            DeckJ1.Add(cp);
                           }
                     
                           if (MonDeckJ2.IsChecked == true)
                             {
-                            J2.Deck.Add(cp);
+                            DeckJ2.Add(cp);
                         
                             }
                      }
@@ -94,7 +91,7 @@ namespace Ninjago.Vue
                         Random aleatoire = new Random();
                         int numeroAlea = aleatoire.Next(nombreCarteCollection - 1);
                         Boolean ajout = true;
-                        foreach (CartePersonnage cp in J1.Deck)
+                        foreach (CartePersonnage cp in DeckJ1)
                         {
                             if (maCollection[numeroAlea] == cp)
                             {
@@ -104,11 +101,11 @@ namespace Ninjago.Vue
                         }
                         if (AleatoireColJ1.IsChecked == true && ajout == true)
                         {
-                            J1.Deck.Add(maCollection[numeroAlea]);
+                            DeckJ1.Add(maCollection[numeroAlea]);
                         }
                         if (AleatoireColJ2.IsChecked == true && ajout == true)
                         {
-                            J2.Deck.Add(maCollection[numeroAlea]);
+                            DeckJ2.Add(maCollection[numeroAlea]);
                         }
                     }
                 }
@@ -123,7 +120,7 @@ namespace Ninjago.Vue
                         Random aleatoire = new Random();
                         int numeroAlea = aleatoire.Next(nombreCarteAll - 1);
                         Boolean ajout = true;
-                        foreach (CartePersonnage cp in J1.Deck)
+                        foreach (CartePersonnage cp in DeckJ1)
                         {
                             if (maCollection[numeroAlea] == cp)
                             {
@@ -133,25 +130,29 @@ namespace Ninjago.Vue
                         }
                         if (AleatoireColJ1.IsChecked == true && ajout == true)
                         {
-                            J1.Deck.Add(lesCartes[numeroAlea]);
+                            DeckJ1.Add(lesCartes[numeroAlea]);
 
                         }
                         if (AleatoireColJ2.IsChecked == true && ajout == true)
                         {
-                            J2.Deck.Add(lesCartes[numeroAlea]);
+                            DeckJ2.Add(lesCartes[numeroAlea]);
                         }
                     }
                 }
             }
-           // comment renvoyer J1 et J2 sur plateau
-
-
-
-
-
+            Joueur J1 = new Joueur(PseudoJ1.ToString(), "", Convert.ToDateTime(DateJ1.Text), DeckJ1);
+            Joueur J2 = new Joueur(PseudoJ2.ToString(), "", Convert.ToDateTime(DateJ2.Text), DeckJ2);
+            lesJ.Add(J1);
+            lesJ.Add(J2);
+            // comment renvoyer J1 et J2 sur plateau
+            File.WriteAllText("joueur.json", JsonConvert.SerializeObject(lesJ, Formatting.Indented));
+            Plateau_Jeu fenetre = new Plateau_Jeu();
+            fenetre.Show();
+            this.Close();
+            
         }
 
-
-
+       
     }
+   
 }
