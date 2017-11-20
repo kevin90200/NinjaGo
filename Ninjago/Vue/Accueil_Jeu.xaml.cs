@@ -112,25 +112,63 @@ namespace Ninjago.Vue
             
             if (MonDeckJ1.IsChecked == true || MonDeckJ2.IsChecked == true)
             {
-                for (int i = 1; i <= 3; i++)
+                if (MonDeckJ1.IsChecked == true)
                 {
-                    if (cbxDeckJ1.SelectedItem.ToString() == "deck " + i)
+                    for (int i = 1; i <= 3; i++)
                     {
-                        foreach (CartePersonnage cp in deck1)
-                        {
-                            if (MonDeckJ1.IsChecked == true)
+                        string deckNom = "deck "+i;
+                        if (cbxDeckJ1.SelectedItem.ToString() == deckNom)
+                        {if (i == 1)
                             {
-
-                                DeckJ1.Add(cp);
+                                foreach (CartePersonnage cp in deck1)
+                                {
+                                    DeckJ1.Add(cp);
+                                }
                             }
-
-                            if (MonDeckJ2.IsChecked == true)
+                            if (i == 2)
                             {
-                                ////            DeckJ2.Add(cp);
-
-                                ////        }
-                                ////    }
-                                ////
+                                foreach (CartePersonnage cp in deck2)
+                                {
+                                    DeckJ1.Add(cp);
+                                }
+                            }
+                            if (i == 3)
+                            {
+                                foreach (CartePersonnage cp in deck3)
+                                {
+                                    DeckJ1.Add(cp);
+                                }
+                            }
+                        }
+                    }
+                }
+                if (MonDeckJ2.IsChecked == true)
+                {
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        string deckNom = "deck " + i;
+                        if (cbxDeckJ2.SelectedItem.ToString() == deckNom)
+                        {
+                            if (i == 1)
+                            {
+                                foreach (CartePersonnage cp in deck1)
+                                {
+                                    DeckJ2.Add(cp);
+                                }
+                            }
+                            if (i == 2)
+                            {
+                                foreach (CartePersonnage cp in deck2)
+                                {
+                                    DeckJ2.Add(cp);
+                                }
+                            }
+                            if (i == 3)
+                            {
+                                foreach (CartePersonnage cp in deck3)
+                                {
+                                    DeckJ2.Add(cp);
+                                }
                             }
                         }
                     }

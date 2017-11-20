@@ -57,18 +57,20 @@ namespace Ninjago.Vue
                 }
 
 
+            
+                if (lesJ[0].DateNaissance.Date > lesJ[1].DateNaissance.Date)
+                {
+                    j1 = lesJ[0];
+                    j2 = lesJ[1];
 
-            if (lesJ[1].DateNaissance.Date > lesJ[2].DateNaissance.Date)
-            {
-                j1 = lesJ[0];
-                j2 = lesJ[1];
-
-            }
-            else
-            {
-                j1 = lesJ[1];
-                j2 = lesJ[0];
-            }
+                }
+                else
+                {
+                    j1 = lesJ[1];
+                    j2 = lesJ[0];
+                }
+            
+            
 
 
         }
@@ -97,74 +99,75 @@ namespace Ninjago.Vue
             RadioButton choix = sender as RadioButton;
             choixMain=choix.Content.ToString();
         }
-        //Boolean retourner = true;
+        Boolean retourner = true;
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         { //poser qu'une carte par tour : variable globale utiliser aussi dans btn_click
             action = 1;
-          // action pour retourner le plateau et indiquer le nom du personnage sur les radiobutton et transition entre j1 et j2
-            //int val_ret;
-            if (btn_jouer.Content.ToString()== "Jouer") {
-                //if (retourner == true)
-                //{
-                //    val_ret = 0;
-                //    retourner = false;
-                //    nomJoueur.Content = j1.Nom + " " + j1.Prenom;
-                //    int i = 1;
-                //   foreach (Carte carteMain in j1.Main)
-                //    {
-                //        RadioButton c = (RadioButton)FindName("C" + i);
-                //        c.Content = carteMain.Nom;
-                //        i = i + 1;
-                //    }
-                //}
-                //else
-                //{
-                //    val_ret = 180;
-                //    retourner = true;
-                //    nomJoueur.Content = j2.Nom + " " + j2.Prenom;
-                //    int i = 1;
-                //    foreach (Carte carteMain in j2.Main)
-                //    {
-                //        RadioButton c = (RadioButton)FindName("C" + i);
-                //        c.Content = carteMain.Nom;
-                //        i = i + 1;
-                //    }
-                //}
-                //RotateTransform rotateTransform = new RotateTransform(val_ret);
-                //rotateTransform.CenterX = 0;
-                //rotateTransform.CenterY = 0;
-                //Plateau.RenderTransform = rotateTransform;
-                ////changer le label jouer en passer
-                //btn_jouer.Content = "Passer";
-                ////rendre visible la main du joueur
-                //Main.Visibility= Visibility.Visible;
-                //C1.Visibility = Visibility.Visible;
-                //C2.Visibility = Visibility.Visible;
-                //C3.Visibility = Visibility.Visible;
-                //C4.Visibility = Visibility.Visible;
+            // action pour retourner le plateau et indiquer le nom du personnage sur les radiobutton et transition entre j1 et j2
+            int val_ret;
+            if (btn_jouer.Content.ToString() == "Jouer")
+            {
+                if (retourner == true)
+                {
+                    val_ret = 0;
+                    retourner = false;
+                    nomJoueur.Content = j1.Nom + " " + j1.Prenom;
+                    int i = 1;
+                    foreach (Carte carteMain in j1.Main)
+                    {
+                        RadioButton c = (RadioButton)FindName("C" + i);
+                        c.Content = carteMain.Nom;
+                        i = i + 1;
+                    }
+                }
+                else
+                {
+                    val_ret = 180;
+                    retourner = true;
+                    nomJoueur.Content = j2.Nom + " " + j2.Prenom;
+                    int i = 1;
+                    foreach (Carte carteMain in j2.Main)
+                    {
+                        RadioButton c = (RadioButton)FindName("C" + i);
+                        c.Content = carteMain.Nom;
+                        i = i + 1;
+                    }
+                }
+                RotateTransform rotateTransform = new RotateTransform(val_ret);
+                rotateTransform.CenterX = 0;
+                rotateTransform.CenterY = 0;
+                Plateau.RenderTransform = rotateTransform;
+                //changer le label jouer en passer
+                btn_jouer.Content = "Passer";
+                //rendre visible la main du joueur
+                Main.Visibility = Visibility.Visible;
+                C1.Visibility = Visibility.Visible;
+                C2.Visibility = Visibility.Visible;
+                C3.Visibility = Visibility.Visible;
+                C4.Visibility = Visibility.Visible;
                 //action pour retourner les boutons vides ( comme sa le joueur aura toujours ses cartes a lui dans son sens)
                 for (int i = 1; i <= 3; i++)
                 {
-                    ////RotateTransform rotateTransformBtn = new RotateTransform(val_ret);
-                    //rotateTransformBtn.CenterX = 40;
-                    //rotateTransformBtn.CenterY = 40;
-                    
+                    RotateTransform rotateTransformBtn = new RotateTransform(val_ret);
+                    rotateTransformBtn.CenterX = 40;
+                    rotateTransformBtn.CenterY = 40;
 
-                    //Button btn1 = (Button)FindName("btn1_"+i);
-                    //if (btn1.Content.Equals(""))
-                    //{
-                    //    btn1.RenderTransform = rotateTransformBtn;
-                    //}
-                    //Button btn2 = (Button)FindName("btn2_" + i);
-                    //if (btn2.Content.Equals(""))
-                    //{
-                    //    btn2.RenderTransform = rotateTransformBtn;
-                    //}
-                    //Button btn3 = (Button)FindName("btn3_" + i);
-                    //if (btn3.Content.Equals(""))
-                    //{
-                    //    btn3.RenderTransform = rotateTransformBtn;
-                    //}
+
+                    Button btn1 = (Button)FindName("btn1_" + i);
+                    if (btn1.Content.Equals(""))
+                    {
+                        btn1.RenderTransform = rotateTransformBtn;
+                    }
+                    Button btn2 = (Button)FindName("btn2_" + i);
+                    if (btn2.Content.Equals(""))
+                    {
+                        btn2.RenderTransform = rotateTransformBtn;
+                    }
+                    Button btn3 = (Button)FindName("btn3_" + i);
+                    if (btn3.Content.Equals(""))
+                    {
+                        btn3.RenderTransform = rotateTransformBtn;
+                    }
                 }
             }
             // cacher ses cartes
