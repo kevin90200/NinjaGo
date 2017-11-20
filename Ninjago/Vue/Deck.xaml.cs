@@ -101,13 +101,66 @@ namespace Ninjago.Vue
                 }
             }
             #endregion
-            //Remplissage de la liste box collection
-            lbox_collection.ItemsSource = maCollection;
+            //Remplissage de la liste box deck
             cbbx_choix_deck.SelectedIndex = 0;  //permet de remplir la list box deck avec par défaut, le deck 1
+            if (cbbx_choix_deck.SelectedIndex == 0)
+            {
+                lbox_deck.ItemsSource = monDeck1;
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 1)
+            {
+                lbox_deck.ItemsSource = monDeck2;
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 2)
+            {
+                lbox_deck.ItemsSource = monDeck3;
+            }
+            //Remplissage de la liste box collection
+            foreach (Carte c in maCollection)
+            {
+                if (cbbx_choix_deck.SelectedIndex == 0)
+                {
+                    if(c.Deck1 == true)
+                    {
+
+                    }
+                    else
+                    {
+                        lbox_collection.Items.Add(c);
+                    }  
+                }
+                else if (cbbx_choix_deck.SelectedIndex == 1)
+                {
+                    if (c.Deck2 == true)
+                    {
+
+                    }
+                    else
+                    {
+                        lbox_collection.Items.Add(c);
+                    }
+                }
+                else if (cbbx_choix_deck.SelectedIndex == 2)
+                {
+                    if (c.Deck3 == true)
+                    {
+
+                    }
+                    else
+                    {
+                        lbox_collection.Items.Add(c);
+                    }
+                }
+            }
+            //initialisation compteur de carte
+            lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
+            lbl_deck_count.Content = monDeck1.Count() + " / 20";
 
             
 
-            
+
+
+
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
@@ -152,6 +205,7 @@ namespace Ninjago.Vue
                             {
                                 monDeck1.Add(carte);
                                 carte.ajoutDeck1();
+                                lbox_collection.Items.Remove(carte);
                             }
                             else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
                             {
@@ -166,6 +220,7 @@ namespace Ninjago.Vue
                                 {
                                     monDeck1.Add(carte);
                                     carte.ajoutDeck1();
+                                    lbox_collection.Items.Remove(carte);
                                 }
                             }
                         }
@@ -179,6 +234,7 @@ namespace Ninjago.Vue
                     {
                         monDeck1.Remove(carte);
                         carte.suppressionDeck1();
+                        lbox_collection.Items.Add(carte);
                     }
                     refresh();
                 }
@@ -199,6 +255,7 @@ namespace Ninjago.Vue
                             {
                                 monDeck2.Add(carte);
                                 carte.ajoutDeck2();
+                                lbox_collection.Items.Remove(carte);
                             }
                             else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
                             {
@@ -213,6 +270,7 @@ namespace Ninjago.Vue
                                 {
                                     monDeck2.Add(carte);
                                     carte.ajoutDeck2();
+                                    lbox_collection.Items.Remove(carte);
                                 }
                             }
                         }
@@ -226,6 +284,7 @@ namespace Ninjago.Vue
                     {
                         monDeck2.Remove(carte);
                         carte.suppressionDeck2();
+                        lbox_collection.Items.Add(carte);
                     }
                     refresh();
                 }
@@ -246,6 +305,7 @@ namespace Ninjago.Vue
                             {
                                 monDeck3.Add(carte);
                                 carte.ajoutDeck3();
+                                lbox_collection.Items.Remove(carte);
                             }
                             else                            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans le deck
                             {
@@ -260,6 +320,7 @@ namespace Ninjago.Vue
                                 {
                                     monDeck3.Add(carte);
                                     carte.ajoutDeck3();
+                                    lbox_collection.Items.Remove(carte);
                                 }
                             }
                         }
@@ -273,6 +334,7 @@ namespace Ninjago.Vue
                     {
                         monDeck3.Remove(carte);
                         carte.suppressionDeck3();
+                        lbox_collection.Items.Add(carte);
                     }
                     refresh();
                 }
@@ -316,6 +378,21 @@ namespace Ninjago.Vue
         {
             lbox_collection.Items.Refresh();
             lbox_deck.Items.Refresh();
+            //compteur de carte
+            lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
+            if (cbbx_choix_deck.SelectedIndex == 0)
+            {
+                lbl_deck_count.Content = monDeck1.Count() + " / 20";
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 1)
+            {
+                lbl_deck_count.Content = monDeck2.Count() + " / 20";
+            }
+            else if (cbbx_choix_deck.SelectedIndex == 2)
+            {
+                lbl_deck_count.Content = monDeck3.Count() + " / 20";
+            }
+
             if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
             {
                 lbl_nom.Content = carte.ToString();
@@ -369,7 +446,7 @@ namespace Ninjago.Vue
                 foreach (Carte c in monDeck1)
                 {
                     c.suppressionDeck1();
-
+                    lbox_collection.Items.Add(c);
                 }
                 monDeck1.Clear();
             }
@@ -378,7 +455,7 @@ namespace Ninjago.Vue
                 foreach (Carte c in monDeck2)
                 {
                     c.suppressionDeck2();
-
+                    lbox_collection.Items.Add(c);
                 }
                 monDeck2.Clear();
             }
@@ -387,7 +464,7 @@ namespace Ninjago.Vue
                 foreach (Carte c in monDeck3)
                 {
                     c.suppressionDeck3();
-
+                    lbox_collection.Items.Add(c);
                 }
                 monDeck3.Clear();
             }
@@ -410,6 +487,7 @@ namespace Ninjago.Vue
                 lbox_deck.ItemsSource = monDeck3;
             }
             lbox_deck.Items.Refresh();
+            refresh();
         }
     }
 }

@@ -85,6 +85,10 @@ namespace Ninjago.Vue
                 {
                     maCollection.Add(c);
                 }
+                else
+                {
+
+                }
             }
             #endregion
 
@@ -105,10 +109,21 @@ namespace Ninjago.Vue
                 }
             }
             #endregion
-
             //Remplissage des 2 listes box
-            lbox_cartes.ItemsSource = lesCartes;
             lbox_collection.ItemsSource = maCollection;
+            foreach(Carte c in lesCartes)
+            {
+                if (c.Exemplaire >= 1)
+                {
+                    
+                }
+                else
+                {
+                    lbox_cartes.Items.Add(c);
+                }
+            }
+            //initialisation compteur de carte
+            lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
@@ -147,6 +162,7 @@ namespace Ninjago.Vue
                     {
                         maCollection.Add(carte);
                         carte.ajoutExemplaire();
+                        lbox_cartes.Items.Remove(carte);
                     }
                     else            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans la collection
                     {
@@ -163,6 +179,7 @@ namespace Ninjago.Vue
                         {
                             maCollection.Add(carte);
                             carte.ajoutExemplaire();
+                            lbox_cartes.Items.Remove(carte);
                         }
                     }
                 }
@@ -183,6 +200,7 @@ namespace Ninjago.Vue
                         if (carte.Exemplaire == 0)      //si le nombre d'exemplaire arrive à 0, on supprime la carte de la collection
                         {
                             maCollection.Remove(carte);
+                            lbox_cartes.Items.Add(carte);
                         }
                     }
                 }
@@ -224,9 +242,10 @@ namespace Ninjago.Vue
 
         public void refresh()
         {
-            lesCartes.OrderBy(Carte => Carte.Numero);
             lbox_cartes.Items.Refresh();
             lbox_collection.Items.Refresh();
+            //compteur de carte
+            lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
             if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
             {
                 lbl_nb_exemplaire.Content = carte.Exemplaire.ToString();
@@ -311,6 +330,7 @@ namespace Ninjago.Vue
             {
                 maCollection.Remove(carte);
                 carte.Exemplaire = 0;
+                lbox_cartes.Items.Add(carte);
             }
             refresh();
         }
