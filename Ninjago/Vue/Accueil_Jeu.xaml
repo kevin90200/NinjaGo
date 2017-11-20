@@ -13,10 +13,11 @@
             <Border x:Name="J1"   BorderBrush="Black" BorderThickness="3"/>
             <DatePicker x:Name="DateJ1"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,90,0,0" DisplayDate="2000-01-01" Text="01/01/2000"/>
             <TextBox  x:Name="PseudoJ1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="151" Margin="10,54,0,0"/>
-            <RadioButton x:Name="MonDeckJ1" Content="Deck Personnalisé" Margin="191,54,0,60" HorizontalAlignment="Left" Width="127"/>
+            <RadioButton x:Name="MonDeckJ1" Content="Deck Personnalisé" Margin="191,54,0,60" HorizontalAlignment="Left" Width="127" Checked="MonDeckJ1_Checked"/>
             <RadioButton x:Name="AleatoireColJ1" Content="Deck aléatoire de ma collection" Margin="191,80,0,34" HorizontalAlignment="Left" Width="203"/>
             <RadioButton x:Name="AleatoireAllJ1" Content="Deck aléatoire de toute les cartes" Margin="191,106,0,10" HorizontalAlignment="Left" Width="223"/>
             <Label Content="Joueur 1" HorizontalAlignment="Left" Margin="10,10,0,104"/>
+            <ComboBox x:Name="cbxDeckJ1" HorizontalAlignment="Left" Margin="323,54,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         </Grid>
         <Grid x:Name="Joueur_2" Margin="40,242,0,120" HorizontalAlignment="Left" Width="216">
             <Border x:Name="J2"   BorderBrush="Black" BorderThickness="3" Margin="0,0,10,25"/>
@@ -28,7 +29,8 @@
         </Grid>
         <Grid x:Name="Carte" Margin="293,242,42,0" VerticalAlignment="Top">
             <Border x:Name="CarteBord"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0,-32"/>
-            <RadioButton x:Name="MonDeckJ2" Content="Deck Personnalisé" Margin="27,54,0,64" HorizontalAlignment="Left" Width="127"/>
+            <RadioButton x:Name="MonDeckJ2" Content="Deck Personnalisé" Margin="27,54,0,64" HorizontalAlignment="Left" Width="127" Checked="MonDeckJ1_Checked"/>
+            <ComboBox x:Name="cbxDeckJ2" HorizontalAlignment="Left" Margin="154,51,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
             <RadioButton x:Name="AleatoireColJ2" Content="Deck aléatoire de ma collection" Margin="27,77,0,37" HorizontalAlignment="Left" Width="203"/>
             <RadioButton x:Name="AleatoireAllJ2" Content="Deck aléatoire de toute les cartes" Margin="27,99,0,10" HorizontalAlignment="Left" Width="223"/>
             <Label Content="Deck Joueur 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
