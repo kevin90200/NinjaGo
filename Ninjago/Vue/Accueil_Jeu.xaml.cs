@@ -25,17 +25,16 @@ namespace Ninjago.Vue
     {
         List<Joueur> lesJ = new List<Joueur>();
         List<CartePersonnage> lesCartes = new List<CartePersonnage>();
-        List<CartePersonnage> maCollection = new List<CartePersonnage>();            //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
-        List<CartePersonnage> deck1 = new List<CartePersonnage>();                //deck du joueur, liste de carte utilisé pour le jeu
+        List<CartePersonnage> maCollection = new List<CartePersonnage>();            
+        List<CartePersonnage> deck1 = new List<CartePersonnage>();                
         List<CartePersonnage> deck2 = new List<CartePersonnage>();
         List<CartePersonnage> deck3 = new List<CartePersonnage>();
-        Carte carte;                                            //Correspond à la carte séléctionnée dans l'interface (peut être null)
         List<CartePersonnage> DeckJ1 = new List<CartePersonnage>();
         List<CartePersonnage> DeckJ2 = new List<CartePersonnage>();
-        CartePersonnage cartePersonnage = new CartePersonnage();
+      
 
         private void MonDeckJ1_Checked(object sender, RoutedEventArgs e)
-        { 
+        { //pour affficher la comboBox quand on clique sur "deck personnalisé"
             if (MonDeckJ1.IsChecked == true)
             {
                 cbxDeckJ1.Visibility = Visibility.Visible;
@@ -49,9 +48,8 @@ namespace Ninjago.Vue
         public Accueil_Jeu()
         {
             InitializeComponent();
-            cbxDeckJ1.Items.Clear();
-            cbxDeckJ2.Items.Clear();
             var json = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("ninjago.json"));
+            //pour recuperer les cartes depuis le Json et instancié les decks et ma collections
             foreach (var carte in json)
             {
                 Carte c = new Carte(carte.Nom.ToString(), carte.Numero.ToString(), Convert.ToInt32(carte.Exemplaire), carte.Description.ToString(), carte.Type.ToString(), Convert.ToBoolean(carte.Deck1), Convert.ToBoolean(carte.Deck2), Convert.ToBoolean(carte.Deck3));
@@ -78,6 +76,7 @@ namespace Ninjago.Vue
                 }
 
             }
+            // pour remplir la comboBox des decks si un deck contient 20 cartes il sera ajouter dans la combo box
             if (deck1 != null)
             {
                 if (deck1.Count() == 20)
@@ -107,9 +106,8 @@ namespace Ninjago.Vue
 
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         {
-
-
-            
+            // permet de remplir le deck de j1 ou j2  avec un deck perso     // reste a faire un message d'erreur si aucun deck n'est créer
+            #region deck perso
             if (MonDeckJ1.IsChecked == true || MonDeckJ2.IsChecked == true)
             {
                 if (MonDeckJ1.IsChecked == true)
@@ -174,11 +172,14 @@ namespace Ninjago.Vue
                     }
                 }
             }
+            #endregion
+            // permet de remplir le deck de j1 ou j2  avec un deck aleatoire de ma collection // reste a faire un message d'erreur si il y a pas asser de carte dans la collection ou faire une auto selection sur  eck aleatoire de toute les cartes du jeu
+            #region deck aleatoire à partir de ma collection
             if (AleatoireColJ1.IsChecked == true || AleatoireColJ2.IsChecked == true)
             {
 
-                int nombreCarteCollection = maCollection.Count();
-                if (nombreCarteCollection >= 20)
+                int nombreCarteCollection = maCollection.Count();// pour savoir si j'ai asser de carte dans ma collection pour faire un deck
+                if (nombreCarteCollection >= 20) 
                 {
                     for (int i = 1; i <= 20; i++)
                     {
@@ -204,6 +205,9 @@ namespace Ninjago.Vue
                     }
                 }
             }
+            #endregion
+            // permet de remplir le deck de j1 ou j2  avec un deck aleatoire de toute les cartes
+            #region deck aleatoire de toute les cartes
             if (AleatoireAllJ1.IsChecked == true || AleatoireAllJ2.IsChecked == true)
             {
                 int nombreCarteAll = lesCartes.Count();
@@ -234,6 +238,7 @@ namespace Ninjago.Vue
                     }
                 }
             }
+#endregion
             Joueur J1 = new Joueur(PseudoJ1.ToString(), "", Convert.ToDateTime(DateJ1.Text), DeckJ1);
             Joueur J2 = new Joueur(PseudoJ2.ToString(), "", Convert.ToDateTime(DateJ2.Text), DeckJ2);
             lesJ.Add(J1);
