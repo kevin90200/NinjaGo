@@ -31,6 +31,7 @@ namespace Ninjago.Vue
 
         //Instanciation de totues les listes et carte pour la gestion
         List<Carte> lesCartes = new List<Carte>();          //liste de toutes les cartes
+        List<Carte> listCartes = new List<Carte>();          //liste de toutes les cartes
         List<Carte> maCollection = new List<Carte>();           //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
         List<Carte> monDeck1 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
         List<Carte> monDeck2 = new List<Carte>();                //deck du joueur, liste de carte utilisé pour le jeu
@@ -84,6 +85,7 @@ namespace Ninjago.Vue
                 if (c.Exemplaire > 0)           //Si le nbr d'exemplaire et supérieur à 0 on l'ajoute dans la collection du joueur
                 {
                     maCollection.Add(c);
+                    lbox_collection.Items.Add(c);
                 }
                 else
                 {
@@ -109,19 +111,20 @@ namespace Ninjago.Vue
                 }
             }
             #endregion
-            //Remplissage des 2 listes box
-            lbox_collection.ItemsSource = maCollection;
-            foreach(Carte c in lesCartes)
+            foreach (Carte c in lesCartes)
             {
                 if (c.Exemplaire >= 1)
                 {
-                    
+
                 }
                 else
                 {
-                    lbox_cartes.Items.Add(c);
+                    listCartes.Add(c);
                 }
             }
+            //Remplissage des 2 listes box
+            //lbox_collection.ItemsSource = maCollection;
+            lbox_cartes.ItemsSource = listCartes;
             //initialisation compteur de carte
             lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
         }
@@ -161,8 +164,9 @@ namespace Ninjago.Vue
                     if (maCollection.Count() == 0)      
                     {
                         maCollection.Add(carte);
+                        listCartes.Remove(carte);
                         carte.ajoutExemplaire();
-                        lbox_cartes.Items.Remove(carte);
+                        
                     }
                     else            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans la collection
                     {
@@ -178,8 +182,9 @@ namespace Ninjago.Vue
                         if (ajout == true)
                         {
                             maCollection.Add(carte);
+                            listCartes.Remove(carte);
                             carte.ajoutExemplaire();
-                            lbox_cartes.Items.Remove(carte);
+                            
                         }
                     }
                 }
@@ -200,7 +205,8 @@ namespace Ninjago.Vue
                         if (carte.Exemplaire == 0)      //si le nombre d'exemplaire arrive à 0, on supprime la carte de la collection
                         {
                             maCollection.Remove(carte);
-                            lbox_cartes.Items.Add(carte);
+                            listCartes.Add(carte);
+                            
                         }
                     }
                 }
@@ -244,6 +250,7 @@ namespace Ninjago.Vue
         {
             lbox_cartes.Items.Refresh();
             lbox_collection.Items.Refresh();
+
             //compteur de carte
             lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
             if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
@@ -329,8 +336,9 @@ namespace Ninjago.Vue
             if (carte != null) //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
             {
                 maCollection.Remove(carte);
+                listCartes.Add(carte);
                 carte.Exemplaire = 0;
-                lbox_cartes.Items.Add(carte);
+                
             }
             refresh();
         }
