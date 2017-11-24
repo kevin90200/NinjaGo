@@ -16,7 +16,7 @@ namespace Ninjago
             int[,] plateau = new int[unNombre, unNombre];
         }
 
-        public void Poser(Carte uneCarte, Joueur unJoueur, Case uneCase)
+        public void Poser(CartePersonnage uneCarte, Joueur unJoueur, Case uneCase)
         {
             uneCase.Carte = uneCarte;
             uneCase.Joueur = unJoueur;

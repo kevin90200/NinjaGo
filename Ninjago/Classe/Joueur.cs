@@ -40,7 +40,7 @@ namespace Ninjago
         {
             for (int i = 1; i <= 3; i++){
                 Random aleatoire = new Random();
-                int numeroAlea = aleatoire.Next(187); 
+                int numeroAlea = aleatoire.Next(20); 
                 main.Add(deck[numeroAlea]);
             }
 

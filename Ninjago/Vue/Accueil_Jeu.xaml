@@ -35,7 +35,9 @@
             <RadioButton x:Name="AleatoireAllJ2" Content="Deck aléatoire de toute les cartes" Margin="27,99,0,10" HorizontalAlignment="Left" Width="223"/>
             <Label Content="Deck Joueur 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         </Grid>
-
+        <Button x:Name="btn_retour_accueil_jeu" HorizontalAlignment="Left" Margin="10,0,0,10.334" Width="36" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom" Grid.Row="2" Click="btn_retour_accueil_jeu_Click">
+            <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
+        </Button>
     </Grid>
 
 
