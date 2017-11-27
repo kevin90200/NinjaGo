@@ -111,7 +111,7 @@ namespace Ninjago.Vue
                 {
                     val_ret = 0;
                     retourner = false;
-                    nomJoueur.Content = j1.Nom.ToString();
+                    lblNomJoueur.Content = j1.Nom.ToString();
                     int i = 1;
                     foreach (Carte carteMain in j1.Main)
                     {
@@ -124,7 +124,7 @@ namespace Ninjago.Vue
                 {
                     val_ret = 180;
                     retourner = true;
-                    nomJoueur.Content = j2.Nom.ToString();
+                    lblNomJoueur.Content = j2.Nom.ToString();
                     int i = 1;
                     foreach (Carte carteMain in j2.Main)
                     {
@@ -155,17 +155,17 @@ namespace Ninjago.Vue
 
 
                     Button btn1 = (Button)FindName("btn1_" + i);
-                    if (btn1.Content.Equals(""))
+                    if (btn1.Background.Equals(""))
                     {
                         btn1.RenderTransform = rotateTransformBtn;
                     }
                     Button btn2 = (Button)FindName("btn2_" + i);
-                    if (btn2.Content.Equals(""))
+                    if (btn2.Background.Equals(""))
                     {
                         btn2.RenderTransform = rotateTransformBtn;
                     }
                     Button btn3 = (Button)FindName("btn3_" + i);
-                    if (btn3.Content.Equals(""))
+                    if (btn3.Background.Equals(""))
                     {
                         btn3.RenderTransform = rotateTransformBtn;
                     }
@@ -175,7 +175,7 @@ namespace Ninjago.Vue
            else
             {
                 btn_jouer.Content = "Jouer";
-                nomJoueur.Content = "";
+                lblNomJoueur.Content = "";
                 Main.Visibility = Visibility.Hidden;
                 C1.Visibility = Visibility.Hidden;
                 C2.Visibility = Visibility.Hidden;
