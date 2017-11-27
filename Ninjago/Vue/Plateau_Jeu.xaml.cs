@@ -41,19 +41,21 @@ namespace Ninjago.Vue
            
                 foreach (var j in json )
                 {
-                List<CartePersonnage> deck = new List<CartePersonnage>();
-                foreach(var cp in j.Deck)
-                {
-                    CartePersonnage c = new CartePersonnage(cp.Nom.ToString(), cp.Numero.ToString(), Convert.ToInt32(cp.Exemplaire), cp.Description.ToString(), cp.Type.ToString(), Convert.ToBoolean(cp.Deck1), Convert.ToBoolean(cp.Deck2), Convert.ToBoolean(cp.Deck3), Convert.ToInt32(cp.Attaque), Convert.ToInt32(cp.Defense), Convert.ToInt32(cp.Vitesse), Convert.ToInt32(cp.Force));
-                    deck.Add(c);
-                }
+                    List<CartePersonnage> deck = new List<CartePersonnage>();
+                    foreach(var cp in j.Deck)
+                    {
+                        CartePersonnage c = new CartePersonnage(cp.Nom.ToString(), cp.Numero.ToString(), Convert.ToInt32(cp.Exemplaire), cp.Description.ToString(), cp.Type.ToString(), Convert.ToBoolean(cp.Deck1), Convert.ToBoolean(cp.Deck2), Convert.ToBoolean(cp.Deck3), Convert.ToInt32(cp.Attaque), Convert.ToInt32(cp.Defense), Convert.ToInt32(cp.Vitesse), Convert.ToInt32(cp.Force));
+                        deck.Add(c);
+                    }
                     Joueur player = new Joueur(Convert.ToString(j.Nom), Convert.ToString(j.Prenom), Convert.ToDateTime(j.DateNaissance), deck);
                     
                     lesJ.Add(player);
                 }
 
-
-            
+            j1.TirerCarte();
+            j2.TirerCarte();
+                
+                    
                 if (lesJ[0].DateNaissance.Date < lesJ[1].DateNaissance.Date)
                 {
                     j1 = lesJ[0];
@@ -171,12 +173,14 @@ namespace Ninjago.Vue
             }
 
         }
-        private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
+
+        private void btn_retour_plateau_click(object sender, RoutedEventArgs e)
         {
             Accueil_Jeu fenetre = new Accueil_Jeu();
             fenetre.Show();
             this.Close();
         }
+
        
 
     }
