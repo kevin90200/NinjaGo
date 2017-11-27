@@ -35,7 +35,7 @@ namespace Ninjago.Vue
            
                 InitializeComponent();
             Main.Visibility = Visibility.Hidden;
-            btn_jouer.Content = "Jouer";
+                      btn_jouer.Content = "Jouer";
             var json = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("joueur.json"));
             //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
            
@@ -67,6 +67,10 @@ namespace Ninjago.Vue
                     j1 = lesJ[1];
                     j2 = lesJ[0];
                 }
+            
+            
+
+
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)
@@ -81,6 +85,7 @@ namespace Ninjago.Vue
                     action = 0;
                 }
             }
+               
            
         }
 
@@ -131,6 +136,7 @@ namespace Ninjago.Vue
                 btn_jouer.Content = "Passer";
                 //rendre visible la main du joueur
                 Main.Visibility = Visibility.Visible;
+             
 
                 //action pour retourner les boutons vides ( comme sa le joueur aura toujours ses cartes a lui dans son sens)
                 for (int i = 1; i <= 3; i++)
@@ -163,6 +169,7 @@ namespace Ninjago.Vue
                 btn_jouer.Content = "Jouer";
                 lblNomJoueur.Content = "";
                 Main.Visibility = Visibility.Hidden;
+                
             }
 
         }
