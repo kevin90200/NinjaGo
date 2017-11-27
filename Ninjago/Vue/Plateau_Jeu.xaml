@@ -271,7 +271,7 @@
                     </Label.RenderTransform>
                 </Label>-->
             </Grid>
-            <Grid x:Name="Main" HorizontalAlignment="Center" Height="120" Margin="218,126.667,199.667,0" VerticalAlignment="Top" Width="304" Grid.Row="2">
+            <Grid x:Name="grd_main" HorizontalAlignment="Center" Height="120" Margin="218,126.667,199.667,0" VerticalAlignment="Top" Width="304" Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="19*"/>
                     <RowDefinition Height="44*"/>
@@ -311,7 +311,7 @@
             <RadioButton x:Name="C2" Content="Carte2" HorizontalAlignment="Center" Margin="292,103.667,371.667,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2" Height="18" Width="58"/>
             <RadioButton x:Name="C3" Content="Carte3" HorizontalAlignment="Center" Margin="365,103.667,298.667,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2" Height="18" Width="58"/>
             <RadioButton x:Name="C4" Content="Carte4" HorizontalAlignment="Center" Margin="437,103.667,225.667,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Grid.Row="2" Height="18" Width="59"/>
-            <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,0,0,10" Width="36" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom" Grid.Row="2">
+            <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,0,0,10" Width="36" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom" Grid.Row="2" Click="btn_retour_plateau">
                 <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
             </Button>
             <Button x:Name="btn_jouer" Content="JOUER" HorizontalAlignment="Center" Margin="522,141.667,124.667,0" VerticalAlignment="Top" Width="75" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Height="27"/>

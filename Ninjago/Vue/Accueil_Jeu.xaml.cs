@@ -112,7 +112,7 @@ namespace Ninjago.Vue
             if (maCollection != null)
             {
                 //SI ma collection est complete
-                if (maCollection..count = 20) {
+                if (maCollection.Count == 20) {
                     if (MonDeckJ1.IsChecked == true || MonDeckJ2.IsChecked == true)
                     {
                         if (MonDeckJ1.IsChecked == true)
