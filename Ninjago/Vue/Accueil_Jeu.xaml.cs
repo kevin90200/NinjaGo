@@ -108,72 +108,81 @@ namespace Ninjago.Vue
         {
             // permet de remplir le deck de j1 ou j2  avec un deck perso     // reste a faire un message d'erreur si aucun deck n'est créer
             #region deck perso
-            if (MonDeckJ1.IsChecked == true || MonDeckJ2.IsChecked == true)
+            //SI ma collection existe
+            if (maCollection != null)
             {
-                if (MonDeckJ1.IsChecked == true)
-                {
-                    for (int i = 1; i <= 3; i++)
+                //SI ma collection est complete
+                if (maCollection..count = 20) {
+                    if (MonDeckJ1.IsChecked == true || MonDeckJ2.IsChecked == true)
                     {
-                        string deckNom = "deck "+i;
-                        if (cbxDeckJ1.SelectedItem.ToString() == deckNom)
-                        {if (i == 1)
-                            {
-                                foreach (CartePersonnage cp in deck1)
-                                {
-                                    DeckJ1.Add(cp);
-                                }
-                            }
-                            if (i == 2)
-                            {
-                                foreach (CartePersonnage cp in deck2)
-                                {
-                                    DeckJ1.Add(cp);
-                                }
-                            }
-                            if (i == 3)
-                            {
-                                foreach (CartePersonnage cp in deck3)
-                                {
-                                    DeckJ1.Add(cp);
-                                }
-                            }
-                        }
-                    }
-                }
-                if (MonDeckJ2.IsChecked == true)
-                {
-                    for (int i = 1; i <= 3; i++)
-                    {
-                        string deckNom = "deck " + i;
-                        if (cbxDeckJ2.SelectedItem.ToString() == deckNom)
+                        if (MonDeckJ1.IsChecked == true)
                         {
-                            if (i == 1)
+                            for (int i = 1; i <= 3; i++)
                             {
-                                foreach (CartePersonnage cp in deck1)
+                                string deckNom = "deck " + i;
+                                if (cbxDeckJ1.SelectedItem.ToString() == deckNom)
                                 {
-                                    DeckJ2.Add(cp);
+                                    if (i == 1)
+                                    {
+                                        foreach (CartePersonnage cp in deck1)
+                                        {
+                                            DeckJ1.Add(cp);
+                                        }
+                                    }
+                                    if (i == 2)
+                                    {
+                                        foreach (CartePersonnage cp in deck2)
+                                        {
+                                            DeckJ1.Add(cp);
+                                        }
+                                    }
+                                    if (i == 3)
+                                    {
+                                        foreach (CartePersonnage cp in deck3)
+                                        {
+                                            DeckJ1.Add(cp);
+                                        }
+                                    }
                                 }
                             }
-                            if (i == 2)
+                        }
+
+                        if (MonDeckJ2.IsChecked == true)
+                        {
+                            for (int i = 1; i <= 3; i++)
                             {
-                                foreach (CartePersonnage cp in deck2)
+                                string deckNom = "deck " + i;
+                                if (cbxDeckJ2.SelectedItem.ToString() == deckNom)
                                 {
-                                    DeckJ2.Add(cp);
-                                }
-                            }
-                            if (i == 3)
-                            {
-                                foreach (CartePersonnage cp in deck3)
-                                {
-                                    DeckJ2.Add(cp);
+                                    if (i == 1)
+                                    {
+                                        foreach (CartePersonnage cp in deck1)
+                                        {
+                                            DeckJ2.Add(cp);
+                                        }
+                                    }
+                                    if (i == 2)
+                                    {
+                                        foreach (CartePersonnage cp in deck2)
+                                        {
+                                            DeckJ2.Add(cp);
+                                        }
+                                    }
+                                    if (i == 3)
+                                    {
+                                        foreach (CartePersonnage cp in deck3)
+                                        {
+                                            DeckJ2.Add(cp);
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
-                }
             }
+        }
             #endregion
-            // permet de remplir le deck de j1 ou j2  avec un deck aleatoire de ma collection // reste a faire un message d'erreur si il y a pas asser de carte dans la collection ou faire une auto selection sur  eck aleatoire de toute les cartes du jeu
+            // permet de remplir le deck de j1 ou j2  avec un deck aleatoire de ma collection // reste a faire un message d'erreur si il y a pas asser de carte dans la collection ou faire une auto selection sur deck aleatoire de toute les cartes du jeu
             #region deck aleatoire à partir de ma collection
             if (AleatoireColJ1.IsChecked == true || AleatoireColJ2.IsChecked == true)
             {
