@@ -134,8 +134,8 @@ namespace Ninjago.Vue
                     }
                 }
                 RotateTransform rotateTransform = new RotateTransform(val_ret);
-                rotateTransform.CenterX = 0;
-                rotateTransform.CenterY = 0;
+                rotateTransform.CenterX = -5.5;
+                rotateTransform.CenterY = -17.5;
                 Plateau.RenderTransform = rotateTransform;
                 //changer le label jouer en passer
                 btn_jouer.Content = "Passer";
