@@ -232,13 +232,14 @@ namespace Ninjago.Vue
         public void refresh()
         {
             //refresh des lbox
+            lbox_cartes.Items.Clear();
             lbox_collection.Items.Clear();
             foreach (Carte c in lesCartes)       //Pour chaque carte de la liste complete
             {
                 if (c.Exemplaire > 0)           //Si le nbr d'exemplaire et supérieur à 0 on l'ajoute dans la collection du joueur
                 {
-                    maCollection.Add(c);
                     lbox_collection.Items.Add(c);
+
                 }
                 else
                 {

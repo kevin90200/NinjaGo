@@ -248,8 +248,8 @@ namespace Ninjago.Vue
                 }
             }
 #endregion
-            Joueur J1 = new Joueur(PseudoJ1.ToString(), "", Convert.ToDateTime(DateJ1.Text), DeckJ1);
-            Joueur J2 = new Joueur(PseudoJ2.ToString(), "", Convert.ToDateTime(DateJ2.Text), DeckJ2);
+            Joueur J1 = new Joueur(PseudoJ1.Text.ToString(), "", Convert.ToDateTime(DateJ1.Text), DeckJ1);
+            Joueur J2 = new Joueur(PseudoJ2.Text.ToString(), "", Convert.ToDateTime(DateJ2.Text), DeckJ2);
             lesJ.Add(J1);
             lesJ.Add(J2);
             // comment renvoyer J1 et J2 sur plateau
