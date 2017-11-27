@@ -145,6 +145,7 @@ namespace Ninjago.Vue
                 C2.Visibility = Visibility.Visible;
                 C3.Visibility = Visibility.Visible;
                 C4.Visibility = Visibility.Visible;
+
                 //action pour retourner les boutons vides ( comme sa le joueur aura toujours ses cartes a lui dans son sens)
                 for (int i = 1; i <= 3; i++)
                 {
@@ -185,7 +186,7 @@ namespace Ninjago.Vue
         }
         private void btn_retour_plateau_Click(object sender, RoutedEventArgs e)
         {
-            Launcher fenetre = new Launcher();
+            Accueil_Jeu fenetre = new Accueil_Jeu();
             fenetre.Show();
             this.Close();
         }

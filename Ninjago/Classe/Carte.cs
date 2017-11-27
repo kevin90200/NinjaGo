@@ -108,5 +108,16 @@ namespace Ninjago
                 return Numero + " | " + Nom;
             }
         }
+        public string convertNum()
+        {
+            try
+            {
+                return Convert.ToInt32(Numero).ToString();
+            }
+            catch           //Try catch nécessaire pour les cartes LEx car on ne peut aps convertir en int
+            {
+                return Numero;
+            }
+        }
     }
 }

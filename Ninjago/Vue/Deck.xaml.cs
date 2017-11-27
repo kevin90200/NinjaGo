@@ -116,21 +116,25 @@ namespace Ninjago.Vue
                 lbox_deck.ItemsSource = monDeck3;
             }
             //Remplissage de la liste box collection
+            lbox_collection.Items.Clear();
             foreach (Carte c in maCollection)
             {
                 if (cbbx_choix_deck.SelectedIndex == 0)
                 {
-                    if(c.Deck1 == true)
+
+                    lbl_deck_count.Content = monDeck1.Count() + " / 20";
+                    if (c.Deck1 == true)
                     {
 
                     }
                     else
                     {
                         lbox_collection.Items.Add(c);
-                    }  
+                    }
                 }
                 else if (cbbx_choix_deck.SelectedIndex == 1)
                 {
+                    lbl_deck_count.Content = monDeck2.Count() + " / 20";
                     if (c.Deck2 == true)
                     {
 
@@ -142,6 +146,7 @@ namespace Ninjago.Vue
                 }
                 else if (cbbx_choix_deck.SelectedIndex == 2)
                 {
+                    lbl_deck_count.Content = monDeck1.Count() + " / 20";
                     if (c.Deck3 == true)
                     {
 
@@ -153,7 +158,7 @@ namespace Ninjago.Vue
                 }
             }
             //initialisation compteur de carte
-            lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
+            lbl_collection_count.Content = lbox_collection.Items.Count + " / " + lesCartes.Count();
             lbl_deck_count.Content = monDeck1.Count() + " / 20";
 
             
@@ -376,10 +381,51 @@ namespace Ninjago.Vue
 
         public void refresh()
         {
-            lbox_collection.Items.Refresh();
+            //refresh de la collection
+            lbox_collection.Items.Clear();
+            foreach (Carte c in maCollection)
+            {
+                if (cbbx_choix_deck.SelectedIndex == 0)
+                {
+                    
+                    lbl_deck_count.Content = monDeck1.Count() + " / 20";
+                    if (c.Deck1 == true)
+                    {
+
+                    }
+                    else
+                    {
+                        lbox_collection.Items.Add(c);
+                    }
+                }
+                else if (cbbx_choix_deck.SelectedIndex == 1)
+                {
+                    lbl_deck_count.Content = monDeck2.Count() + " / 20";
+                    if (c.Deck2 == true)
+                    {
+
+                    }
+                    else
+                    {
+                        lbox_collection.Items.Add(c);
+                    }
+                }
+                else if (cbbx_choix_deck.SelectedIndex == 2)
+                {
+                    lbl_deck_count.Content = monDeck1.Count() + " / 20";
+                    if (c.Deck3 == true)
+                    {
+
+                    }
+                    else
+                    {
+                        lbox_collection.Items.Add(c);
+                    }
+                }
+            }
             lbox_deck.Items.Refresh();
             //compteur de carte
-            lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
+            lbl_collection_count.Content = lbox_collection.Items.Count + " / " + lesCartes.Count();
             if (cbbx_choix_deck.SelectedIndex == 0)
             {
                 lbl_deck_count.Content = monDeck1.Count() + " / 20";

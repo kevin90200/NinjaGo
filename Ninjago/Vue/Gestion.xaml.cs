@@ -74,6 +74,7 @@ namespace Ninjago.Vue
             {
 
             }
+
             #endregion
 
             #region Initailisation maCollection
@@ -84,10 +85,11 @@ namespace Ninjago.Vue
                 if (c.Exemplaire > 0)           //Si le nbr d'exemplaire et supérieur à 0 on l'ajoute dans la collection du joueur
                 {
                     maCollection.Add(c);
+                    lbox_collection.Items.Add(c);
                 }
                 else
                 {
-
+                    lbox_cartes.Items.Add(c);
                 }
             }
             #endregion
@@ -109,19 +111,6 @@ namespace Ninjago.Vue
                 }
             }
             #endregion
-            //Remplissage des 2 listes box
-            lbox_collection.ItemsSource = maCollection;
-            foreach(Carte c in lesCartes)
-            {
-                if (c.Exemplaire >= 1)
-                {
-                    
-                }
-                else
-                {
-                    lbox_cartes.Items.Add(c);
-                }
-            }
             //initialisation compteur de carte
             lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
         }
@@ -162,7 +151,7 @@ namespace Ninjago.Vue
                     {
                         maCollection.Add(carte);
                         carte.ajoutExemplaire();
-                        lbox_cartes.Items.Remove(carte);
+                        
                     }
                     else            //si elle n'est pas vide, on vérifie si la carte séléctionnée existe déjà dans la collection
                     {
@@ -179,7 +168,7 @@ namespace Ninjago.Vue
                         {
                             maCollection.Add(carte);
                             carte.ajoutExemplaire();
-                            lbox_cartes.Items.Remove(carte);
+                            
                         }
                     }
                 }
@@ -200,7 +189,7 @@ namespace Ninjago.Vue
                         if (carte.Exemplaire == 0)      //si le nombre d'exemplaire arrive à 0, on supprime la carte de la collection
                         {
                             maCollection.Remove(carte);
-                            lbox_cartes.Items.Add(carte);
+                            
                         }
                     }
                 }
@@ -242,8 +231,20 @@ namespace Ninjago.Vue
 
         public void refresh()
         {
-            lbox_cartes.Items.Refresh();
-            lbox_collection.Items.Refresh();
+            //refresh des lbox
+            lbox_collection.Items.Clear();
+            foreach (Carte c in lesCartes)       //Pour chaque carte de la liste complete
+            {
+                if (c.Exemplaire > 0)           //Si le nbr d'exemplaire et supérieur à 0 on l'ajoute dans la collection du joueur
+                {
+                    maCollection.Add(c);
+                    lbox_collection.Items.Add(c);
+                }
+                else
+                {
+                    lbox_cartes.Items.Add(c);
+                }
+            }
             //compteur de carte
             lbl_collection_count.Content = maCollection.Count() + " / " + lesCartes.Count();
             if (carte != null)      //on vérifie que la carte séléctionnée n'es pas null pour éviter le plantage
@@ -330,7 +331,7 @@ namespace Ninjago.Vue
             {
                 maCollection.Remove(carte);
                 carte.Exemplaire = 0;
-                lbox_cartes.Items.Add(carte);
+                
             }
             refresh();
         }

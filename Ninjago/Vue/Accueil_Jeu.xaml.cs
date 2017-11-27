@@ -251,7 +251,12 @@ namespace Ninjago.Vue
 
         }
 
-
+        private void btn_retour_accueil_jeu_Click(object sender, RoutedEventArgs e)
+        {
+            Launcher fenetre = new Launcher();
+            fenetre.Show();
+            this.Close();
+        }
     }
 
     
