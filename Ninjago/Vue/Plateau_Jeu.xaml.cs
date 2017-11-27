@@ -24,7 +24,7 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Plateau_Jeu 
     {
-        //pour comit
+        
         String choixMain;
         int action;
         List<Joueur> lesJ = new List<Joueur>() ;
@@ -39,7 +39,7 @@ namespace Ninjago.Vue
             C2.Visibility = Visibility.Hidden;
             C3.Visibility = Visibility.Hidden;
             C4.Visibility = Visibility.Hidden;
-
+            btn_jouer.Content = "Jouer";
             var json = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("joueur.json"));
             //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
            
@@ -58,7 +58,7 @@ namespace Ninjago.Vue
 
 
             
-                if (lesJ[0].DateNaissance.Date > lesJ[1].DateNaissance.Date)
+                if (lesJ[0].DateNaissance.Date < lesJ[1].DateNaissance.Date)
                 {
                     j1 = lesJ[0];
                     j2 = lesJ[1];
@@ -111,7 +111,7 @@ namespace Ninjago.Vue
                 {
                     val_ret = 0;
                     retourner = false;
-                    nomJoueur.Content = j1.Nom + " " + j1.Prenom;
+                    nomJoueur.Content = j1.Nom.ToString();
                     int i = 1;
                     foreach (Carte carteMain in j1.Main)
                     {
@@ -124,7 +124,7 @@ namespace Ninjago.Vue
                 {
                     val_ret = 180;
                     retourner = true;
-                    nomJoueur.Content = j2.Nom + " " + j2.Prenom;
+                    nomJoueur.Content = j2.Nom.ToString();
                     int i = 1;
                     foreach (Carte carteMain in j2.Main)
                     {
