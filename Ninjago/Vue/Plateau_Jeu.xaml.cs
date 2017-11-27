@@ -35,10 +35,6 @@ namespace Ninjago.Vue
            
                 InitializeComponent();
             Main.Visibility = Visibility.Hidden;
-            C1.Visibility = Visibility.Hidden;
-            C2.Visibility = Visibility.Hidden;
-            C3.Visibility = Visibility.Hidden;
-            C4.Visibility = Visibility.Hidden;
             btn_jouer.Content = "Jouer";
             var json = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText("joueur.json"));
             //Parcours de la collection pour créer les cartes en fonction du type renvoyer par le JSON
@@ -71,10 +67,6 @@ namespace Ninjago.Vue
                     j1 = lesJ[1];
                     j2 = lesJ[0];
                 }
-            
-            
-
-
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)
@@ -89,10 +81,6 @@ namespace Ninjago.Vue
                     action = 0;
                 }
             }
-                C1.IsChecked = false;
-                C2.IsChecked = false;
-                C3.IsChecked = false;
-                C4.IsChecked = false;
            
         }
 
@@ -143,10 +131,6 @@ namespace Ninjago.Vue
                 btn_jouer.Content = "Passer";
                 //rendre visible la main du joueur
                 Main.Visibility = Visibility.Visible;
-                C1.Visibility = Visibility.Visible;
-                C2.Visibility = Visibility.Visible;
-                C3.Visibility = Visibility.Visible;
-                C4.Visibility = Visibility.Visible;
 
                 //action pour retourner les boutons vides ( comme sa le joueur aura toujours ses cartes a lui dans son sens)
                 for (int i = 1; i <= 3; i++)
@@ -179,10 +163,6 @@ namespace Ninjago.Vue
                 btn_jouer.Content = "Jouer";
                 lblNomJoueur.Content = "";
                 Main.Visibility = Visibility.Hidden;
-                C1.Visibility = Visibility.Hidden;
-                C2.Visibility = Visibility.Hidden;
-                C3.Visibility = Visibility.Hidden;
-                C4.Visibility = Visibility.Hidden;
             }
 
         }
