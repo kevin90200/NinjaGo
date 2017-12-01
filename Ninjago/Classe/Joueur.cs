@@ -14,6 +14,7 @@ namespace Ninjago
         List<CartePersonnage> deck;
         List<CartePersonnage> main;
         List<CartePersonnage> depot;
+        Random aleatoire;
         public Joueur()
         {
            
@@ -26,6 +27,7 @@ namespace Ninjago
             this.deck = desC;
             this.main= new List<CartePersonnage>();
             this.depot = new List<CartePersonnage>();
+            aleatoire = new Random();
         }
 
 
@@ -36,21 +38,19 @@ namespace Ninjago
         internal List<CartePersonnage> Main { get => main; set => main = value; }
         internal List<CartePersonnage> Depot { get => depot; set => depot = value; }
 
-        public List<CartePersonnage> TirerCarte()
+        public void TirerCarte()
         {
             for (int i = 1; i <= 3; i++){
-                Random aleatoire = new Random();
-                int numeroAlea = aleatoire.Next(20); 
-                main.Add(deck[numeroAlea]);
+                
+                this.main.Add(deck[0]);
+                this.deck.Remove(deck[0]);
             }
-
-            return main;
         }
 
-        public Carte Piocher()
+        public void Piocher()
         {
-            main.Add(deck[0]);
-            return main[main.Count -1];
+            this.main.Add(deck[0]);
+            this.deck.Remove(deck[0]);
         }
 
         public void Defausser(CartePersonnage uneCartePersonnage)

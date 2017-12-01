@@ -25,13 +25,13 @@ namespace Ninjago.Vue
     {
         List<Joueur> lesJ = new List<Joueur>();
         List<CartePersonnage> lesCartes = new List<CartePersonnage>();
-        List<CartePersonnage> maCollection = new List<CartePersonnage>();            
-        List<CartePersonnage> deck1 = new List<CartePersonnage>();                
+        List<CartePersonnage> maCollection = new List<CartePersonnage>();
+        List<CartePersonnage> deck1 = new List<CartePersonnage>();
         List<CartePersonnage> deck2 = new List<CartePersonnage>();
         List<CartePersonnage> deck3 = new List<CartePersonnage>();
         List<CartePersonnage> DeckJ1 = new List<CartePersonnage>();
         List<CartePersonnage> DeckJ2 = new List<CartePersonnage>();
-      
+        Random aleatoire;
 
         private void MonDeckJ1_Checked(object sender, RoutedEventArgs e)
         { //pour affficher la comboBox quand on clique sur "deck personnalisé"
@@ -112,7 +112,8 @@ namespace Ninjago.Vue
             if (maCollection != null)
             {
                 //SI ma collection est complete
-                if (maCollection.Count == 20) {
+                if (maCollection.Count == 20)
+                {
                     if (MonDeckJ1.IsChecked == true || MonDeckJ2.IsChecked == true)
                     {
                         if (MonDeckJ1.IsChecked == true)
@@ -179,37 +180,58 @@ namespace Ninjago.Vue
                             }
                         }
                     }
+                }
             }
-        }
             #endregion
             // permet de remplir le deck de j1 ou j2  avec un deck aleatoire de ma collection // reste a faire un message d'erreur si il y a pas asser de carte dans la collection ou faire une auto selection sur deck aleatoire de toute les cartes du jeu
             #region deck aleatoire à partir de ma collection
+            aleatoire = new Random();
             if (AleatoireColJ1.IsChecked == true || AleatoireColJ2.IsChecked == true)
             {
 
                 int nombreCarteCollection = maCollection.Count();// pour savoir si j'ai asser de carte dans ma collection pour faire un deck
-                if (nombreCarteCollection >= 20) 
+                if (nombreCarteCollection >= 20)
                 {
-                    for (int i = 1; i <= 20; i++)
+                    if (AleatoireColJ1.IsChecked == true)
                     {
-                        Random aleatoire = new Random();
-                        int numeroAlea = aleatoire.Next(nombreCarteCollection - 1);
-                        Boolean ajout = true;
-                        foreach (CartePersonnage cp in DeckJ1)
+                        for (int i = 1; i <= 20; i++)
                         {
-                            if (maCollection[numeroAlea] == cp)
+                            Boolean ajout = true;
+                            int numeroAlea = aleatoire.Next(nombreCarteCollection - 1);
+                            foreach (CartePersonnage cp in DeckJ1)
                             {
-                                ajout = false;
-                                i = i - 1;
+                                if (maCollection[numeroAlea] == cp)
+                                {
+                                    ajout = false;
+                                    i = i - 1;
+                                }
+                            }
+                            if (ajout == true)
+                            {
+                                DeckJ1.Add(maCollection[numeroAlea]);
                             }
                         }
-                        if (AleatoireColJ1.IsChecked == true && ajout == true)
+                    }
+
+
+                    if (AleatoireColJ2.IsChecked == true)
+                    {
+                        for (int i = 1; i <= 20; i++)
                         {
-                            DeckJ1.Add(maCollection[numeroAlea]);
-                        }
-                        if (AleatoireColJ2.IsChecked == true && ajout == true)
-                        {
-                            DeckJ2.Add(maCollection[numeroAlea]);
+                            Boolean ajout = true;
+                            int numeroAlea = aleatoire.Next(nombreCarteCollection - 1);
+                            foreach (CartePersonnage cp in DeckJ2)
+                            {
+                                if (maCollection[numeroAlea] == cp)
+                                {
+                                    ajout = false;
+                                    i = i - 1;
+                                }
+                            }
+                            if (ajout == true)
+                            {
+                                DeckJ2.Add(maCollection[numeroAlea]);
+                            }
                         }
                     }
                 }
@@ -217,37 +239,93 @@ namespace Ninjago.Vue
             #endregion
             // permet de remplir le deck de j1 ou j2  avec un deck aleatoire de toute les cartes
             #region deck aleatoire de toute les cartes
+            aleatoire = new Random();
             if (AleatoireAllJ1.IsChecked == true || AleatoireAllJ2.IsChecked == true)
             {
-                int nombreCarteAll = lesCartes.Count();
-                if (nombreCarteAll >= 20)
+                int nombreCarteAll=0;
+                foreach (Carte c in lesCartes)
                 {
-                    for (int i = 1; i <= 20; i++)
+                    if (c is CartePersonnage)
                     {
-                        Random aleatoire = new Random();
-                        int numeroAlea = aleatoire.Next(nombreCarteAll - 1);
-                        Boolean ajout = true;
-                        foreach (CartePersonnage cp in DeckJ1)
-                        {
-                            if (maCollection[numeroAlea] == cp)
-                            {
-                                ajout = false;
-                                i = i - 1;
-                            }
-                        }
-                        if (AleatoireColJ1.IsChecked == true && ajout == true)
-                        {
-                            DeckJ1.Add(lesCartes[numeroAlea]);
-
-                        }
-                        if (AleatoireColJ2.IsChecked == true && ajout == true)
-                        {
-                            DeckJ2.Add(lesCartes[numeroAlea]);
-                        }
+                        nombreCarteAll = nombreCarteAll + 1;
                     }
                 }
+                if (AleatoireAllJ1.IsChecked == true)
+                    {
+                        for (int i = 1; i <= 20; i++)
+                        {
+                            Boolean ajout = true;
+                            int numeroAlea = aleatoire.Next(nombreCarteAll - 1);
+                            foreach (CartePersonnage cp in DeckJ1)
+                            {
+                                if (lesCartes[numeroAlea] == cp)
+                                {
+                                    ajout = false;
+                                    i = i - 1;
+                                }
+                            }
+                            if (ajout == true)
+                            {
+                                DeckJ1.Add(lesCartes[numeroAlea]);
+                            }
+                        }
+                    }
+
+
+                    if (AleatoireAllJ2.IsChecked == true)
+                    {
+                        for (int i = 1; i <= 20; i++)
+                        {
+                            Boolean ajout = true; //PB AVEC AJOUT
+                            int numeroAlea = aleatoire.Next(nombreCarteAll - 1);
+                            foreach (CartePersonnage cp in DeckJ2)
+                            {
+                                if (lesCartes[numeroAlea] == cp)
+                                {
+                                    ajout = false;
+                                    i = i - 1;
+                                }
+                            }
+                            if (ajout == true)
+                            {
+                                DeckJ2.Add(lesCartes[numeroAlea]);
+                            }
+                        }
+                    }
+                
             }
-#endregion
+
+            ////if (AleatoireAllJ1.IsChecked == true || AleatoireAllJ2.IsChecked == true)
+            ////{
+            ////    int nombreCarteAll = lesCartes.Count();
+            ////    if (nombreCarteAll >= 20)
+            ////    {
+            ////        for (int i = 1; i <= 20; i++)
+            ////        {
+            ////            Random aleatoire = new Random();
+            ////            int numeroAlea = aleatoire.Next(nombreCarteAll - 1);
+            ////            Boolean ajout = true;
+            ////            foreach (CartePersonnage cp in DeckJ1)
+            ////            {
+            ////                if (maCollection[numeroAlea] == cp)
+            ////                {
+            ////                    ajout = false;
+            ////                    i = i - 1;
+            ////                }
+            ////            }
+            ////            if (AleatoireColJ1.IsChecked == true && ajout == true)
+            ////            {
+            ////                DeckJ1.Add(lesCartes[numeroAlea]);
+
+            ////            }
+            ////            if (AleatoireColJ2.IsChecked == true && ajout == true)
+            ////            {
+            ////                DeckJ2.Add(lesCartes[numeroAlea]);
+            ////            }
+            ////        }
+            ////    }
+            ////}
+            #endregion
             Joueur J1 = new Joueur(PseudoJ1.Text.ToString(), "", Convert.ToDateTime(DateJ1.Text), DeckJ1);
             Joueur J2 = new Joueur(PseudoJ2.Text.ToString(), "", Convert.ToDateTime(DateJ2.Text), DeckJ2);
             lesJ.Add(J1);
@@ -268,5 +346,5 @@ namespace Ninjago.Vue
         }
     }
 
-    
+
 }
