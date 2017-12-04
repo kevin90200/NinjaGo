@@ -160,22 +160,22 @@ namespace Ninjago.Vue
                                 btnRight = (Button)FindName("duel" + r + "_" + c1);
                                 btnTop = (Button)FindName("duel" + r01 + "_" + c);
                                 btnBottom = (Button)FindName("duel" + r1 + "_" + c);
-                                if (Left.Content != "" && actif.Equals(plt.UnPlateau[r, c01].Joueur))
+                                if (Left.Content != "" && actif.Nom != plt.UnPlateau[r, c01].Joueur.Nom)
                                 {
                                     duel = true;
                                     btnLeft.Visibility = Visibility.Visible;
                                 }
-                                if (Right.Content != "" && actif.Equals(plt.UnPlateau[r, c1].Joueur))
+                                if (Right.Content != "" && actif.Nom != plt.UnPlateau[r, c1].Joueur.Nom)
                                 {
                                     duel = true;
                                     btnRight.Visibility = Visibility.Visible;
                                 }
-                                if (Top.Content != "" && actif.Equals(plt.UnPlateau[r01, c].Joueur))
+                                if (Top.Content != "" && actif.Nom != plt.UnPlateau[r01, c].Joueur.Nom)
                                 {
                                     duel = true;
                                     btnTop.Visibility = Visibility.Visible;
                                 }
-                                if (Bottom.Content != "" && actif.Equals(plt.UnPlateau[r1, c].Joueur))
+                                if (Bottom.Content != "" && actif.Nom != plt.UnPlateau[r1, c].Joueur.Nom)
                                 {
                                     duel = true;
                                     btnBottom.Visibility = Visibility.Visible;
