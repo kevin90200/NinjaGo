@@ -550,6 +550,9 @@
   <ItemGroup>
     <Resource Include="Ressource\duel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\imgninjago.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />
 </Project>

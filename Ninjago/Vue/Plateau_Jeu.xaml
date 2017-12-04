@@ -8,19 +8,16 @@
         mc:Ignorable="d"
         Title="Plateau" Height="900" Width="1600" VerticalAlignment="Center" HorizontalAlignment="Center">
     <Border BorderThickness="1" BorderBrush="Black" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="847" Width="1580">
-        <Grid x:Name="Jeu" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.504" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid x:Name="Jeu" Margin="3.667,7.667,-0.667,8" RenderTransformOrigin="0.5,0.504" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1575">
             <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
+                <ImageBrush ImageSource="/Ninjago;component/Ressource/imgninjago.jpg"/>
             </Grid.Background>
             <Grid.RowDefinitions>
                 <!--<RowDefinition Height="153*"/>
                 <RowDefinition Height="0*"/>
                 <RowDefinition Height="83*"/>-->
             </Grid.RowDefinitions>
-            <Grid x:Name="Plateau" HorizontalAlignment="Center" Height="758" Margin="82,10,884,61" VerticalAlignment="Center" Width="604" OpacityMask="Black" RenderTransformOrigin="0.5,0.5">
+            <Grid x:Name="Plateau" HorizontalAlignment="Center" Height="758" Margin="82,10,884,61" VerticalAlignment="Center" Width="604" RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -62,8 +59,8 @@
                 <Border x:Name="case1_0" Grid.Row="1" Grid.Column="0"   BorderBrush="Black" BorderThickness="3" Visibility="Hidden">
                     <Button  x:Name="btn1_0" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="131" Margin="7.333,7.333,0,0" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Visibility="Hidden"/>
                 </Border>
-                <Border x:Name="case1_1" Grid.Row="1" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn1_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border x:Name="case1_1" Grid.Row="1" Grid.Column="1" BorderThickness="3">
+                    <Button  x:Name="btn1_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF1_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"/>
                 <Label x:Name="FV1_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -88,8 +85,8 @@
                     </Label.RenderTransform>
                 </Label>-->
 
-                <Border  x:Name="case1_2" Grid.Row="1" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn1_2" Content="" HorizontalAlignment="Center" Width="181" Margin="7"  Click="btn_Click" Height="231" VerticalAlignment="Center" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="#FFF7F7F7"/>
+                <Border  x:Name="case1_2" Grid.Row="1" Grid.Column="2" BorderThickness="3">
+                    <Button  x:Name="btn1_2" Content="" HorizontalAlignment="Center" Width="181" Margin="7"  Click="btn_Click" Height="231" VerticalAlignment="Center" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF1_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="1"/>
                 <Label x:Name="FV1_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -113,8 +110,8 @@
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>-->
-                <Border  x:Name="case1_3" Grid.Row="1" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn1_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border  x:Name="case1_3" Grid.Row="1" Grid.Column="3" BorderThickness="3">
+                    <Button  x:Name="btn1_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
 
                 <!--<Label x:Name="VF1_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="1"/>
@@ -146,8 +143,8 @@
                 <Border  x:Name="case2_0" Grid.Row="2" Grid.Column="0"   BorderBrush="Black" BorderThickness="3" Visibility="Hidden">
                     <Button  x:Name="btn2_0" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="131" Margin="7.333,7.333,0,0"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Visibility="Hidden"/>
                 </Border>
-                <Border  x:Name="case2_1" Grid.Row="2" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn2_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border  x:Name="case2_1" Grid.Row="2" Grid.Column="1" BorderThickness="3">
+                    <Button  x:Name="btn2_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF2_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
                 <Label x:Name="FV2_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -171,8 +168,8 @@
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>-->
-                <Border x:Name="case2_2" Grid.Row="2" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn2_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border x:Name="case2_2" Grid.Row="2" Grid.Column="2" BorderThickness="3">
+                    <Button  x:Name="btn2_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF2_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="2"/>
                 <Label x:Name="FV2_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -196,8 +193,8 @@
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>-->
-                <Border x:Name="case2_3"  Grid.Row="2" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn2_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border x:Name="case2_3"  Grid.Row="2" Grid.Column="3" BorderThickness="3">
+                    <Button  x:Name="btn2_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF2_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="2"/>
                 <Label x:Name="FV2_3" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -227,8 +224,8 @@
                 <Border  x:Name="case3_0" Grid.Row="3" Grid.Column="0"   BorderBrush="Black" BorderThickness="3" Visibility="Hidden">
                     <Button  x:Name="btn3_0" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="131" Margin="7.333,7.333,0,0"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Visibility="Hidden"/>
                 </Border>
-                <Border x:Name="case3_1"  Grid.Row="3" Grid.Column="1"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn3_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border x:Name="case3_1"  Grid.Row="3" Grid.Column="1" BorderThickness="3">
+                    <Button  x:Name="btn3_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF3_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3"/>
                 <Label x:Name="FV3_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -252,8 +249,8 @@
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>-->
-                <Border x:Name="case3_2" Grid.Row="3" Grid.Column="2"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn3_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border x:Name="case3_2" Grid.Row="3" Grid.Column="2" BorderThickness="3">
+                    <Button  x:Name="btn3_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF3_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="3"/>
                 <Label x:Name="FV3_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -277,8 +274,8 @@
                         </TransformGroup>
                     </Label.RenderTransform>
                 </Label>-->
-                <Border x:Name="case3_3"  Grid.Row="3" Grid.Column="3"   BorderBrush="Black" BorderThickness="3">
-                    <Button  x:Name="btn3_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000"/>
+                <Border x:Name="case3_3"  Grid.Row="3" Grid.Column="3" BorderThickness="3">
+                    <Button  x:Name="btn3_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF3_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="3"/>
                 <Label x:Name="FV3_3" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -398,7 +395,7 @@
                 <Button  x:Name="duel4_4" Visibility="Hidden">
                 </Button>
             </Grid>
-            <Grid x:Name="Main" HorizontalAlignment="Center" Height="200" Margin="873,326,66,303" VerticalAlignment="Center" Width="631">
+            <Grid x:Name="Main" HorizontalAlignment="Center" Height="200" Margin="865,302,79,326.667" VerticalAlignment="Center" Width="631">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="250*"/>
                     <RowDefinition Height="1*"/>
@@ -409,29 +406,29 @@
                     <ColumnDefinition Width="150" x:Name="carte3"/>
                     <ColumnDefinition Width="150" x:Name="carte4"/>
                 </Grid.ColumnDefinitions>
-                <Border  Grid.Column="0"   BorderBrush="Black" BorderThickness="3" Margin="0,0,0.333,0" Grid.RowSpan="2">
-                    <Button  x:Name="btnCarte1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="180" Margin="7,7,0,0" RenderTransformOrigin="0.003,0.2" Click="btnCarte1_Click" Foreground="#00000000"/>
+                <Border  Grid.Column="0" BorderThickness="3" Margin="0,0,0.333,0" Grid.RowSpan="2">
+                    <Button  x:Name="btnCarte1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="180" Margin="7,7,0,0" RenderTransformOrigin="0.003,0.2" Click="btnCarte1_Click" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VMain1" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,0,0,0" Grid.RowSpan="2"/>
                 <Label x:Name="AMain1" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1"/>
                 <Label x:Name="FMain1" Content="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0" RenderTransformOrigin="2.132,0.594" Grid.Row="1"/>
                 <Label x:Name="DMain1" Content="23" VerticalAlignment="Top" Margin="0,1.5,48.333,0" Grid.Row="1"/>-->
-                <Border   BorderBrush="Black" BorderThickness="3" Margin="0,-1,0,0" Grid.Column="1">
-                    <Button  x:Name="btnCarte2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="180" Margin="7,7,0,0" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Click="btnCarte2_Click"/>
+                <Border BorderThickness="3" Margin="0,-1,0,0" Grid.Column="1">
+                    <Button  x:Name="btnCarte2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="131" Height="180" Margin="7,7,0,0" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Click="btnCarte2_Click" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VMain2" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22.667,0,0,0" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.52,0.35"/>
                 <Label x:Name="AMain2" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1" Grid.Column="1"/>
                 <Label x:Name="FMain2" Content="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0" RenderTransformOrigin="2.132,0.594" Grid.Row="1" Grid.Column="1"/>
                 <Label x:Name="DMain2" Content="23" VerticalAlignment="Top" Margin="0,1.5,48.333,0" Grid.Row="1" Grid.Column="1"/>-->
-                <Border  Grid.Column="2"   BorderBrush="Black" BorderThickness="3" Margin="0,-1,0,0">
-                    <Button  x:Name="btnCarte3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="180" Margin="3,7,0,0" RenderTransformOrigin="0.003,0.2" BorderBrush="{x:Null}" Foreground="#00000000" Click="btnCarte3_Click"/>
+                <Border  Grid.Column="2" BorderThickness="3" Margin="0,-1,0,0">
+                    <Button  x:Name="btnCarte3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="180" Margin="3,7,0,0" RenderTransformOrigin="0.003,0.2" BorderBrush="{x:Null}" Foreground="#00000000" Click="btnCarte3_Click" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VMain3" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22.667,0,0,0" Grid.RowSpan="2" Grid.Column="2" RenderTransformOrigin="0.52,0.35"/>
                 <Label x:Name="AMain3" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1" Grid.Column="2"/>
                 <Label x:Name="FMain3" Content="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="23,0,0,0" RenderTransformOrigin="2.132,0.594" Grid.Row="1" Grid.Column="2"/>
                 <Label x:Name="DMain3" Content="23" VerticalAlignment="Top" Margin="0,1.5,48.333,0" Grid.Row="1" Grid.Column="2"/>-->
-                <Border  Grid.Column="3"   BorderBrush="Black" BorderThickness="3" Margin="0,0,1,0" Width="150" Grid.RowSpan="2">
-                    <Button  x:Name="btnCarte4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Height="180" Margin="3,7,0,0" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Click="btnCarte4_Click"/>
+                <Border  Grid.Column="3" BorderThickness="3" Margin="0,0,1,0" Width="150" Grid.RowSpan="2">
+                    <Button  x:Name="btnCarte4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Height="180" Margin="3,7,0,0" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Click="btnCarte4_Click" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VMain4" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22.667,0,0,0" Grid.RowSpan="2" Grid.Column="3" RenderTransformOrigin="0.52,0.35"/>
                 <Label x:Name="AMain4" Content="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,1.5,0,0" RenderTransformOrigin="0.53,-0.058" Grid.Row="1" Grid.Column="3"/>
@@ -446,8 +443,8 @@
             <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,0,0,10" Width="36" HorizontalContentAlignment="Left" Height="31" VerticalAlignment="Bottom" Grid.Row="2">
                 <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
             </Button>
-            <Button x:Name="btn_jouer" Content="JOUER" HorizontalAlignment="Center" Margin="1134,555,362,0" VerticalAlignment="Top" Width="74" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="27"/>
-            <Label x:Name="lblNomJoueur" Content="" HorizontalAlignment="Center" Margin="1120,587,342,0" VerticalAlignment="Top" Width="108" Height="26"/>
+            <Button x:Name="btn_jouer" Content="JOUER" HorizontalAlignment="Center" Margin="1122,507,379,0" VerticalAlignment="Top" Width="74" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="27"/>
+            <Label x:Name="lblNomJoueur" Content="" HorizontalAlignment="Center" Margin="865,507,546,0" VerticalAlignment="Top" Width="164" Height="47" FontFamily="Matura MT Script Capitals" Background="{x:Null}" FontSize="20" Foreground="#FFAD3F21"/>
 
 
 

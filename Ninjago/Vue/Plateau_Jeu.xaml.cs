@@ -37,6 +37,7 @@ namespace Ninjago.Vue
         Button btnLeft;
         Button btnRight;
         Button btnPoser;
+        Boolean duel = false;
 
         public Plateau_Jeu()
         {
@@ -92,7 +93,7 @@ namespace Ninjago.Vue
             }
 
 
-            if (lesJ[0].DateNaissance.Date < lesJ[1].DateNaissance.Date)
+            if (lesJ[0].DateNaissance > lesJ[1].DateNaissance)
             {
                 j1 = lesJ[0];
                 j2 = lesJ[1];
@@ -161,18 +162,22 @@ namespace Ninjago.Vue
                                 btnBottom = (Button)FindName("duel" + r1 + "_" + c);
                                 if (Left.Content != "" && actif.Nom != plt.UnPlateau[r, c01].Joueur.Nom)
                                 {
+                                    duel = true;
                                     btnLeft.Visibility = Visibility.Visible;
                                 }
                                 if (Right.Content != "" && actif.Nom != plt.UnPlateau[r, c1].Joueur.Nom)
                                 {
+                                    duel = true;
                                     btnRight.Visibility = Visibility.Visible;
                                 }
                                 if (Top.Content != "" && actif.Nom != plt.UnPlateau[r01, c].Joueur.Nom)
                                 {
+                                    duel = true;
                                     btnTop.Visibility = Visibility.Visible;
                                 }
                                 if (Bottom.Content != "" && actif.Nom != plt.UnPlateau[r1, c].Joueur.Nom)
                                 {
+                                    duel = true;
                                     btnBottom.Visibility = Visibility.Visible;
                                 }
                             }
@@ -226,7 +231,7 @@ namespace Ninjago.Vue
         }
         private void btn_duel(object sender, RoutedEventArgs e)
         {
-
+            duel = false;
             Button btnDuel = sender as Button;
             Button btnCarteDuel = new Button();
             Case ca;
@@ -430,7 +435,7 @@ namespace Ninjago.Vue
         Boolean retourner = true;
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         { //poser qu'une carte par tour : variable globale utiliser aussi dans btn_click
-            action = 1;
+            
             btnCarte1.Opacity = 1;
             btnCarte2.Opacity = 1;
             btnCarte3.Opacity = 1;
@@ -439,6 +444,7 @@ namespace Ninjago.Vue
             int val_ret;
             if (btn_jouer.Content.ToString() == "Jouer")
             {
+                action = 1;
                 if (retourner == true)
                 {
                     actif = j1;
@@ -543,55 +549,57 @@ namespace Ninjago.Vue
 
             }
             // cacher ses cartes
-            else
+            else if(action == 0 && duel == false)
             {
-                //permet de masque les boutton duel au changement de tour
-                btnLeft.Visibility = Visibility.Hidden;
-                btnRight.Visibility = Visibility.Hidden;
-                btnTop.Visibility = Visibility.Hidden;
-                btnBottom.Visibility = Visibility.Hidden;
-                //on passe la carte selectionner à null
-                selected = null;
-                btnPoser = null;
-                btn_jouer.Content = "Jouer";
-                lblNomJoueur.Content = "";
-                Main.Visibility = Visibility.Hidden;
-                bool plein = true;
-                int ptj1 = 0;
-                int ptj2 = 0;
-                for(int r =1; r<=3; r++)
-                {
-                    for (int c = 1; c <= 3; c++)
+                
+                    //permet de masque les boutton duel au changement de tour
+                    btnLeft.Visibility = Visibility.Hidden;
+                    btnRight.Visibility = Visibility.Hidden;
+                    btnTop.Visibility = Visibility.Hidden;
+                    btnBottom.Visibility = Visibility.Hidden;
+                    //on passe la carte selectionner à null
+                    selected = null;
+                    btnPoser = null;
+                    btn_jouer.Content = "Jouer";
+                    lblNomJoueur.Content = "";
+                    Main.Visibility = Visibility.Hidden;
+                    bool plein = true;
+                    int ptj1 = 0;
+                    int ptj2 = 0;
+                    for (int r = 1; r <= 3; r++)
                     {
-                        if (plt.UnPlateau[r, c].BtnCase.Content.ToString() == "")
+                        for (int c = 1; c <= 3; c++)
                         {
-                            plein = false;
-                        }
-                        else
-                        {
-                            if (plt.UnPlateau[r, c].Joueur == j1)
+                            if (plt.UnPlateau[r, c].BtnCase.Content.ToString() == "")
                             {
-                                ptj1 = ptj1 + 1;
+                                plein = false;
                             }
-                            else if (plt.UnPlateau[r, c].Joueur == j2)
+                            else
                             {
-                                ptj2 = ptj2 + 1;
+                                if (plt.UnPlateau[r, c].Joueur == j1)
+                                {
+                                    ptj1 = ptj1 + 1;
+                                }
+                                else if (plt.UnPlateau[r, c].Joueur == j2)
+                                {
+                                    ptj2 = ptj2 + 1;
+                                }
                             }
                         }
                     }
-                }
-                if (ptj1 > ptj2)
-                {
-                    gagnant = j1;
-                }
-                else
-                {
-                    gagnant = j2;
-                }
-                if (plein == true)
-                {
-                    MessageBox.Show(gagnant.ToString()+" | carte " + j1.Nom +": "+ptj1+" | carte " + j2.Nom + ": "+ptj2);
-                }
+                    if (ptj1 > ptj2)
+                    {
+                        gagnant = j1;
+                    }
+                    else
+                    {
+                        gagnant = j2;
+                    }
+                    if (plein == true)
+                    {
+                        MessageBox.Show(gagnant.ToString() + " | carte " + j1.Nom + ": " + ptj1 + " | carte " + j2.Nom + ": " + ptj2);
+                    }
+                
             }
 
         }
