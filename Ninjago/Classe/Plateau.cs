@@ -8,13 +8,14 @@ namespace Ninjago
 {
     class Plateau
     {
-        int[,] plateau = new int[3,3];
-        List<Case> lesCases =new List<Case>();
+        Case[,] unPlateau;
 
         public Plateau(int unNombre)
         {
-            int[,] plateau = new int[unNombre, unNombre];
+           this.UnPlateau = new Case[unNombre, unNombre];
         }
+
+        public Case[,] UnPlateau { get => unPlateau; set => unPlateau = value; }
 
         public void Poser(CartePersonnage uneCarte, Joueur unJoueur, Case uneCase)
         {
