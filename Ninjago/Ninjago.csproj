@@ -547,7 +547,10 @@
     <Resource Include="Ressource\cartes\LE9-TOURNOI D_INITIATION.jpg" />
     <Resource Include="Ressource\cartes\LE9.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Ressource\carteBase.jpg" />
+    <Resource Include="Ressource\carteDepot.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />
 </Project>
