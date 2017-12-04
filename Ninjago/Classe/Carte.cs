@@ -119,5 +119,9 @@ namespace Ninjago
                 return Numero;
             }
         }
+        public override bool Equals(object obj)
+        {
+            return ((Carte)obj).Nom == this.Nom;
+        }
     }
 }

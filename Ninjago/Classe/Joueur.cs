@@ -61,5 +61,9 @@ namespace Ninjago
         {
             return this.Nom;
         }
+        public override bool Equals(object obj)
+        {
+            return ((Joueur)obj).Nom == this.Nom;
+        }
     }
 }
