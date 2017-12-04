@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Ninjago
 {
@@ -10,11 +11,13 @@ namespace Ninjago
     {
         Joueur joueur;
         CartePersonnage carte;
+        Button btnCase;
 
-        public Case()
+        public Case(Button unBtn)
         {
             this.Joueur = null;
             this.Carte = null;
+            this.btnCase = unBtn;
         }
         public Case (Joueur unJoueur, CartePersonnage uneCarte)
         {
@@ -22,6 +25,7 @@ namespace Ninjago
             this.Carte = uneCarte;
         }
 
+        public Button BtnCase { get => btnCase; set => btnCase = value; }
         internal Joueur Joueur { get => joueur; set => joueur = value; }
         internal CartePersonnage Carte { get => carte; set => carte = value; }
 

@@ -57,5 +57,9 @@ namespace Ninjago
         {
             main.Remove(uneCartePersonnage);
         }
+        public override string ToString()
+        {
+            return this.Nom;
+        }
     }
 }
