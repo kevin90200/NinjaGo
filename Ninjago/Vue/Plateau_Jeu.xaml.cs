@@ -315,20 +315,24 @@ namespace Ninjago.Vue
                 {
                     ca.Joueur = j1;
                 }
-                foreach (Case c in plt.UnPlateau)
+                for (int r = 0; r <= 4; r++)
+                {
+                    foreach (Case c in plt.UnPlateau)
                     {
                         if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
                         {
                             c.Joueur = actif;
                         }
                     }
-               
+                }
             }
             else
             {
                 ca = new Case(btnPoser);
                 ca.Joueur = actif;
-                foreach (Case c in plt.UnPlateau)
+                for (int r = 0; r <= 4; r++)
+                {
+                    foreach (Case c in plt.UnPlateau)
                     {
                         if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
                         {
@@ -342,7 +346,7 @@ namespace Ninjago.Vue
                             }
                         }
                     }
-                
+                }
             }
 
             foreach (Case c in plt.UnPlateau)
