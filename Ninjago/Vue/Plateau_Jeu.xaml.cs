@@ -24,7 +24,6 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Plateau_Jeu
     {
-        //055/028/083/042/017/006 font bugger
         int action;
         List<Joueur> lesJ = new List<Joueur>();
         List<CartePersonnage> lesCartes = new List<CartePersonnage>();        //liste de toutes les cartes
@@ -38,6 +37,7 @@ namespace Ninjago.Vue
         Button btnRight;
         Button btnPoser;
         Boolean duel = false;
+        Boolean defausse = false;
 
         public Plateau_Jeu()
         {
@@ -207,6 +207,7 @@ namespace Ninjago.Vue
                     {
                         j1.Main.Remove(selected);
                     }
+                    refreshMain();
                 }
                 else
                 {
@@ -227,7 +228,7 @@ namespace Ninjago.Vue
                     {
                         j2.Main.Remove(selected);
                     }
-
+                    refreshMain();
                 }
 
                 action = 0;
@@ -405,7 +406,7 @@ namespace Ninjago.Vue
         Boolean retourner = true;
         private void btn_jouer_Click(object sender, RoutedEventArgs e)
         { //poser qu'une carte par tour : variable globale utiliser aussi dans btn_click
-            
+
             btnCarte1.Opacity = 1;
             btnCarte2.Opacity = 1;
             btnCarte3.Opacity = 1;
@@ -415,6 +416,7 @@ namespace Ninjago.Vue
             if (btn_jouer.Content.ToString() == "Jouer")
             {
                 action = 1;
+                defausse = false;
                 if (retourner == true)
                 {
                     actif = j1;
@@ -422,31 +424,24 @@ namespace Ninjago.Vue
                     val_ret = 0;
                     retourner = false;
                     lblNomJoueur.Content = j1.Nom.ToString();
-                    btnCarte1.Content = j1.Main[0].Numero;
-                    btnCarte2.Content = j1.Main[1].Numero;
-                    btnCarte3.Content = j1.Main[2].Numero;
-                    btnCarte4.Content = j1.Main[3].Numero;
                     try
                     {
+                        btnDepot.Content = j1.Depot[j1.Depot.Count - 1].Numero;
                         try
                         {
-                            btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte1.Content).ToString() + ".png")));
-                            btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte2.Content).ToString() + ".png")));
-                            btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte3.Content).ToString() + ".png")));
-                            btnCarte4.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte4.Content).ToString() + ".png")));
+                            btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnDepot.Content).ToString() + ".png")));
                         }
                         catch
                         {
-                            btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte1.Content.ToString() + ".png")));
-                            btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte2.Content.ToString() + ".png")));
-                            btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte3.Content.ToString() + ".png")));
-                            btnCarte4.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte4.Content.ToString() + ".png")));
+                            btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnDepot.Content + ".png")));
                         }
                     }
                     catch
                     {
-
+                        btnDepot.Content = "carteDepot";
+                        btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/" + btnDepot.Content + ".jpg")));
                     }
+                    refreshMain();
                 }
                 else
                 {
@@ -455,28 +450,24 @@ namespace Ninjago.Vue
                     val_ret = 180;
                     retourner = true;
                     lblNomJoueur.Content = j2.Nom.ToString();
-                    btnCarte1.Content = j2.Main[0].Numero;
-                    btnCarte2.Content = j2.Main[1].Numero;
-                    btnCarte3.Content = j2.Main[2].Numero;
-                    btnCarte4.Content = j2.Main[3].Numero;
                     try
                     {
+                        btnDepot.Content = j2.Depot[j2.Depot.Count - 1].Numero;
                         try
                         {
-                            btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte1.Content).ToString() + ".png")));
-                            btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte2.Content).ToString() + ".png")));
-                            btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte3.Content).ToString() + ".png")));
-                            btnCarte4.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte4.Content).ToString() + ".png")));
+                            btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnDepot.Content).ToString() + ".png")));
                         }
                         catch
                         {
-                            btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte1.Content + ".png")));
-                            btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte2.Content + ".png")));
-                            btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte3.Content + ".png")));
-                            btnCarte4.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte4.Content + ".png")));
+                            btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnDepot.Content + ".png")));
                         }
                     }
-                    catch { }
+                    catch
+                    {
+                        btnDepot.Content = "carteDepot";
+                        btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/" + btnDepot.Content + ".jpg")));
+                    }
+                    refreshMain();
                 }
                 RotateTransform rotateTransform = new RotateTransform(val_ret);
                 rotateTransform.CenterX = -1;
@@ -493,7 +484,7 @@ namespace Ninjago.Vue
                 {
                     RotateTransform rotateTransformBtn = new RotateTransform(val_ret);
                     rotateTransformBtn.CenterX = 90;
-                    rotateTransformBtn.CenterY =70;
+                    rotateTransformBtn.CenterY = 70;
 
 
                     Button btn1 = (Button)FindName("btn1_" + i);
@@ -526,57 +517,57 @@ namespace Ninjago.Vue
 
             }
             // cacher ses cartes
-            else if(action == 0 && duel == false)
+            else if (action == 0 && duel == false)
             {
-                
-                    //permet de masque les boutton duel au changement de tour
-                    btnLeft.Visibility = Visibility.Hidden;
-                    btnRight.Visibility = Visibility.Hidden;
-                    btnTop.Visibility = Visibility.Hidden;
-                    btnBottom.Visibility = Visibility.Hidden;
-                    //on passe la carte selectionner à null
-                    selected = null;
-                    btnPoser = null;
-                    btn_jouer.Content = "Jouer";
-                    lblNomJoueur.Content = "";
-                    Main.Visibility = Visibility.Hidden;
-                    bool plein = true;
-                    int ptj1 = 0;
-                    int ptj2 = 0;
-                    for (int r = 1; r <= 3; r++)
+
+                //permet de masque les boutton duel au changement de tour
+                btnLeft.Visibility = Visibility.Hidden;
+                btnRight.Visibility = Visibility.Hidden;
+                btnTop.Visibility = Visibility.Hidden;
+                btnBottom.Visibility = Visibility.Hidden;
+                //on passe la carte selectionner à null
+                selected = null;
+                btnPoser = null;
+                btn_jouer.Content = "Jouer";
+                lblNomJoueur.Content = "";
+                Main.Visibility = Visibility.Hidden;
+                bool plein = true;
+                int ptj1 = 0;
+                int ptj2 = 0;
+                for (int r = 1; r <= 3; r++)
+                {
+                    for (int c = 1; c <= 3; c++)
                     {
-                        for (int c = 1; c <= 3; c++)
+                        if (plt.UnPlateau[r, c].BtnCase.Content.ToString() == "")
                         {
-                            if (plt.UnPlateau[r, c].BtnCase.Content.ToString() == "")
+                            plein = false;
+                        }
+                        else
+                        {
+                            if (plt.UnPlateau[r, c].Joueur == j1)
                             {
-                                plein = false;
+                                ptj1 = ptj1 + 1;
                             }
-                            else
+                            else if (plt.UnPlateau[r, c].Joueur == j2)
                             {
-                                if (plt.UnPlateau[r, c].Joueur == j1)
-                                {
-                                    ptj1 = ptj1 + 1;
-                                }
-                                else if (plt.UnPlateau[r, c].Joueur == j2)
-                                {
-                                    ptj2 = ptj2 + 1;
-                                }
+                                ptj2 = ptj2 + 1;
                             }
                         }
                     }
-                    if (ptj1 > ptj2)
-                    {
-                        gagnant = j1;
-                    }
-                    else
-                    {
-                        gagnant = j2;
-                    }
-                    if (plein == true)
-                    {
-                        MessageBox.Show(gagnant.ToString() + " | carte " + j1.Nom + ": " + ptj1 + " | carte " + j2.Nom + ": " + ptj2);
-                    }
-                
+                }
+                if (ptj1 > ptj2)
+                {
+                    gagnant = j1;
+                }
+                else
+                {
+                    gagnant = j2;
+                }
+                if (plein == true)
+                {
+                    MessageBox.Show(gagnant.ToString() + " | carte " + j1.Nom + ": " + ptj1 + " | carte " + j2.Nom + ": " + ptj2);
+                }
+
             }
 
         }
@@ -654,6 +645,9 @@ namespace Ninjago.Vue
             }
         }
 
+
+
+
         private void btnCarte3_Click(object sender, RoutedEventArgs e)
         {
             if (actif == j1)
@@ -730,6 +724,189 @@ namespace Ninjago.Vue
 
         #endregion
 
+        private void btnDepot_Click(object sender, RoutedEventArgs e)
+        {
+            Boolean retirer = false;
+
+            if (action == 0)
+            {
+                if (defausse == false)
+                {
+                    //permet de retirer de la main la carte qui vient d'être defausser
+                    if (actif == j1)
+                    {
+                        int i = 0;
+                        foreach (CartePersonnage c in j1.Main)
+                        {
+                            i = i + 1;
+                            if (c == selected)
+                            {
+                                Button btnMain = (Button)FindName("btnCarte" + i);
+                                btnMain.Content = "";
+                                btnMain.Background = new ImageBrush(null);
+                                retirer = true;
+                            }
+                        }
+                        if (retirer == true)
+                        {
+                            j1.Main.Remove(selected);
+                            j1.Depot.Add(selected);
+                            defausse = true;
+                            j1.Piocher();
+                        }
+                        refreshMain();
+                        try
+                        {
+                            btnDepot.Content = j1.Depot[j1.Depot.Count - 1].Numero;
+                            try
+                            {
+                                btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnDepot.Content).ToString() + ".png")));
+                            }
+                            catch
+                            {
+                                btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnDepot.Content + ".png")));
+                            }
+                        }
+                        catch
+                        {
+                            btnDepot.Content = "carteDepot";
+                            btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/" + btnDepot.Content + ".jpg")));
+                        }
+                    }
+                    else
+                    {
+                        int i = 0;
+                        foreach (CartePersonnage c in j2.Main)
+                        {
+                            i = i + 1;
+                            if (c == selected)
+                            {
+                                Button btnMain = (Button)FindName("btnCarte" + i);
+                                btnMain.Content = "";
+                                btnMain.Background = new ImageBrush(null);
+                                retirer = true;
+                            }
+                        }
+                        if (retirer == true)
+                        {
+                            j2.Main.Remove(selected);
+                            j2.Depot.Add(selected);
+                            defausse = true;
+                            j2.Piocher();
+                        }
+                        refreshMain();
+                        try
+                        {
+                            btnDepot.Content = j2.Depot[j2.Depot.Count - 1].Numero;
+                            try
+                            {
+                                btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnDepot.Content).ToString() + ".png")));
+                            }
+                            catch
+                            {
+                                btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnDepot.Content + ".png")));
+                            }
+                        }
+                        catch
+                        {
+                            btnDepot.Content = "carteDepot";
+                            btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/" + btnDepot.Content + ".jpg")));
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+        private void refreshMain()
+        {
+            btnCarte1.Opacity = 1;
+            btnCarte2.Opacity = 1;
+            btnCarte3.Opacity = 1;
+            btnCarte4.Opacity = 1;
+            btnCarte1.Content = "";
+            btnCarte2.Content = "";
+            btnCarte3.Content = "";
+            btnCarte4.Content = "";
+            btnCarte1.Background = new ImageBrush(null);
+            btnCarte2.Background = new ImageBrush(null);
+            btnCarte3.Background = new ImageBrush(null);
+            btnCarte4.Background = new ImageBrush(null);
+            try   //si la main contient 4 cartes
+            {
+                btnCarte1.Content = actif.Main[0].Numero;
+                btnCarte2.Content = actif.Main[1].Numero;
+                btnCarte3.Content = actif.Main[2].Numero;
+                btnCarte4.Content = actif.Main[3].Numero;
+                try
+                {
+                    btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte1.Content).ToString() + ".png")));
+                }
+                catch
+                {
+                    btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte1.Content.ToString() + ".png")));
+                }
+                try
+                {
+                    btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte2.Content).ToString() + ".png")));
+                }
+                catch
+                {
+                    btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte2.Content.ToString() + ".png")));
+                }
+                try
+                {
+                    btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte3.Content).ToString() + ".png")));
+                }
+                catch
+                {
+                    btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte3.Content.ToString() + ".png")));
+                }
+                try
+                {
+                    btnCarte4.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte4.Content).ToString() + ".png")));
+                }
+                catch
+                {
+                    btnCarte4.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte4.Content.ToString() + ".png")));
+                }
+
+
+
+            }
+            catch   //si la main contient trois cartes
+            {
+                btnCarte1.Content = actif.Main[0].Numero;
+                btnCarte2.Content = actif.Main[1].Numero;
+                btnCarte3.Content = actif.Main[2].Numero;
+                try
+                {
+                    btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte1.Content).ToString() + ".png")));
+                }
+                catch
+                {
+                    btnCarte1.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte1.Content.ToString() + ".png")));
+                }
+                try
+                {
+                    btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte2.Content).ToString() + ".png")));
+                }
+                catch
+                {
+                    btnCarte2.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte2.Content.ToString() + ".png")));
+                }
+                try
+                {
+                    btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btnCarte3.Content).ToString() + ".png")));
+                }
+                catch
+                {
+                    btnCarte3.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCarte3.Content.ToString() + ".png")));
+                }
+
+            }
+        }
 
         private void btn_retour_plateau_click(object sender, RoutedEventArgs e)
         {
@@ -737,8 +914,6 @@ namespace Ninjago.Vue
             fenetre.Show();
             this.Close();
         }
-
-
     }
 }
 

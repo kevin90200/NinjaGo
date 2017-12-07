@@ -445,6 +445,11 @@
             </Button>
             <Button x:Name="btn_jouer" Content="JOUER" HorizontalAlignment="Center" Margin="1122,507,379,0" VerticalAlignment="Top" Width="74" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="27"/>
             <Label x:Name="lblNomJoueur" Content="" HorizontalAlignment="Center" Margin="865,507,546,0" VerticalAlignment="Top" Width="164" Height="47" FontFamily="Matura MT Script Capitals" Background="{x:Null}" FontSize="20" Foreground="#FFAD3F21"/>
+            <Button x:Name="btnDepot" Content="Depot" HorizontalAlignment="Left" Margin="772,46,0,0" VerticalAlignment="Top" Width="131" Height="180" Foreground="#00000000" Click="btnDepot_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Ninjago;component/Ressource/carteDepot.jpg"/>
+                </Button.Background>
+            </Button>
 
 
 
