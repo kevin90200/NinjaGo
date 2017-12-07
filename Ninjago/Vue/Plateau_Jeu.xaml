@@ -60,7 +60,7 @@
                     <Button  x:Name="btn1_0" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="131" Margin="7.333,7.333,0,0" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Visibility="Hidden"/>
                 </Border>
                 <Border x:Name="case1_1" Grid.Row="1" Grid.Column="1" BorderThickness="3">
-                    <Button  x:Name="btn1_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button  x:Name="btn1_1" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF1_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1"/>
                 <Label x:Name="FV1_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -86,7 +86,7 @@
                 </Label>-->
 
                 <Border  x:Name="case1_2" Grid.Row="1" Grid.Column="2" BorderThickness="3">
-                    <Button  x:Name="btn1_2" Content="" HorizontalAlignment="Center" Width="181" Margin="7"  Click="btn_Click" Height="231" VerticalAlignment="Center" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button  x:Name="btn1_2" Grid.Row="1" Grid.Column="2" Content="" HorizontalAlignment="Center" Width="181" Margin="7"  Click="btn_Click" Height="231" VerticalAlignment="Center" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF1_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="1"/>
                 <Label x:Name="FV1_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -111,7 +111,7 @@
                     </Label.RenderTransform>
                 </Label>-->
                 <Border  x:Name="case1_3" Grid.Row="1" Grid.Column="3" BorderThickness="3">
-                    <Button  x:Name="btn1_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button  x:Name="btn1_3" Grid.Row="1" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
 
                 <!--<Label x:Name="VF1_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="1"/>
@@ -144,7 +144,7 @@
                     <Button  x:Name="btn2_0" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="131" Margin="7.333,7.333,0,0"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Visibility="Hidden"/>
                 </Border>
                 <Border  x:Name="case2_1" Grid.Row="2" Grid.Column="1" BorderThickness="3">
-                    <Button  x:Name="btn2_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                    <Button  x:Name="btn2_1" Grid.Row="2" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF2_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2"/>
                 <Label x:Name="FV2_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -169,7 +169,7 @@
                     </Label.RenderTransform>
                 </Label>-->
                 <Border x:Name="case2_2" Grid.Row="2" Grid.Column="2" BorderThickness="3">
-                    <Button  x:Name="btn2_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button  x:Name="btn2_2" Grid.Row="2" Grid.Column="2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF2_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="2"/>
                 <Label x:Name="FV2_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -194,7 +194,7 @@
                     </Label.RenderTransform>
                 </Label>-->
                 <Border x:Name="case2_3"  Grid.Row="2" Grid.Column="3" BorderThickness="3">
-                    <Button  x:Name="btn2_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                    <Button  x:Name="btn2_3" Grid.Row="2" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF2_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="2"/>
                 <Label x:Name="FV2_3" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -225,7 +225,7 @@
                     <Button  x:Name="btn3_0" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="131" Margin="7.333,7.333,0,0"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Visibility="Hidden"/>
                 </Border>
                 <Border x:Name="case3_1"  Grid.Row="3" Grid.Column="1" BorderThickness="3">
-                    <Button  x:Name="btn3_1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button  x:Name="btn3_1" Grid.Row="3" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF3_1" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3"/>
                 <Label x:Name="FV3_1" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -250,7 +250,7 @@
                     </Label.RenderTransform>
                 </Label>-->
                 <Border x:Name="case3_2" Grid.Row="3" Grid.Column="2" BorderThickness="3">
-                    <Button  x:Name="btn3_2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                    <Button  x:Name="btn3_2" Grid.Row="3" Grid.Column="2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF3_2" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="3"/>
                 <Label x:Name="FV3_2" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>
@@ -275,7 +275,7 @@
                     </Label.RenderTransform>
                 </Label>-->
                 <Border x:Name="case3_3"  Grid.Row="3" Grid.Column="3" BorderThickness="3">
-                    <Button  x:Name="btn3_3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button  x:Name="btn3_3" Grid.Row="3" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7"  Click="btn_Click" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </Border>
                 <!--<Label x:Name="VF3_3" Content="87" HorizontalAlignment="Left" Margin="41.333,0,0,65.667" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="3"/>
                 <Label x:Name="FV3_3" Content="54" HorizontalAlignment="Left" Margin="41.333,67.667,0,0" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="1.382,0.577" Height="26" VerticalAlignment="Top"/>

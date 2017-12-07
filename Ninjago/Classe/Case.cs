@@ -29,51 +29,51 @@ namespace Ninjago
         internal Joueur Joueur { get => joueur; set => joueur = value; }
         internal CartePersonnage Carte { get => carte; set => carte = value; }
 
-        public Joueur Duel(Joueur joueur1, Joueur joueur2, CartePersonnage carteJ1, CartePersonnage carteJ2, string param)
+        public Joueur Duel(Joueur actif, Joueur nonActif, CartePersonnage carteActif, CartePersonnage carteNonActif, string param)
         {
             Joueur vainqueur = null;
             if (param.Equals("Attaque"))
             {
-                if (carteJ1.Attaque > carteJ2.Attaque)
+                if (carteActif.Attaque >= carteNonActif.Attaque)
                 {
-                    vainqueur = joueur1;
+                    vainqueur = actif;
                 }
                 else
                 {
-                    vainqueur = joueur2;
+                    vainqueur = nonActif;
                 }
             }
             else if (param.Equals("Defense"))
             {
-                if (carteJ1.Defense > carteJ2.Defense)
+                if (carteActif.Defense >= carteNonActif.Defense)
                 {
-                    vainqueur = joueur1;
+                    vainqueur = actif;
                 }
                 else
                 {
-                    vainqueur = joueur2;
+                    vainqueur = nonActif;
                 }
             }
             else if (param.Equals("Vitesse"))
             {
-                if (carteJ1.Vitesse > carteJ2.Vitesse)
+                if (carteActif.Vitesse >= carteNonActif.Vitesse)
                 {
-                    vainqueur = joueur1;
+                    vainqueur = actif;
                 }
                 else
                 {
-                    vainqueur = joueur2;
+                    vainqueur = nonActif;
                 }
             }
             else if (param.Equals("Force"))
             {
-                if (carteJ1.Force > carteJ2.Force)
+                if (carteActif.Force >= carteNonActif.Force)
                 {
-                    vainqueur = joueur1;
+                    vainqueur = actif;
                 }
                 else
                 {
-                    vainqueur = joueur2;
+                    vainqueur = nonActif;
                 }
             }
             return vainqueur;

@@ -116,10 +116,14 @@ namespace Ninjago.Vue
             if (action.Equals(1))
             {
                 Button btn = sender as Button;
+                int row = Grid.GetRow(btn);
+                int col = Grid.GetColumn(btn);
                 btnPoser = btn;
                 if (btn.Content.Equals(""))
                 {
+                   
                     btn.Content = selected.Numero;
+                    plt.UnPlateau[row, col].Carte = selected;
                     try
                     {
                         btn.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + Convert.ToInt32(btn.Content) + ".png")));
@@ -233,143 +237,167 @@ namespace Ninjago.Vue
         {
             duel = false;
             Button btnDuel = sender as Button;
-            Button btnCarteDuel = new Button();
-            Case ca;
-            btnDuel.Visibility = Visibility.Hidden;
-            for (int r = 1; r <= 3; r++)
+            // recupe la position de la case mise en duel
+            int rowDuel = Grid.GetRow(btnDuel);
+            int colDuel = Grid.GetColumn(btnDuel);
+            // recupe la position de la case du bouton que l'on vient de poser
+            int r = Grid.GetRow(btnPoser);
+            int c = Grid.GetColumn(btnPoser);
+            int r1 = rowDuel + 1;
+            int c1 = colDuel + 1;
+            int r01 = rowDuel - 1;
+            int c01 = colDuel - 1;
+            string param = "";
+
+            if (btnPoser.Name == "btn" + r01 + "_" + c)
             {
-                for (int c = 1; c <= 3; c++)
-                {
-                    int r1 = r + 1;
-                    int c1 = c + 1;
-                    int r01 = r - 1;
-                    int c01 = c - 1;
-                    string param = "";
-                    if (btnDuel.Name.Equals("duel" + r + "_" + c))
-                    {
-
-
-                        btnCarteDuel = (Button)FindName("btn" + r + "_" + c);
-
-                        foreach (CartePersonnage cp in lesCartes)
-                        {
-                            if (cp.Numero == btnCarteDuel.Content.ToString())
-                            {
-                                if (actif == j1)
-                                {
-                                    if (btnPoser.Name == "btn" + r01 + "_" + c)
-                                    {
-                                        param = "Vitesse";
-
-                                    }
-                                    else if (btnPoser.Name == "btn" + r1 + "_" + c)
-                                    {
-                                        param = "Force";
-
-                                    }
-                                    else if (btnPoser.Name == "btn" + r + "_" + c01)
-                                    {
-                                        param = "Defense";
-                                    }
-                                    else if (btnPoser.Name == "btn" + r + "_" + c1)
-                                    {
-                                        param = "Attaque";
-                                    }
-                                    Vainqueur = plt.UnPlateau[r, c].Duel(j1, j2, selected, cp, param);
-                                }
-                                else
-                                {
-                                    if (btnPoser.Name == "btn" + r01 + "_" + c)
-                                    {
-                                        param = "Vitesse";
-                                    }
-                                    else if (btnPoser.Name == "btn" + r1 + "_" + c)
-                                    {
-                                        param = "Force";
-                                    }
-                                    else if (btnPoser.Name == "btn" + r + "_" + c01)
-                                    {
-                                        param = "Defense";
-                                    }
-                                    else if (btnPoser.Name == "btn" + r + "_" + c1)
-                                    {
-                                        param = "Attaque";
-                                    }
-                                    Vainqueur = plt.UnPlateau[r, c].Duel(j2, j1, selected, cp, param);
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-
-            if (Vainqueur == actif)
-            {
-                ca = new Case(btnCarteDuel);
                 if (actif == j1)
                 {
-                    ca.Joueur = j2;
+                    param = "Force";
                 }
                 else
                 {
-                    ca.Joueur = j1;
+                    param = "Vitesse";
                 }
-                for (int r = 0; r <= 4; r++)
+            }
+            else if (btnPoser.Name == "btn" + r1 + "_" + c)
+            {
+                if (actif == j1)
                 {
-                    foreach (Case c in plt.UnPlateau)
-                    {
-                        if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
-                        {
-                            c.Joueur = actif;
-                        }
-                    }
+                    param = "Vitesse";
+                }
+                else
+                {
+                    param = "Force";
+                }
+                
+            }
+            else if (btnPoser.Name == "btn" + r + "_" + c01)
+            {
+                
+                if (actif == j1)
+                {
+                    param = "Attaque";
+                }
+                else
+                {
+                    param = "Defense";
+                }
+            }
+            else if (btnPoser.Name == "btn" + r + "_" + c1)
+            {
+                if (actif == j1)
+                {
+                    param = "Defense";
+                }
+                else
+                {
+                    param = "Attaque";
+                }
+            }
+
+            //pour ressortir le vainqueur du duel
+            Vainqueur = plt.UnPlateau[r, c].Duel(plt.UnPlateau[r, c].Joueur, plt.UnPlateau[rowDuel, colDuel].Joueur, plt.UnPlateau[r, c].Carte, plt.UnPlateau[rowDuel, colDuel].Carte, param);
+            if (Vainqueur == actif)
+            {  // attribut la case du duel au joueur gagnant et retourne le bouton dans la case du duel
+                if (actif == j1)
+                {
+                    
+                    plt.UnPlateau[rowDuel, colDuel].Joueur = j1;
+                    RotateTransform rotateTransformBtn = new RotateTransform(0);
+                    rotateTransformBtn.CenterX = 0;
+                    rotateTransformBtn.CenterY = 0;
+                    plt.UnPlateau[rowDuel, colDuel].BtnCase.RenderTransform = rotateTransformBtn;
+
+                }
+                else
+                {
+                    plt.UnPlateau[rowDuel, colDuel].Joueur = j2;
+                    RotateTransform rotateTransformBtn = new RotateTransform(180);
+                    rotateTransformBtn.CenterX = 90;
+                    rotateTransformBtn.CenterY = 70;
+                    plt.UnPlateau[rowDuel, colDuel].BtnCase.RenderTransform = rotateTransformBtn;
                 }
             }
             else
             {
-                ca = new Case(btnPoser);
-                ca.Joueur = actif;
-                for (int r = 0; r <= 4; r++)
+                // attribut la case que l'on vient de poser à l'autre joueur et retourne le bouton dans la case du duel
+                if (actif == j1)
                 {
-                    foreach (Case c in plt.UnPlateau)
-                    {
-                        if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
-                        {
-                            if (actif == j1)
-                            {
-                                c.Joueur = j2;
-                            }
-                            else
-                            {
-                                c.Joueur = j1;
-                            }
-                        }
-                    }
-                }
-            }
-
-            foreach (Case c in plt.UnPlateau)
-            {
-
-                if (c.Joueur == j1)
-                {
-                    RotateTransform rotateTransformBtn = new RotateTransform(0);
-                    rotateTransformBtn.CenterX = 0;
-                    rotateTransformBtn.CenterY = 0;
-                    c.BtnCase.RenderTransform = rotateTransformBtn;
-
-
-                }
-                else if (c.Joueur == j2)
-                {
+                    plt.UnPlateau[r, c].Joueur = j2;
                     RotateTransform rotateTransformBtn = new RotateTransform(180);
                     rotateTransformBtn.CenterX = 90;
                     rotateTransformBtn.CenterY = 70;
-                    c.BtnCase.RenderTransform = rotateTransformBtn;
+                    plt.UnPlateau[r, c].BtnCase.RenderTransform = rotateTransformBtn;
+
+
+                }
+                else
+                {
+                    plt.UnPlateau[r, c].Joueur = j1;
+                    RotateTransform rotateTransformBtn = new RotateTransform(0);
+                    rotateTransformBtn.CenterX = 0;
+                    rotateTransformBtn.CenterY = 0;
+                    plt.UnPlateau[r, c].BtnCase.RenderTransform = rotateTransformBtn;
                 }
             }
+            btnDuel.Visibility = Visibility.Hidden;
+            
         }
+            //ca = new Case(btnCarteDuel);
+            //if (actif == j1)
+            //{
+            //    ca.Joueur = j2;
+            //}
+            //else
+            //{
+            //    ca.Joueur = j1;
+            //}
+
+            //    foreach (Case c in plt.UnPlateau)
+            //    {
+            //        if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
+            //        {
+            //            c.Joueur = actif;
+            //        }
+            //    }
+            //else
+            //{
+            //    ca = new Case(btnPoser);
+            //    ca.Joueur = actif;
+            //    foreach (Case c in plt.UnPlateau)
+            //        {
+            //            if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
+            //            {
+            //                if (actif == j1)
+            //                {
+            //                    c.Joueur = j2;
+            //                }
+            //                else
+            //                {
+            //                    c.Joueur = j1;
+            //                }
+            //            }
+            //        }
+
+            //}
+
+            //foreach (Case ca in plt.UnPlateau)
+            //{
+
+            //    if (ca.Joueur == j1)
+            //    {
+            //        
+            //    }
+            //    else if (ca.Joueur == j2)
+            //    {
+            //        RotateTransform rotateTransformBtn = new RotateTransform(180);
+            //        rotateTransformBtn.CenterX = 90;
+            //        rotateTransformBtn.CenterY = 70;
+            //        ca.BtnCase.RenderTransform = rotateTransformBtn;
+            //    }
+            //}
+        
 
 
         #endregion
