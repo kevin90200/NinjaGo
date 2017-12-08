@@ -24,11 +24,6 @@ namespace Ninjago.Vue
     /// </summary>
     public partial class Gestion
     {
-
-        //La partie collection nécessite de revoir l'affichage (pas responsive)
-
-
-
         //Instanciation de totues les listes et carte pour la gestion
         List<Carte> lesCartes = new List<Carte>();          //liste de toutes les cartes
         List<Carte> maCollection = new List<Carte>();           //collection du joueur (toutes les cartes qui ont un exemplaire > 0)
@@ -337,5 +332,13 @@ namespace Ninjago.Vue
             refresh();
         }
 
+        private void btn_affichage_carte_Click(object sender, RoutedEventArgs e)
+        {
+            File.WriteAllText("ninjago.json", JsonConvert.SerializeObject(lesCartes, Formatting.Indented));
+
+            Vue_Carte fenetre = new Vue_Carte();
+            fenetre.Show();
+            this.Close();
+        }
     }
 }
