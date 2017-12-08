@@ -775,10 +775,11 @@ namespace Ninjago.Vue
             {
                 gagnant = j2;
             }
-            scoreJ1.Content = j1.Nom + ": " + ptj1;
-            scoreJ2.Content = j2.Nom + ": " + ptj2;
-           
-           
+            lblscoreJ1.Content = j1.Nom ;
+            lblscoreJ2.Content = j2.Nom ;
+            scoreJ1.Content = ": " + ptj1;
+            scoreJ2.Content = ": " + ptj2;
+
         }
         private void refreshMain()
         {
