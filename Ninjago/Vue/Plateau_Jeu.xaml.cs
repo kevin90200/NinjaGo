@@ -17,6 +17,8 @@ using System.Net;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 
+
+
 namespace Ninjago.Vue
 {
     /// <summary>
@@ -113,9 +115,9 @@ namespace Ninjago.Vue
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             Boolean retirer = false;
-            if (action.Equals(1))
+            Button btn = sender as Button;
+            if (action.Equals(1) && btn.Content.Equals(""))
             {
-                Button btn = sender as Button;
                 int row = Grid.GetRow(btn);
                 int col = Grid.GetColumn(btn);
                 btnPoser = btn;
@@ -232,6 +234,7 @@ namespace Ninjago.Vue
                 }
 
                 action = 0;
+                score();
             }
         }
         private void btn_duel(object sender, RoutedEventArgs e)
@@ -351,7 +354,7 @@ namespace Ninjago.Vue
                 btnBottom.Visibility = Visibility.Hidden;
             }
             btnDuel.Visibility = Visibility.Hidden;
-            
+            score();
         }
         
 
@@ -430,7 +433,7 @@ namespace Ninjago.Vue
                 RotateTransform rotateTransform = new RotateTransform(val_ret);
                 rotateTransform.CenterX = -1;
                 rotateTransform.CenterY = -3;
-                Plateau.RenderTransform = rotateTransform;
+                PlateauJeu.RenderTransform = rotateTransform;
                 //changer le label jouer en passer
                 btn_jouer.Content = "Passer";
                 //rendre visible la main du joueur
@@ -489,45 +492,8 @@ namespace Ninjago.Vue
                 btn_jouer.Content = "Jouer";
                 lblNomJoueur.Content = "";
                 Main.Visibility = Visibility.Hidden;
-                bool plein = true;
-                int ptj1 = 0;
-                int ptj2 = 0;
-                for (int r = 1; r <= 3; r++)
-                {
-                    for (int c = 1; c <= 3; c++)
-                    {
-                        if (plt.UnPlateau[r, c].BtnCase.Content.ToString() == "")
-                        {
-                            plein = false;
-                        }
-                        else
-                        {
-                            if (plt.UnPlateau[r, c].Joueur == j1)
-                            {
-                                ptj1 = ptj1 + 1;
-                            }
-                            else if (plt.UnPlateau[r, c].Joueur == j2)
-                            {
-                                ptj2 = ptj2 + 1;
-                            }
-                        }
-                    }
-                }
-                if (ptj1 > ptj2)
-                {
-                    gagnant = j1;
-                }
-                else
-                {
-                    gagnant = j2;
-                }
-                if (plein == true)
-                {
-                    MessageBox.Show(gagnant.ToString() + " | carte " + j1.Nom + ": " + ptj1 + " | carte " + j2.Nom + ": " + ptj2);
-                }
-
             }
-
+            score();
         }
         #endregion
         #region main
@@ -682,6 +648,10 @@ namespace Ninjago.Vue
 
         #endregion
 
+    
+
+       
+
         private void btnDepot_Click(object sender, RoutedEventArgs e)
         {
             Boolean retirer = false;
@@ -775,10 +745,41 @@ namespace Ninjago.Vue
                     }
                 }
             }
-
+            score();
         }
 
-
+        private void score()
+        {
+           
+            int ptj1 = 0;
+            int ptj2 = 0;
+            for (int r = 1; r <= 3; r++)
+            {
+                for (int c = 1; c <= 3; c++)
+                {
+                        if (plt.UnPlateau[r, c].Joueur == j1)
+                        {
+                            ptj1 = ptj1 + 1;
+                        }
+                        else if (plt.UnPlateau[r, c].Joueur == j2)
+                        {
+                            ptj2 = ptj2 + 1;
+                        }
+                }
+            }
+            if (ptj1 > ptj2)
+            {
+                gagnant = j1;
+            }
+            else
+            {
+                gagnant = j2;
+            }
+            scoreJ1.Content = j1.Nom + ": " + ptj1;
+            scoreJ2.Content = j2.Nom + ": " + ptj2;
+           
+           
+        }
         private void refreshMain()
         {
             btnCarte1.Opacity = 1;

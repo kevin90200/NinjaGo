@@ -22,11 +22,11 @@
             <Label Content="Joueur 1" HorizontalAlignment="Left" Margin="10,10,0,104"/>
             <ComboBox x:Name="cbxDeckJ1" HorizontalAlignment="Left" Margin="323,54,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         </Grid>
-        <Grid x:Name="Joueur_2" Margin="247,480,1013,212" HorizontalAlignment="Center" Width="216" VerticalAlignment="Center" Height="100">
-            <Border x:Name="J2"   BorderBrush="Black" BorderThickness="3" Margin="0,-17,-18,-18.667" Background="#D8B7B7B7"/>
+        <Grid x:Name="Joueur_2" Margin="247,461,995,195" HorizontalAlignment="Center" Width="234" VerticalAlignment="Center" Height="136">
+            <Border x:Name="J2"   BorderBrush="Black" BorderThickness="3" Background="#D8B7B7B7"/>
             <Label Content="Joueur 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <DatePicker x:Name="DateJ2"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,72,0,0" DisplayDate="2000-01-01" Text="01/01/2000" />
-            <TextBox  x:Name="PseudoJ2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Pseudo 2" VerticalAlignment="Top" Width="151" Margin="10,41,0,0"/>
+            <DatePicker x:Name="DateJ2"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="10,88,0,0" DisplayDate="2000-01-01" Text="01/01/2000" />
+            <TextBox  x:Name="PseudoJ2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Pseudo 2" VerticalAlignment="Top" Width="151" Margin="10,52,0,0"/>
         </Grid>
         <Grid x:Name="Carte" Margin="486,461,243,195" VerticalAlignment="Center" HorizontalAlignment="Center" Width="747">
             <Border x:Name="CarteBord"   BorderBrush="Black" BorderThickness="3" Margin="10,0,-10,0" Background="#D8B7B7B7"/>
