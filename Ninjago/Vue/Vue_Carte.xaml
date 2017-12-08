@@ -11,6 +11,7 @@
         <ImageBrush ImageSource="/Ninjago;component/Ressource/2017-10-18.jpg"/>
     </Controls:MetroWindow.Background>
     <Grid>
+        <Image x:Name="imgPapier" HorizontalAlignment="Center" Height="1000" Margin="10,-86,-3,-153" VerticalAlignment="Center" Width="1317" Source="/Ninjago;component/Ressource/affichePapier.png" RenderTransformOrigin="0.5,0.5"/>
         <Grid x:Name="Collection" HorizontalAlignment="Center" Height="560" Margin="155,144,141,57" VerticalAlignment="Center" Width="1028" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
@@ -38,56 +39,127 @@
             </Grid.ColumnDefinitions>
 
             <Border x:Name="case1_1" Grid.Row="1" Grid.Column="1" BorderThickness="3">
-                <Button  x:Name="btn1_1" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn1_1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl1_1" Content="ee" Foreground="White" FontSize="20" Canvas.Left="160" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
             <Border  x:Name="case1_2" Grid.Row="1" Grid.Column="2" BorderThickness="3">
-                <Button  x:Name="btn1_2" Grid.Row="1" Grid.Column="2" Content="" HorizontalAlignment="Center" Width="181" Margin="7" Height="231" VerticalAlignment="Center" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn1_2" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl1_2" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
             <Border  x:Name="case1_3" Grid.Row="1" Grid.Column="3" BorderThickness="3">
-                <Button  x:Name="btn1_3" Grid.Row="1" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn1_3" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl1_3" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.278,0.554">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
 
             <Border x:Name="case1_4" Grid.Row="1" Grid.Column="4" BorderThickness="3">
-                <Button  x:Name="btn1_4" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn1_4" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl1_4" Content="ee" Foreground="White" FontSize="20" Canvas.Left="160" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
             <Border x:Name="case1_5" Grid.Row="1" Grid.Column="5" BorderThickness="3">
-                <Button  x:Name="btn1_5" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn1_5" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl1_5" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
             <Border  x:Name="case2_1" Grid.Row="2" Grid.Column="1" BorderThickness="3">
-                <Button  x:Name="btn2_1" Grid.Row="2" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn2_1" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl2_1" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
             <Border x:Name="case2_2" Grid.Row="2" Grid.Column="2" BorderThickness="3">
-                <Button  x:Name="btn2_2" Grid.Row="2" Grid.Column="2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn2_2" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl2_2" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
             <Border x:Name="case2_3"  Grid.Row="2" Grid.Column="3" BorderThickness="3">
-                <Button  x:Name="btn2_3" Grid.Row="2" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn2_3" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl2_3" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="201" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
             <Border  x:Name="case2_4" Grid.Row="2" Grid.Column="4" BorderThickness="3">
-                <Button  x:Name="btn2_4" Grid.Row="2" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn2_4" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl2_4" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
             <Border  x:Name="case2_5" Grid.Row="2" Grid.Column="5" BorderThickness="3">
-                <Button  x:Name="btn2_5" Grid.Row="2" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                <Canvas>
+                    <Button x:Name="btn2_5" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="Transparent" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontFamily="Matura MT Script Capitals"/>
+                    <Label x:Name="lbl2_5" Content="ee" Foreground="White" FontSize="20" Canvas.Left="158" Canvas.Top="198" FontFamily="Matura MT Script Capitals" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom">
+                        <Label.Background>
+                            <ImageBrush ImageSource="/Ninjago;component/Ressource/affichePapier.png"/>
+                        </Label.Background>
+                    </Label>
+                </Canvas>
             </Border>
 
 
         </Grid>
-        <Button x:Name="btn_page_prec" HorizontalAlignment="Center" Margin="155,668,1135,57" Width="34"  Height="36" VerticalAlignment="Center" Click="btn_precedent">
+        <Button x:Name="btn_page_prec" HorizontalAlignment="Center" Margin="121,640,1169,85" Width="34"  Height="36" VerticalAlignment="Center" Click="btn_precedent">
             <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
         </Button>
-        <Button x:Name="btn_page_suiv" HorizontalAlignment="Center" Margin="1149,668,141,57" Width="34"  Height="36" VerticalAlignment="Center" Click="btn_suivant">
+        <Button x:Name="btn_page_suiv" HorizontalAlignment="Center" Margin="1164,640,126,85" Width="34"  Height="36" VerticalAlignment="Center" Click="btn_suivant">
             <Image Source="/Ninjago;component/Ressource/fleche_avant.png"/>
         </Button>
-        <Label x:Name="lbl_nb_page" Content="Label" HorizontalAlignment="Center" Margin="636,668,560,67" VerticalAlignment="Center" Background="Transparent" Width="128" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lbl_nb_page" Content="Label" HorizontalAlignment="Center" Margin="633,640,563,85" VerticalAlignment="Center" Width="128" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" FontFamily="Matura MT Script Capitals" FontSize="18" Foreground="#FFFB0000" Height="36"/>
         <Button x:Name="btn_retour_plateau" HorizontalAlignment="Center" Margin="10,715,1280,10" Width="34" Click="btn_retour_plateau_Click" Height="36" VerticalAlignment="Center">
             <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
         </Button>
+
 
     </Grid>
 </Controls:MetroWindow>

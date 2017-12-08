@@ -96,13 +96,17 @@ namespace Ninjago.Vue
                 {
                     i = i + 1;
                     Button btnCollection = (Button)FindName("btn" + r + "_" + c);
+                    Label lblCarte = (Label)FindName("lbl" + r + "_" + c);
                     try
                     {
                         btnCollection.Content = maCollection[i].Numero;
+                        lblCarte.Content = maCollection[i].Exemplaire;
                     }
                     catch
                     {
                         btnCollection.Content = "cartevide";
+                        lblCarte.Content = "";
+                        lblCarte.Visibility = Visibility.Hidden;
                         btnCollection.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCollection.Content.ToString() + ".png")));
                     }
                     try
@@ -143,15 +147,20 @@ namespace Ninjago.Vue
                 {
                     i = i + 1;
                     Button btnCollection = (Button)FindName("btn" + r + "_" + c);
+                    Label lblCarte = (Label)FindName("lbl" + r + "_" + c);
+                    lblCarte.Content = "";
                     btnCollection.Content = "";
                     btnCollection.Background = new ImageBrush(null);
                     try
                     {
                         btnCollection.Content = maCollection[i].Numero;
+                        lblCarte.Content = maCollection[i].Exemplaire;
                     }
                     catch
                     {
                         btnCollection.Content = "cartevide";
+                        lblCarte.Content = "";
+                        lblCarte.Visibility = Visibility.Hidden;
                         btnCollection.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCollection.Content.ToString() + ".png")));
                     }
                     try
@@ -193,15 +202,20 @@ namespace Ninjago.Vue
                 {
                     i = i + 1;
                     Button btnCollection = (Button)FindName("btn" + r + "_" + c);
+                    Label lblCarte = (Label)FindName("lbl" + r + "_" + c);
+                    lblCarte.Content = "";
                     btnCollection.Content = "";
                     btnCollection.Background = new ImageBrush(null);
                     try
                     {
                         btnCollection.Content = maCollection[i].Numero;
+                        lblCarte.Content = maCollection[i].Exemplaire;
                     }
                     catch
                     {
                         btnCollection.Content = "cartevide";
+                        lblCarte.Content = "";
+                        lblCarte.Visibility = Visibility.Hidden;
                         btnCollection.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/cartes/" + btnCollection.Content.ToString() + ".png")));
                     }
                     try
