@@ -29,11 +29,11 @@
         <Button x:Name="btn_ajouter" Content="Ajouter" HorizontalAlignment="Center" Margin="28,30.833,135,300.667" VerticalAlignment="Center" Width="99" Height="27" Click="btn_ajouter_Click" Grid.Column="1" Grid.Row="1"/>
         <Button x:Name="btn_supprimer" Content="supprimer" HorizontalAlignment="Center" Margin="132,30.833,31,300.667" VerticalAlignment="Center" Width="99" Height="27" Click="btn_supprimer_Click" Grid.Column="1" Grid.Row="1"/>
         <Button x:Name="btn_ajouter_supprimer_deck" Content="" Margin="28,62.833,31,268.667" VerticalAlignment="Center" Height="27" Grid.Column="1" Click="btn_ajouter_supprimer_deck_Click" Foreground="White" HorizontalAlignment="Center" RenderTransformOrigin="0.329,0.484" Width="203" Grid.Row="1" />
-        <Rectangle x:Name="affichage_carte" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="253" Margin="28,95.833,31,9.667" Stroke="Black" VerticalAlignment="Center" Width="203" Grid.Column="1" Grid.Row="1"/>
+        <Rectangle x:Name="affichage_carte" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="253" Margin="27.667,104,30.667,17.667" Stroke="Black" VerticalAlignment="Center" Width="203" Grid.Column="1"/>
         <Label x:Name="lbl_nom" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="40,186.833,42,145.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
         <Label x:Name="lbl_vitesse" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="40,95.833,42,236.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
         <Label x:Name="lbl_force" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="40,322.833,42,9.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
-        <Label x:Name="lbl_attaque" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="105,204.833,321.333,121.667" VerticalAlignment="Center" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="215" Grid.ColumnSpan="2" Grid.Row="1">
+        <Label x:Name="lbl_attaque" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="89.667,213,335.333,129.667" VerticalAlignment="Center" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="215" Grid.ColumnSpan="2">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -43,7 +43,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbl_defense" Content="" HorizontalAlignment="Center" Margin="327,206.833,106,119.667" VerticalAlignment="Center" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Width="217" Grid.Row="1">
+        <Label x:Name="lbl_defense" Content="" HorizontalAlignment="Center" Margin="338,215,93.667,127.667" VerticalAlignment="Center" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Width="217">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -53,10 +53,10 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbl_numero" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="30,322.833,211,13.667" VerticalAlignment="Center" FontSize="9" Height="22" Width="21" Grid.Row="1"/>
+        <Label x:Name="lbl_numero" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="52.667,331,187.667,21.667" VerticalAlignment="Center" FontSize="9" Height="22" Width="21"/>
         <Label x:Name="lbl_collection" Content="Ma collection" HorizontalAlignment="Center" Margin="93,28.833,123,301.667" VerticalAlignment="Center" Width="172" BorderThickness="1,1,0,1" BorderBrush="Black" Background="White" Height="28" Grid.Row="1"/>
         <Label x:Name="lbl_deck" Content="Mon Deck" HorizontalAlignment="Center" Margin="58,54.833,139.333,275.667" VerticalAlignment="Center" Width="182" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1" Background="White" Height="28" Grid.Row="1"/>
-        <Image x:Name="img_carte" HorizontalAlignment="Center" Height="250" Margin="317,152,135,136.667" VerticalAlignment="Center" Width="198" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <Image x:Name="img_carte" HorizontalAlignment="Center" Height="253" Margin="19.667,104,30.667,17.667" VerticalAlignment="Center" Width="211" Grid.Column="1" />
         <Button x:Name="btn_suppression_deck" Content="SUPPRIMER TOUTES LES CARTES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="242" Grid.Column="2" Margin="58,331.833,79.333,-0.333" Background="Red" Foreground="White" Click="btn_suppression_deck_Click" Height="27" Grid.Row="1"/>
         <ComboBox x:Name="cbbx_choix_deck" Grid.Column="2" HorizontalAlignment="Center" Margin="180,28.833,79.333,303.667" VerticalAlignment="Center" Width="120" SelectionChanged="cbbx_choix_deck_SelectionChanged" BorderBrush="Black" Height="26" Grid.Row="1">
             <ComboBoxItem Content="Deck 1" HorizontalAlignment="Left" Width="118"/>

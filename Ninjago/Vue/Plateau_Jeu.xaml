@@ -243,32 +243,33 @@
                 </Button>
                 <Button x:Name="btn_jouer" Content="JOUER" HorizontalAlignment="Center" Margin="1133,537,392,291" VerticalAlignment="Center" Width="74" Click="btn_jouer_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="24"/>
                 <Label x:Name="lblNomJoueur" Content="" HorizontalAlignment="Center" Margin="882,524,466,301" VerticalAlignment="Center" Width="252" Height="47" FontFamily="Matura MT Script Capitals" Background="{x:Null}" FontSize="20" Foreground="#FFAD3F21"/>
-                <Button x:Name="btnDepot" Content="Depot" HorizontalAlignment="Center" Margin="1015,51,454,641" VerticalAlignment="Center" Width="131" Height="180" Foreground="#00000000" Click="btnDepot_Click">
+                <Button x:Name="btnDepot" Content="Depot" HorizontalAlignment="Center" Margin="1213,26,255,663" VerticalAlignment="Center" Width="131" Height="180" Foreground="#00000000" Click="btnDepot_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="/Ninjago;component/Ressource/carteDepot.jpg"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnBase" Content="Depot" HorizontalAlignment="Center" Margin="1178,29,266,619.667" VerticalAlignment="Center" Width="131" Height="180" Foreground="#00000000" Click="btnDepot_Click">
+                <Button x:Name="btnBase" Content="Depot" HorizontalAlignment="Center" Margin="1377,26,91,663" VerticalAlignment="Center" Width="131" Height="180" Foreground="#00000000" Click="btnDepot_Click" RenderTransformOrigin="0.532,0.502">
                     <Button.Background>
                         <ImageBrush ImageSource="/Ninjago;component/Ressource/carteBase.jpg"/>
                     </Button.Background>
                 </Button>
-                <Label x:Name="lblCarteRestante" Content="Carte restante" HorizontalAlignment="Center" Margin="1192,140,272,641.667" VerticalAlignment="Center" Width="111" Height="47" FontFamily="Matura MT Script Capitals" Background="{x:Null}" FontSize="15" Foreground="#FFE1E1E1"/>
-                <Label x:Name="lblNbrCarteRestante" Content="20" HorizontalAlignment="Center" Margin="1232,162,315,634.667" VerticalAlignment="Center" Width="28" Height="32" FontFamily="Matura MT Script Capitals" Background="{x:Null}" FontSize="15" Foreground="#FFE1E1E1"/>
-                <Image HorizontalAlignment="Left" Height="245" Margin="795,-55,0,0" VerticalAlignment="Top" Width="273" Source="/Ninjago;component/Ressource/affichescore.png" RenderTransformOrigin="0.5,0.5" OpacityMask="#F4BC1818" Cursor="None" IsEnabled="False" IsHitTestVisible="True"  >
+                <Label x:Name="lblCarteRestante" Content="Carte restante" HorizontalAlignment="Center" Margin="1388,132,99,690" VerticalAlignment="Center" Width="112" Height="47" FontFamily="Matura MT Script Capitals" Background="{x:Null}" FontSize="15" Foreground="#FFE1E1E1"/>
+                <Label x:Name="lblNbrCarteRestante" Content="20" HorizontalAlignment="Center" Margin="1424,161,147,676" VerticalAlignment="Center" Width="28" Height="32" FontFamily="Matura MT Script Capitals" Background="{x:Null}" FontSize="15" Foreground="#FFE1E1E1"/>
+                <Image HorizontalAlignment="Left" Height="342" Margin="778,-82,0,0" VerticalAlignment="Top" Width="258" Source="/Ninjago;component/Ressource/affichescore.png" RenderTransformOrigin="0.473,0.512" OpacityMask="#F4BC1818" Cursor="None" IsEnabled="False" IsHitTestVisible="True" Stretch="Fill"  >
                     <Image.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                            <ScaleTransform ScaleY="-1"/>
                             <SkewTransform/>
-                            <RotateTransform Angle="-90.073"/>
-                            <TranslateTransform/>
+                            <RotateTransform Angle="-270.212"/>
+                            <TranslateTransform X="8.757" Y="-8.79"/>
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-                <Label Content="Score :" HorizontalAlignment="Left" Margin="753,4,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="133" FontSize="24"/>
-                <Label x:Name="scoreJ1" Content="" HorizontalAlignment="Left" Margin="753,46,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="225" FontSize="24"/>
-                <Label x:Name="scoreJ2" Content="" HorizontalAlignment="Left" Margin="753,79,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="225" FontSize="24"/>
-
+                <Label Content="Score :" HorizontalAlignment="Left" Margin="762,4,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="133" FontSize="24"/>
+                <Label x:Name="lblscoreJ1" Content="a" HorizontalAlignment="Left" Margin="753,46,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="253" FontSize="24"/>
+                <Label x:Name="lblscoreJ2" Content="b" HorizontalAlignment="Left" Margin="753,88,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="253" FontSize="24"/>
+                <Label x:Name="scoreJ1" Content="a" HorizontalAlignment="Left" Margin="1011,46,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="64" FontSize="24"/>
+                <Label x:Name="scoreJ2" Content="b" HorizontalAlignment="Left" Margin="1011,88,0,0" VerticalAlignment="Top" FontFamily="Matura MT Script Capitals" Background="{x:Null}" Foreground="#FFDB3838" Width="64" FontSize="24"/>
 
             </Grid>
 
