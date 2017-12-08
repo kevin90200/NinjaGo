@@ -7,11 +7,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninjago.Vue"
         mc:Ignorable="d"
-        Title="Gestion de la collection" Height="481.616" Width="747.102">
+        Title="Gestion de la collection" Height="792.283" Width="1332.102">
     <Controls:MetroWindow.Background>
         <ImageBrush ImageSource="/Ninjago;component/Ressource/2017-10-18.jpg"/>
     </Controls:MetroWindow.Background>
-    <Grid Margin="0,0,0,1">
+    <Grid Margin="287,241,297.333,42.667" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="41*"/>
             <RowDefinition Height="409*"/>
@@ -22,20 +25,20 @@
             <ColumnDefinition Width="272*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Left" Margin="10,358,0,0" Width="34" Click="btn_retour_plateau_Click" Height="36" VerticalAlignment="Top" Grid.Row="1">
+        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Center" Margin="19,363.667,219.667,9.667" Width="34" Click="btn_retour_plateau_Click" Height="36" VerticalAlignment="Center" Grid.Row="1">
             <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
         </Button>
-        <ListBox x:Name="lbox_cartes" Height="310" Margin="0,0,11,64" VerticalAlignment="Bottom" BorderBrush="Black" Background="#00000000" SelectionChanged="lbox_cartes_SelectionChanged" BorderThickness="1" Grid.Row="1" HorizontalAlignment="Right" Width="243"/>
-        <ListBox x:Name="lbox_collection" HorizontalAlignment="Left" Height="310" Margin="11,0,0,64" VerticalAlignment="Bottom" Width="253" Background="#00000000" Grid.Column="2" SelectionChanged="lbox_collection_SelectionChanged" BorderThickness="1" Grid.Row="1"/>
-        <Button x:Name="btn_ajouter" Content="Ajouter" HorizontalAlignment="Left" Margin="10,0,0,373" VerticalAlignment="Bottom" Width="90
+        <ListBox x:Name="lbox_cartes" Height="310" Margin="19,34.667,10.667,64.667" VerticalAlignment="Center" BorderBrush="Black" Background="#00000000" SelectionChanged="lbox_cartes_SelectionChanged" BorderThickness="1" Grid.Row="1" HorizontalAlignment="Center" Width="243"/>
+        <ListBox x:Name="lbox_collection" HorizontalAlignment="Center" Height="310" Margin="11,34.667,8.667,64.667" VerticalAlignment="Center" Width="253" Background="#00000000" Grid.Column="2" SelectionChanged="lbox_collection_SelectionChanged" BorderThickness="1" Grid.Row="1"/>
+        <Button x:Name="btn_ajouter" Content="Ajouter" HorizontalAlignment="Center" Margin="5.333,9.667,100,372.667" VerticalAlignment="Center" Width="90
                 " Height="27" Click="btn_ajouter_Click" Grid.Column="1" Grid.Row="1"/>
-        <Button x:Name="btn_supprimer" Content="supprimer" HorizontalAlignment="Left" Margin="100,0,0,373" VerticalAlignment="Bottom" Width="90" Height="27" Click="btn_supprimer_Click" Grid.Column="1" Grid.Row="1"/>
-        <Button x:Name="btn_ajouter_supprimer_collection" Content="" Margin="10,35,14,0" VerticalAlignment="Top" Height="27" Grid.Column="1" Click="btn_ajouter_supprimer_collection_Click" Foreground="White" Visibility="Hidden" Grid.Row="1"/>
-        <Rectangle x:Name="affichage_carte" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="250" Margin="10,0,0,92" Stroke="Black" VerticalAlignment="Bottom" Width="180" Grid.Column="1" Grid.Row="1"/>
-        <Label x:Name="lbl_nom" Content="" Grid.Column="1" HorizontalAlignment="Right" Margin="0,161,14,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
-        <Label x:Name="lbl_vitesse" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
-        <Label x:Name="lbl_force" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
-        <Label x:Name="lbl_attaque" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="66,166,0,0" VerticalAlignment="Top" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="215" Grid.ColumnSpan="2" Grid.Row="1">
+        <Button x:Name="btn_supprimer" Content="supprimer" HorizontalAlignment="Center" Margin="105.333,10.667,0,371.667" VerticalAlignment="Center" Width="90" Height="27" Click="btn_supprimer_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="btn_ajouter_supprimer_collection" Content="" Margin="5.333,37.667,0,344.667" VerticalAlignment="Center" Height="27" Grid.Column="1" Click="btn_ajouter_supprimer_collection_Click" Visibility="Hidden" Foreground="White" Grid.Row="1" HorizontalAlignment="Center" RenderTransformOrigin="0.556,0.617" Width="190"/>
+        <Rectangle x:Name="affichage_carte" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="250" Margin="10.333,62.667,5,96.667" Stroke="Black" VerticalAlignment="Center" Width="180" Grid.Column="1" Grid.Row="1"/>
+        <Label x:Name="lbl_nom" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="10.333,132.667,5,250.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
+        <Label x:Name="lbl_vitesse" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="10.333,64.667,5,318.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
+        <Label x:Name="lbl_force" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="10.333,286.667,5,96.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
+        <Label x:Name="lbl_attaque" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="65.333,168.667,187.667,208.667" VerticalAlignment="Center" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="215" Grid.ColumnSpan="2" Grid.Row="1">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -45,7 +48,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbl_defense" Content="" HorizontalAlignment="Left" Margin="181,167,0,0" VerticalAlignment="Top" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Width="217" Grid.Row="1">
+        <Label x:Name="lbl_defense" Content="" HorizontalAlignment="Center" Margin="193,176.667,58,200.667" VerticalAlignment="Center" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Width="217" Grid.Row="1">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -55,8 +58,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbl_numero" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" FontSize="9" Height="22" Width="10" Grid.Row="1"/>
-        <Label x:Name="lbl_liste_carte" HorizontalAlignment="Right" Margin="0,0,10,372" VerticalAlignment="Bottom" Width="244" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Grid.Row="1" Content="Liste des cartes">
+        <Label x:Name="lbl_numero" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="10.333,286.667,175,100.667" VerticalAlignment="Center" FontSize="9" Height="22" Width="10" Grid.Row="1"/>
+        <Label x:Name="lbl_liste_carte" HorizontalAlignment="Center" Margin="19,6.667,9.667,374.667" VerticalAlignment="Center" Width="244" BorderThickness="1" BorderBrush="Black" Background="White" Height="28" Grid.Row="1" Content="Liste des cartes">
             <Label.LayoutTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -66,13 +69,22 @@
                 </TransformGroup>
             </Label.LayoutTransform>
         </Label>
-        <Label x:Name="lbl_liste_carte_Copy" Content="Ma collection" HorizontalAlignment="Left" Margin="11,0,0,372" VerticalAlignment="Bottom" Width="182" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1" Background="White" Height="28" Grid.Row="1"/>
-        <Label x:Name="lbl_exemplaire" Content="Exemplaire :" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,65" VerticalAlignment="Bottom" Width="90" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1,0,0,1" Background="White" Height="27" Grid.Row="1"/>
-        <Label x:Name="lbl_nb_exemplaire" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="100,0,0,65" VerticalAlignment="Bottom" Width="90" BorderBrush="Black" BorderThickness="0,0,1,1" Background="White" Height="27" Grid.Row="1"/>
-        <TextBlock x:Name="txt_description" Grid.Column="1" HorizontalAlignment="Left" Margin="39,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="123" Grid.Row="1"/>
-        <Image x:Name="img_carte" Grid.Column="1" Margin="20,0,17,97" Grid.Row="1" Height="239" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_suppression_exemplaires" Content="SUPPRIMER TOUS LES EXEMPLAIRES" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="253" Grid.Column="2" Margin="11,0,0,36" Background="Red" Foreground="White" Click="btn_suppression_exemplaires_Click" Height="27" Grid.Row="1"/>
-        <Label x:Name="lbl_collection_count" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="193,0,0,372" Grid.Row="1" Width="71" BorderThickness="0,1,1,1" Background="White" BorderBrush="Black" Height="28" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbl_liste_carte_Copy" Content="Ma collection" HorizontalAlignment="Center" Margin="11,6.667,79.667,374.667" VerticalAlignment="Center" Width="182" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1" Background="White" Height="28" Grid.Row="1"/>
+        <Label x:Name="lbl_exemplaire" Content="Exemplaire :" Grid.Column="1" HorizontalAlignment="Center" Margin="10.333,313.667,95,68.667" VerticalAlignment="Center" Width="90" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1,0,0,1" Background="White" Height="27" Grid.Row="1"/>
+        <Label x:Name="lbl_nb_exemplaire" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="100.333,313.667,5,68.667" VerticalAlignment="Center" Width="90" BorderBrush="Black" BorderThickness="0,0,1,1" Background="White" Height="27" Grid.Row="1"/>
+        <TextBlock x:Name="txt_description" Grid.Column="1" HorizontalAlignment="Center" Margin="39.333,212.667,33,127.667" TextWrapping="Wrap" VerticalAlignment="Center" Height="69" Width="123" Grid.Row="1"/>
+        <Image x:Name="img_carte" Grid.Column="1" Margin="12.333,65,7,97.333" Height="247" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="176" Grid.Row="1">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="btn_suppression_exemplaires" Content="SUPPRIMER TOUS LES EXEMPLAIRES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Grid.Column="1" Margin="10.333,344.667,5,37.667" Background="Red" Foreground="White" Click="btn_suppression_exemplaires_Click" Height="27" Grid.Row="1"/>
+        <Label x:Name="lbl_collection_count" Content="" Grid.Column="2" HorizontalAlignment="Center" Margin="193,6.667,8.667,374.667" Grid.Row="1" Width="71" BorderThickness="0,1,1,1" Background="White" BorderBrush="Black" Height="28" VerticalAlignment="Center"/>
 
     </Grid>
 </Controls:MetroWindow>

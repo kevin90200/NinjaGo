@@ -341,63 +341,18 @@ namespace Ninjago.Vue
                     rotateTransformBtn.CenterY = 0;
                     plt.UnPlateau[r, c].BtnCase.RenderTransform = rotateTransformBtn;
                 }
+                Button btnLeft = (Button)FindName("duel" + r + "_" + c01);
+                Button btnRight = (Button)FindName("duel" + r + "_" + c1);
+                Button btnTop = (Button)FindName("duel" + r01 + "_" + c);
+                Button btnBottom = (Button)FindName("duel" + r1 + "_" + c);
+                btnLeft.Visibility = Visibility.Hidden;
+                btnRight.Visibility = Visibility.Hidden;
+                btnTop.Visibility = Visibility.Hidden;
+                btnBottom.Visibility = Visibility.Hidden;
             }
             btnDuel.Visibility = Visibility.Hidden;
             
         }
-            //ca = new Case(btnCarteDuel);
-            //if (actif == j1)
-            //{
-            //    ca.Joueur = j2;
-            //}
-            //else
-            //{
-            //    ca.Joueur = j1;
-            //}
-
-            //    foreach (Case c in plt.UnPlateau)
-            //    {
-            //        if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
-            //        {
-            //            c.Joueur = actif;
-            //        }
-            //    }
-            //else
-            //{
-            //    ca = new Case(btnPoser);
-            //    ca.Joueur = actif;
-            //    foreach (Case c in plt.UnPlateau)
-            //        {
-            //            if (ca.Joueur == c.Joueur && ca.BtnCase == c.BtnCase)
-            //            {
-            //                if (actif == j1)
-            //                {
-            //                    c.Joueur = j2;
-            //                }
-            //                else
-            //                {
-            //                    c.Joueur = j1;
-            //                }
-            //            }
-            //        }
-
-            //}
-
-            //foreach (Case ca in plt.UnPlateau)
-            //{
-
-            //    if (ca.Joueur == j1)
-            //    {
-            //        
-            //    }
-            //    else if (ca.Joueur == j2)
-            //    {
-            //        RotateTransform rotateTransformBtn = new RotateTransform(180);
-            //        rotateTransformBtn.CenterX = 90;
-            //        rotateTransformBtn.CenterY = 70;
-            //        ca.BtnCase.RenderTransform = rotateTransformBtn;
-            //    }
-            //}
         
 
 
@@ -419,7 +374,8 @@ namespace Ninjago.Vue
                 defausse = false;
                 if (retourner == true)
                 {
-                    actif = j1;
+                   
+                       actif = j1;
                     j1.Piocher();
                     val_ret = 0;
                     retourner = false;
@@ -442,6 +398,7 @@ namespace Ninjago.Vue
                         btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/" + btnDepot.Content + ".jpg")));
                     }
                     refreshMain();
+                    lblNbrCarteRestante.Content = j1.Deck.Count();
                 }
                 else
                 {
@@ -468,6 +425,7 @@ namespace Ninjago.Vue
                         btnDepot.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Ressource/" + btnDepot.Content + ".jpg")));
                     }
                     refreshMain();
+                    lblNbrCarteRestante.Content = j2.Deck.Count();
                 }
                 RotateTransform rotateTransform = new RotateTransform(val_ret);
                 rotateTransform.CenterX = -1;
@@ -755,6 +713,7 @@ namespace Ninjago.Vue
                             j1.Piocher();
                         }
                         refreshMain();
+                        lblNbrCarteRestante.Content = j1.Deck.Count();
                         try
                         {
                             btnDepot.Content = j1.Depot[j1.Depot.Count - 1].Numero;
@@ -795,6 +754,7 @@ namespace Ninjago.Vue
                             j2.Piocher();
                         }
                         refreshMain();
+                        lblNbrCarteRestante.Content = j2.Deck.Count();
                         try
                         {
                             btnDepot.Content = j2.Depot[j2.Depot.Count - 1].Numero;
