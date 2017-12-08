@@ -11,7 +11,7 @@
     <Controls:MetroWindow.Background>
         <ImageBrush ImageSource="/Ninjago;component/Ressource/2017-10-18.jpg"/>
     </Controls:MetroWindow.Background>
-    <Grid Margin="100,256,104.333,79" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1027" Height="375">
+    <Grid Margin="95,179,97.333,48" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1039" Height="483">
         <Grid.RowDefinitions>
             <RowDefinition Height="359*"/>
         </Grid.RowDefinitions>
@@ -21,17 +21,21 @@
             <ColumnDefinition Width="379*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Center" Margin="93,373.833,261,-51.333" VerticalAlignment="Center" Width="34" Click="btn_retour_plateau_Click" Height="36" Grid.Row="1">
+        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Center" Margin="125,437,233,9.667" VerticalAlignment="Center" Width="34" Click="btn_retour_plateau_Click" Height="36">
             <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
         </Button>
-        <ListBox x:Name="lbox_collection" HorizontalAlignment="Center" Height="300" Margin="93,56.833,52,1.667" VerticalAlignment="Center" Width="243" BorderBrush="Black" Background="Transparent" SelectionChanged="lbox_collection_SelectionChanged" BorderThickness="1" Grid.Row="1"/>
-        <ListBox x:Name="lbox_deck" HorizontalAlignment="Center" Height="248" Margin="58,82.833,79.333,27.667" VerticalAlignment="Center" Width="242" Background="Transparent" SelectionChanged="lbox_deck_SelectionChanged" BorderThickness="1" Grid.Column="2" Grid.Row="1"/>
+        <ListBox x:Name="lbox_collection" HorizontalAlignment="Center" Height="309" Margin="125,66,24,-0.333" VerticalAlignment="Center" Width="243" BorderBrush="Black" Background="Transparent" SelectionChanged="lbox_collection_SelectionChanged" BorderThickness="1"/>
+        <ListBox x:Name="lbox_deck" HorizontalAlignment="Center" Height="248" Margin="23.333,92,117.333,34.667" VerticalAlignment="Center" Width="242" Background="Transparent" SelectionChanged="lbox_deck_SelectionChanged" BorderThickness="1" Grid.Column="2"/>
         <Button x:Name="btn_ajouter" Content="Ajouter" HorizontalAlignment="Center" Margin="28,30.833,135,300.667" VerticalAlignment="Center" Width="99" Height="27" Click="btn_ajouter_Click" Grid.Column="1" Grid.Row="1"/>
         <Button x:Name="btn_supprimer" Content="supprimer" HorizontalAlignment="Center" Margin="132,30.833,31,300.667" VerticalAlignment="Center" Width="99" Height="27" Click="btn_supprimer_Click" Grid.Column="1" Grid.Row="1"/>
-        <Button x:Name="btn_ajouter_supprimer_deck" Content="" Margin="28,62.833,31,268.667" VerticalAlignment="Center" Height="27" Grid.Column="1" Click="btn_ajouter_supprimer_deck_Click" Foreground="White" HorizontalAlignment="Center" RenderTransformOrigin="0.329,0.484" Width="203" Grid.Row="1" />
-        <Rectangle x:Name="affichage_carte" Fill="#FFF4F4F5" HorizontalAlignment="Center" Height="253" Margin="27.667,104,30.667,17.667" Stroke="Black" VerticalAlignment="Center" Width="203" Grid.Column="1"/>
+        <Button x:Name="btn_ajouter_supprimer_deck" Content="" Margin="28,62.833,31,268.667" VerticalAlignment="Center" Visibility="Hidden" Height="27" Grid.Column="1" Click="btn_ajouter_supprimer_deck_Click" Foreground="White" HorizontalAlignment="Center" RenderTransformOrigin="0.329,0.484" Width="203" Grid.Row="1" />
+        <Rectangle x:Name="affichage_carte" HorizontalAlignment="Center" Height="271" Margin="11,104,11.667,-0.333" VerticalAlignment="Center" Width="242" Grid.Column="1">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Ninjago;component/Ressource/PapierImage.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Label x:Name="lbl_nom" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="40,186.833,42,145.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
-        <Label x:Name="lbl_vitesse" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="40,95.833,42,236.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
+        <Label x:Name="lbl_vitesse" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="41,185,43.667,271.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26"/>
         <Label x:Name="lbl_force" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="40,322.833,42,9.667" VerticalAlignment="Center" Width="180" HorizontalContentAlignment="Center" Height="26" Grid.Row="1"/>
         <Label x:Name="lbl_attaque" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="89.667,213,335.333,129.667" VerticalAlignment="Center" Height="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="215" Grid.ColumnSpan="2">
             <Label.RenderTransform>
@@ -54,18 +58,20 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="lbl_numero" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="52.667,331,187.667,21.667" VerticalAlignment="Center" FontSize="9" Height="22" Width="21"/>
-        <Label x:Name="lbl_collection" Content="Ma collection" HorizontalAlignment="Center" Margin="93,28.833,123,301.667" VerticalAlignment="Center" Width="172" BorderThickness="1,1,0,1" BorderBrush="Black" Background="White" Height="28" Grid.Row="1"/>
-        <Label x:Name="lbl_deck" Content="Mon Deck" HorizontalAlignment="Center" Margin="58,54.833,139.333,275.667" VerticalAlignment="Center" Width="182" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1" Background="White" Height="28" Grid.Row="1"/>
-        <Image x:Name="img_carte" HorizontalAlignment="Center" Height="253" Margin="19.667,104,30.667,17.667" VerticalAlignment="Center" Width="211" Grid.Column="1" />
-        <Button x:Name="btn_suppression_deck" Content="SUPPRIMER TOUTES LES CARTES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="242" Grid.Column="2" Margin="58,331.833,79.333,-0.333" Background="Red" Foreground="White" Click="btn_suppression_deck_Click" Height="27" Grid.Row="1"/>
-        <ComboBox x:Name="cbbx_choix_deck" Grid.Column="2" HorizontalAlignment="Center" Margin="180,28.833,79.333,303.667" VerticalAlignment="Center" Width="120" SelectionChanged="cbbx_choix_deck_SelectionChanged" BorderBrush="Black" Height="26" Grid.Row="1">
+        <Label x:Name="lbl_collection" Content="Ma collection" HorizontalAlignment="Center" Margin="125,39,95,307.667" VerticalAlignment="Center" Width="172" BorderThickness="1,1,0,1" BorderBrush="Black" Background="White" Height="28"/>
+        <Label x:Name="lbl_deck" Content="Mon Deck" HorizontalAlignment="Center" Margin="23.333,65,177.333,282.667" VerticalAlignment="Center" Width="182" Grid.Column="2" BorderBrush="Black" BorderThickness="1,1,0,1" Background="White" Height="27"/>
+        <Image x:Name="img_carte" HorizontalAlignment="Center" Height="245" Margin="31,176,32.667,61.667" VerticalAlignment="Center" Width="201" RenderTransformOrigin="0.5,0.5" Grid.Column="1" >
+
+        </Image>
+        <Button x:Name="btn_suppression_deck" Content="SUPPRIMER TOUTES LES CARTES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="242" Grid.Column="2" Margin="23.333,340,117.333,7.667" Background="Red" Foreground="White" Click="btn_suppression_deck_Click" Height="27"/>
+        <ComboBox x:Name="cbbx_choix_deck" Grid.Column="2" HorizontalAlignment="Center" Margin="145.333,37,117.333,309.667" VerticalAlignment="Center" Width="120" SelectionChanged="cbbx_choix_deck_SelectionChanged" BorderBrush="Black" Height="28" RenderTransformOrigin="0.5,0.5">
             <ComboBoxItem Content="Deck 1" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Deck 2" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Deck 3" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <Label x:Name="lbl_choix_deck" Content="Choix du deck :" Grid.Column="2" HorizontalAlignment="Center" Margin="58,28.833,199.333,303.667" VerticalAlignment="Center" Width="122" Background="White" BorderBrush="Black" BorderThickness="1,1,0,1" Height="26" Grid.Row="1"/>
-        <Label x:Name="lbl_collection_count" Content="" HorizontalAlignment="Center" Margin="261,28.833,52,301.667" VerticalAlignment="Center" Width="75" BorderThickness="0,1,1,1" BorderBrush="Black" Background="White" Height="28" Grid.Row="1"/>
-        <Label x:Name="lbl_deck_count" Content="" HorizontalAlignment="Center" Margin="229,54.833,79.333,275.667" VerticalAlignment="Center" Width="71" BorderThickness="0,1,1,1" BorderBrush="Black" Background="White" Grid.Column="2" Height="28" Grid.Row="1"/>
+        <Label x:Name="lbl_choix_deck" Content="Choix du deck :" Grid.Column="2" HorizontalAlignment="Center" Margin="23.333,37,237.333,308.667" VerticalAlignment="Center" Width="122" Background="White" BorderBrush="Black" BorderThickness="1,1,0,1" Height="29"/>
+        <Label x:Name="lbl_collection_count" Content="" HorizontalAlignment="Center" Margin="293,39,24,307.667" VerticalAlignment="Center" Width="75" BorderThickness="0,1,1,1" BorderBrush="Black" Background="White" Height="28"/>
+        <Label x:Name="lbl_deck_count" Content="" HorizontalAlignment="Center" Margin="194.333,65,117.333,283.667" VerticalAlignment="Center" Width="71" BorderThickness="0,1,1,1" BorderBrush="Black" Background="White" Grid.Column="2" Height="26"/>
 
     </Grid>
 </Controls:MetroWindow>
