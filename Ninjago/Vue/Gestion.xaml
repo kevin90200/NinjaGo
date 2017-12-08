@@ -85,6 +85,7 @@
         </Image>
         <Button x:Name="btn_suppression_exemplaires" Content="SUPPRIMER TOUS LES EXEMPLAIRES" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Grid.Column="1" Margin="10.333,344.667,5,37.667" Background="Red" Foreground="White" Click="btn_suppression_exemplaires_Click" Height="27" Grid.Row="1"/>
         <Label x:Name="lbl_collection_count" Content="" Grid.Column="2" HorizontalAlignment="Center" Margin="193,6.667,8.667,374.667" Grid.Row="1" Width="71" BorderThickness="0,1,1,1" Background="White" BorderBrush="Black" Height="28" VerticalAlignment="Center"/>
+        <Button x:Name="btn_affichage_carte" Content="Voir toutes mes cartes" Grid.Column="2" HorizontalAlignment="Center" Margin="11.448,350,0.012,33" Grid.Row="1" VerticalAlignment="Center" Width="261" Click="btn_affichage_carte_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

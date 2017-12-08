@@ -117,6 +117,9 @@
     <Compile Include="Vue\Plateau_Jeu.xaml.cs">
       <DependentUpon>Plateau_Jeu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vue\Vue_Carte.xaml.cs">
+      <DependentUpon>Vue_Carte.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vue\Plateau_Jeu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Vue_Carte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -580,13 +587,15 @@
     <Resource Include="Ressource\carteDepot.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressource\bambou.jpg" />
+    <Resource Include="Ressource\fleche_avant.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressource\affichescore.png" />
+    <Resource Include="Ressource\cartes\carteVide.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressource\affichePapier.png" />
+    <Resource Include="Ressource\cartes\carteBase.png" />
+    <Resource Include="Ressource\cartes\carteDepot.png" />
+    <Resource Include="Ressource\cartes\cartevide.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />

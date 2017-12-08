@@ -1,0 +1,93 @@
+﻿<Controls:MetroWindow  x:Class="Ninjago.Vue.Vue_Carte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Ninjago.Vue"
+        mc:Ignorable="d"
+        Title="Ma collection" Height="792.283" Width="1332.102">
+    <Controls:MetroWindow.Background>
+        <ImageBrush ImageSource="/Ninjago;component/Ressource/2017-10-18.jpg"/>
+    </Controls:MetroWindow.Background>
+    <Grid>
+        <Grid x:Name="Collection" HorizontalAlignment="Center" Height="560" Margin="155,144,141,57" VerticalAlignment="Center" Width="1028" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="1" />
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="1"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="1"/>
+            </Grid.ColumnDefinitions>
+
+            <Border x:Name="case1_1" Grid.Row="1" Grid.Column="1" BorderThickness="3">
+                <Button  x:Name="btn1_1" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border  x:Name="case1_2" Grid.Row="1" Grid.Column="2" BorderThickness="3">
+                <Button  x:Name="btn1_2" Grid.Row="1" Grid.Column="2" Content="" HorizontalAlignment="Center" Width="181" Margin="7" Height="231" VerticalAlignment="Center" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border  x:Name="case1_3" Grid.Row="1" Grid.Column="3" BorderThickness="3">
+                <Button  x:Name="btn1_3" Grid.Row="1" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            </Border>
+
+
+            <Border x:Name="case1_4" Grid.Row="1" Grid.Column="4" BorderThickness="3">
+                <Button  x:Name="btn1_4" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            </Border>
+            <Border x:Name="case1_5" Grid.Row="1" Grid.Column="5" BorderThickness="3">
+                <Button  x:Name="btn1_5" Grid.Row="1" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="6.333,7.333,6.667,7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border  x:Name="case2_1" Grid.Row="2" Grid.Column="1" BorderThickness="3">
+                <Button  x:Name="btn2_1" Grid.Row="2" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            </Border>
+
+            <Border x:Name="case2_2" Grid.Row="2" Grid.Column="2" BorderThickness="3">
+                <Button  x:Name="btn2_2" Grid.Row="2" Grid.Column="2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            </Border>
+
+            <Border x:Name="case2_3"  Grid.Row="2" Grid.Column="3" BorderThickness="3">
+                <Button  x:Name="btn2_3" Grid.Row="2" Grid.Column="3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            </Border>
+
+            <Border  x:Name="case2_4" Grid.Row="2" Grid.Column="4" BorderThickness="3">
+                <Button  x:Name="btn2_4" Grid.Row="2" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            </Border>
+            <Border  x:Name="case2_5" Grid.Row="2" Grid.Column="5" BorderThickness="3">
+                <Button  x:Name="btn2_5" Grid.Row="2" Grid.Column="1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="181" Height="231" Margin="7" RenderTransformOrigin="0.003,0.2" Foreground="#00000000" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            </Border>
+
+
+        </Grid>
+        <Button x:Name="btn_page_prec" HorizontalAlignment="Center" Margin="155,668,1135,57" Width="34"  Height="36" VerticalAlignment="Center" Click="btn_precedent">
+            <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
+        </Button>
+        <Button x:Name="btn_page_suiv" HorizontalAlignment="Center" Margin="1149,668,141,57" Width="34"  Height="36" VerticalAlignment="Center" Click="btn_suivant">
+            <Image Source="/Ninjago;component/Ressource/fleche_avant.png"/>
+        </Button>
+        <Label x:Name="lbl_nb_page" Content="Label" HorizontalAlignment="Center" Margin="636,668,560,67" VerticalAlignment="Center" Background="Transparent" Width="128" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btn_retour_plateau" HorizontalAlignment="Center" Margin="10,715,1280,10" Width="34" Click="btn_retour_plateau_Click" Height="36" VerticalAlignment="Center">
+            <Image Source="/Ninjago;component/Ressource/fleche_retour.png"/>
+        </Button>
+
+    </Grid>
+</Controls:MetroWindow>
